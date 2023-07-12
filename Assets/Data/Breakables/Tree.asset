@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 1904973022, guid: 62002d096af252a4aa1f7653e09a390b, type: 3}
   requiredItem: {fileID: 11400000, guid: fbd414fec46211649b8d39c59f7fb5e5, type: 2}
+  startingLife: 3
+  dropLists:
+  - item: {fileID: 11400000, guid: f2309d3cb434eed42b76b6f499463cf0, type: 2}
+    quantity: 5
