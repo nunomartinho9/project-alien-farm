@@ -24,8 +24,13 @@ public class ME_IdleState : IdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        //TODO SAIR DO IDLE QUANDO O COLDOWN DE ATAQUE ACABAR
-        //TODO OU QUANDO O PLAYER SAIR DA ZONA DE ATAQUE
+        if(entity.TargetInAttackRange() && Time.time >= startTime + stateData.idleTime)
+        {
+            stateMachine.ChangeState(enemy.attackingState);
+        }else if (!entity.TargetInAttackRange() && Time.time >= startTime + stateData.idleTime)
+        {
+            stateMachine.ChangeState(enemy.movingState);
+        }
     }
 
     public override void PhysicsUpdate()

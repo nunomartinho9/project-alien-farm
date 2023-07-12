@@ -16,6 +16,8 @@ public class AttackingState : State
     public override void Enter()
     {
         base.Enter();
+        entity.agent.isStopped = true;
+        entity.transform.LookAt(entity.TargetPosition());
         isAttackingTimeOver = false;
     }
 
@@ -27,7 +29,7 @@ public class AttackingState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Time.time >= startTime + stateData.attackingTime)
+        if (Time.time >= startTime + stateData.isAttackingTimeOver)
         {
             isAttackingTimeOver = true;
         }

@@ -32,7 +32,7 @@ public class ME_MovingState : MovingState
         if (entity.TargetInAttackRange())
         {
             //todo mudar para ataque
-            stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.attackingState);
         }
     }
 

@@ -14,7 +14,6 @@ public class ME_AttackingState : AttackingState
     public override void Enter()
     {
         base.Enter();
-        //entity.Flip();
     }
 
     public override void Exit()
