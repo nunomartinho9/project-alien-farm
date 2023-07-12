@@ -46,4 +46,6 @@ public class RegularBreakable : MonoBehaviour, IBreakable
         }
 
     }
+
+
 }

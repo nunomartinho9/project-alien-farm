@@ -7,18 +7,22 @@ using UnityEngine;
 public class BreakableData : ScriptableObject
 {
 
+    
     [SerializeField] private Sprite sprite;
-    [SerializeField] private Item requiredItem;
-    [SerializeField] private int startingLife;
-    [SerializeField] private DropList[] dropLists;
-
     public Sprite Sprite => sprite;
 
+    [SerializeField] private int startingLife;
     public int StartingLife => startingLife;
-
+    
+    [SerializeField] private Item requiredItem;
     public Item RequiredItem => requiredItem;
 
+    
+    [SerializeField] private DropList[] dropLists;
     public DropList[] DropLists => dropLists;
+    
+    [SerializeField] private bool needsTool;
+    public bool NeedsTool => needsTool;
 }
 
 [System.Serializable]
