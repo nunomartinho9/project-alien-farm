@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4b6879341c29c2408f2234ffc667c55, type: 3}
-  m_Name: ME_BaseData
+  m_Name: RE_BaseData
   m_EditorClassIdentifier: 
-  attackRange: 3
+  attackRange: 15
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0

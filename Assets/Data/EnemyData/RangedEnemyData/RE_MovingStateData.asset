@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b6879341c29c2408f2234ffc667c55, type: 3}
-  m_Name: ME_BaseData
+  m_Script: {fileID: 11500000, guid: df2dd8228fc5ce44b879a0cf39213cb5, type: 3}
+  m_Name: RE_MovingStateData
   m_EditorClassIdentifier: 
-  attackRange: 3
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 2147483648
+  movementSpeed: 3
