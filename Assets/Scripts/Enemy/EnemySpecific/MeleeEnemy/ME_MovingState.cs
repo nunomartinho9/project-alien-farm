@@ -25,11 +25,12 @@ public class ME_MovingState : MovingState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        entity.transform.LookAt(entity.TargetPosition());
 
-        if (isDetectingWall || !isDetectingLedge)
+        if (entity.targetInAttackRange)
         {
-            enemy.idleState.SetFlipAfterIdle(true);
-            stateMachine.ChangeState(enemy.idleState);
+            entity.agent.SetDestination(entity.transform.position);
+            stateMachine.ChangeState(enemy.attackingState);
         }
     }
 

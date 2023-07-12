@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RE_AttackingState : AttackingState
+public class ME_AttackingState : AttackingState
 {
     private MeleeEnemy enemy;
 
-    public RE_AttackingState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_AttackingState stateData, MeleeEnemy enemy) : base(entity, stateMachine, animBoolName, stateData)
+    public ME_AttackingState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_AttackingState stateData, MeleeEnemy enemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         this.enemy = enemy;
     }
@@ -14,7 +14,7 @@ public class RE_AttackingState : AttackingState
     public override void Enter()
     {
         base.Enter();
-        entity.Flip();
+        //entity.Flip();
     }
 
     public override void Exit()

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: ME_MovingStateData
-  m_EditorClassIdentifier: Assembly-CSharp::D_MovingState
+  m_Script: {fileID: 11500000, guid: df2dd8228fc5ce44b879a0cf39213cb5, type: 3}
+  m_Name: ME_MovingStateData 1
+  m_EditorClassIdentifier: 
   movementSpeed: 3

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Entity : MonoBehaviour
 {
@@ -8,11 +9,14 @@ public class Entity : MonoBehaviour
 
     public D_Entity entityData;
     
-    public int facingDirection { get; private set; }
+    //public int facingDirection { get; private set; }
+    public bool targetInAttackRange { get; private set; }
     public Rigidbody rb { get; private set; }
     public Animator anim { get; private set; }
     public GameObject alive { get; private set; }
+    public NavMeshAgent agent { get; private set; }
 
+    [SerializeField] private Transform target;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private Transform ledgeCheck;
 
@@ -20,11 +24,12 @@ public class Entity : MonoBehaviour
 
     public virtual void Start()
     {
-        facingDirection = -1;
+        //facingDirection = -1;
         
         alive = transform.Find("Alive").gameObject;
         rb = alive.GetComponent<Rigidbody>();
         anim = alive.GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
         
         stateMachine = new FiniteStateMachine();
     }
@@ -41,7 +46,7 @@ public class Entity : MonoBehaviour
 
     public virtual void SetVelocity(float velocity)
     {
-        velocityWorkspace.Set(facingDirection*velocity, rb.velocity.y);
+        velocityWorkspace.Set(velocity, rb.velocity.y);
         rb.velocity = velocityWorkspace;
     }
 
@@ -55,15 +60,13 @@ public class Entity : MonoBehaviour
         return Physics2D.Raycast(ledgeCheck.position, Vector2.down, entityData.ledgeCheckDistance, entityData.whatIsGround);
     }
 
-    public virtual void Flip()
+    public virtual Vector3 TargetPosition()
     {
-        facingDirection *= -1;
-        alive.transform.Rotate(0f, 180f, 0f);
+        return target.position;
     }
 
-    public virtual void OnDrawGizmos()
+    public virtual void TargetInAttackRange()
     {
-        Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * facingDirection * entityData.wallCheckDistance));
-        Gizmos.DrawLine(ledgeCheck.position, ledgeCheck.position + (Vector3)(Vector2.down * entityData.ledgeCheckDistance));
+        targetInAttackRange = Physics.CheckSphere(transform.position, entityData.attackRange, entityData.whatIsPlayer);
     }
 }
