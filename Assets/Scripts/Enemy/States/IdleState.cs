@@ -5,9 +5,7 @@ using UnityEngine;
 public class IdleState : State
 {
     protected D_IdleState stateData;
-    protected bool flipAfterIdle;
-    protected bool isIdleTimeOver;
-    protected float idleTime;
+    
     
     public IdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_IdleState stateData) : base(entity, stateMachine, animBoolName)
     {
@@ -17,9 +15,7 @@ public class IdleState : State
     public override void Enter()
     {
         base.Enter();
-        entity.agent.SetDestination(entity.transform.position);
-        isIdleTimeOver = false;
-        SetRandomIdleTime();
+        entity.agent.isStopped = true;
     }
 
     public override void Exit()
@@ -30,26 +26,12 @@ public class IdleState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if (Time.time >= startTime + idleTime)
-        {
-            isIdleTimeOver = true;
-        }
+        
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-    }
-
-    public void SetFlipAfterIdle(bool flip)
-    {
-        flipAfterIdle = flip;
-    }
-
-    private void SetRandomIdleTime()
-    {
-        idleTime = Random.Range(stateData.minIdleTime, stateData.maxIdleTime);
     }
 }
 

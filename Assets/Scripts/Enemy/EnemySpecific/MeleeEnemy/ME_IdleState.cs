@@ -24,11 +24,8 @@ public class ME_IdleState : IdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if (isIdleTimeOver)
-        {
-            stateMachine.ChangeState(enemy.movingState);
-        }
+        //TODO SAIR DO IDLE QUANDO O COLDOWN DE ATAQUE ACABAR
+        //TODO OU QUANDO O PLAYER SAIR DA ZONA DE ATAQUE
     }
 
     public override void PhysicsUpdate()

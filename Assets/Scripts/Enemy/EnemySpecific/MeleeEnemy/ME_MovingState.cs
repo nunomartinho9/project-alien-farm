@@ -31,7 +31,6 @@ public class ME_MovingState : MovingState
 
         if (entity.TargetInAttackRange())
         {
-            entity.agent.SetDestination(entity.alive.transform.position);
             //todo mudar para ataque
             stateMachine.ChangeState(enemy.idleState);
         }
