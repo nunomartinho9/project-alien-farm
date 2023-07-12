@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,11 +27,13 @@ public class ME_MovingState : MovingState
     {
         base.LogicUpdate();
         entity.transform.LookAt(entity.TargetPosition());
+        Debug.Log("not inRange");
 
-        if (entity.targetInAttackRange)
+        if (entity.TargetInAttackRange())
         {
-            entity.agent.SetDestination(entity.transform.position);
-            stateMachine.ChangeState(enemy.attackingState);
+            entity.agent.SetDestination(entity.alive.transform.position);
+            //todo mudar para ataque
+            stateMachine.ChangeState(enemy.idleState);
         }
     }
 

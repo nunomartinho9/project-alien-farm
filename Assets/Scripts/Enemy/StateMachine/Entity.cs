@@ -10,15 +10,14 @@ public class Entity : MonoBehaviour
     public D_Entity entityData;
     
     //public int facingDirection { get; private set; }
-    public bool targetInAttackRange { get; private set; }
     public Rigidbody rb { get; private set; }
     public Animator anim { get; private set; }
     public GameObject alive { get; private set; }
     public NavMeshAgent agent { get; private set; }
 
     [SerializeField] private Transform target;
-    [SerializeField] private Transform wallCheck;
-    [SerializeField] private Transform ledgeCheck;
+    //[SerializeField] private Transform wallCheck;
+    //[SerializeField] private Transform ledgeCheck;
 
     private Vector2 velocityWorkspace;
 
@@ -29,7 +28,7 @@ public class Entity : MonoBehaviour
         alive = transform.Find("Alive").gameObject;
         rb = alive.GetComponent<Rigidbody>();
         anim = alive.GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        agent = alive.GetComponent<NavMeshAgent>();
         
         stateMachine = new FiniteStateMachine();
     }
@@ -44,7 +43,7 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.PhysicsUpdate();
     }
 
-    public virtual void SetVelocity(float velocity)
+    /*public virtual void SetVelocity(float velocity)
     {
         velocityWorkspace.Set(velocity, rb.velocity.y);
         rb.velocity = velocityWorkspace;
@@ -58,15 +57,20 @@ public class Entity : MonoBehaviour
     public virtual bool CheckLedge()
     {
         return Physics2D.Raycast(ledgeCheck.position, Vector2.down, entityData.ledgeCheckDistance, entityData.whatIsGround);
-    }
+    }*/
 
     public virtual Vector3 TargetPosition()
     {
         return target.position;
     }
 
-    public virtual void TargetInAttackRange()
+    public virtual bool TargetInAttackRange()
     {
-        targetInAttackRange = Physics.CheckSphere(transform.position, entityData.attackRange, entityData.whatIsPlayer);
+        if (Vector3.Distance( alive.transform.position, TargetPosition()) < entityData.attackRange)
+        {
+            Debug.Log("inRange");
+            return true;
+        }
+        return false;
     }
 }
