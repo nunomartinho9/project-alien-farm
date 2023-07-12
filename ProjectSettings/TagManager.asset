@@ -44,8 +44,11 @@ TagManager:
   - name: Water
     uniqueID: 2721815897
     locked: 0
-  - name: Terrain
+  - name: TerrainLow
     uniqueID: 2181726539
+    locked: 0
+  - name: TerrainHigh
+    uniqueID: 95419089
     locked: 0
   - name: Decorations
     uniqueID: 2179195817
@@ -58,4 +61,7 @@ TagManager:
     locked: 0
   - name: Plots
     uniqueID: 2126410001
+    locked: 0
+  - name: Player
+    uniqueID: 2599387825
     locked: 0
