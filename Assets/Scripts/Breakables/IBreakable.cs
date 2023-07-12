@@ -6,6 +6,7 @@ public interface IBreakable
 {
     BreakableData Data { get;  }
     void Damage();
-    
+
+    void Drop();
 
 }

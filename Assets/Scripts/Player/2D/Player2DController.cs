@@ -48,7 +48,6 @@ public class Player2DController : MonoBehaviour
     public void OnMovementInput(InputAction.CallbackContext context )
     {
         moveInput = context.ReadValue<Vector2>();
-        Debug.Log(moveInput);
         moveInput.Normalize();
     }
 
