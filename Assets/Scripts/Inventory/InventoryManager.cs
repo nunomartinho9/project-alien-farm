@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
         
         inventorySlots[newValue].Select();
         selectedSlot = newValue;
-        Debug.Log("Changed slot");
+        //Debug.Log("Changed slot");
     }
     public bool AddItem(Item item)
     {

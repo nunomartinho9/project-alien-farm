@@ -55,9 +55,13 @@ public class Player2DController : MonoBehaviour
             Vector3Int position = new Vector3Int((int)Mathf.Round(transform.position.x), (int)Mathf.Round(transform.position.y), 0);
             if (_tileManager.IsPlowable(position))
             {
-                Debug.Log(Mathf.Round(transform.position.x) + ", "+ Mathf.Round(transform.position.y));
-                Debug.Log(position);
-                _tileManager.SetInteracted(position);
+                //Debug.Log(Mathf.Round(transform.position.x) + ", "+ Mathf.Round(transform.position.y));
+                //Debug.Log(position);
+                _tileManager.Plow(position);
+            }
+            else if (_tileManager.CheckIfPlowed(position))
+            {
+                _tileManager.Seed(position);
             }
         }
     }
