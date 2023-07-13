@@ -68,8 +68,14 @@ public class TileManager : TimeAgent
 
     public void Seed(Vector3Int position)
     {
+        //todo: falta verificar se ja esta seeded para n plantar nesse spot.
+        
         Item selectedItem = inventoryManager.GetSelectedItem(false);
         //if (selectedItem == null && selectedItem.type != ItemType.Seed && selectedItem.crop == null) return;
+        if (selectedItem == null)
+        {
+         return;   
+        }
         if (selectedItem.type == ItemType.Seed)
         {
             Debug.Log("seed");
