@@ -15,7 +15,6 @@ public class IdleState : State
     public override void Enter()
     {
         base.Enter();
-        entity.agent.isStopped = true;
     }
 
     public override void Exit()

@@ -15,12 +15,13 @@ public class MovingState : State
     public override void Enter()
     {
         base.Enter();
-        entity.agent.SetDestination(entity.TargetPosition());
+        entity.StartMoving(stateData.movementSpeed);
     }
 
     public override void Exit()
     {
         base.Exit();
+        entity.StopMoving();
     }
 
     public override void LogicUpdate()

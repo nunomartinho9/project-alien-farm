@@ -14,12 +14,13 @@ public class ME_AttackingState : AttackingState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entered AttackingState");
     }
 
     public override void Exit()
     {
         base.Exit();
-        
+        Debug.Log("Left AttackingState");
     }
 
     public override void LogicUpdate()

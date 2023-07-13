@@ -16,7 +16,6 @@ public class AttackingState : State
     public override void Enter()
     {
         base.Enter();
-        entity.agent.isStopped = true;
         entity.transform.LookAt(entity.TargetPosition());
         isAttackingTimeOver = false;
     }

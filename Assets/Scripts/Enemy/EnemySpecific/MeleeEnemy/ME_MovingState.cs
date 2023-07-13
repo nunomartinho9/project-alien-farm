@@ -16,22 +16,21 @@ public class ME_MovingState : MovingState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entered MovingState");
     }
 
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("Left MovingState");
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         entity.transform.LookAt(entity.TargetPosition());
-        Debug.Log("not inRange");
-
         if (entity.TargetInAttackRange())
         {
-            //todo mudar para ataque
             stateMachine.ChangeState(enemy.attackingState);
         }
     }
