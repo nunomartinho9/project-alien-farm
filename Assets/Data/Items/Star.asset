@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa08f093dae0146bbb8b7c88e5b5db, type: 3}
+  m_Name: Star
+  m_EditorClassIdentifier: 
+  tile: {fileID: 0}
+  sprite: {fileID: 963080609, guid: e19b4202f5ca02f4f8ac0daab16b8525, type: 3}
+  type: 0
+  actionType: 3
+  range: {x: 5, y: 4}
+  stackable: 1
+  crop: {fileID: 11400000, guid: 4add1c894a224dd49bed38c9fb3ce348, type: 2}
