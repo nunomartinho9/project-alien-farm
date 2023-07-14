@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    private float speed = 30f;
+    [SerializeField] private float speed = 30f;
+    [SerializeField] private float timeToDestroy = 3f;
     //private float damage = 10f;
-    private float timeToDestroy = 3f;
-    private Rigidbody rb;
-    
-    
+
 
     private void OnEnable()
     {
+        gameObject.GetComponent<Rigidbody>().transform.eulerAngles = new Vector3(90, gameObject.GetComponent<Rigidbody>().transform.eulerAngles.y, gameObject.GetComponent<Rigidbody>().transform.eulerAngles.z);
+        gameObject.GetComponent<Rigidbody>().AddForce(transform.up * speed, ForceMode.VelocityChange);
         Destroy(gameObject, timeToDestroy);
     }
     
@@ -24,10 +24,15 @@ public class ProjectileController : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         ContactPoint contact = other.GetContact(0);
-        if (other.gameObject.CompareTag("Enemy") )
-        {
-            //TODO DAR O DANO
-        }
+        //if (other.gameObject.CompareTag("Enemy") )
+        //{
+          //  Damage();
+        //}
         Destroy(gameObject);
+    }
+
+    public void Damage()
+    {
+        //ToDo
     }
 }

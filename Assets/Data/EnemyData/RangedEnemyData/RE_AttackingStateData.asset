@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396b4efe000ea3840ac41d380351a7ff, type: 3}
   m_Name: RE_AttackingStateData
   m_EditorClassIdentifier: 
-  isAttackingTimeOver: 2
+  isAttackingTimeOver: 1
