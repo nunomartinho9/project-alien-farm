@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class Player2DController : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Player2DController : MonoBehaviour
     [SerializeField] private float interactRadius = 5f;
     
     //para teste
-    public TileManager _tileManager;
+    [FormerlySerializedAs("_tileManager")] public CropManager cropManager;
     // Start is called before the first frame update
     void Start()    
     {
@@ -53,15 +54,15 @@ public class Player2DController : MonoBehaviour
                 interactable.gameObject.GetComponent<IInteractable>().Interact();
             }
             Vector3Int position = new Vector3Int((int)Mathf.Round(transform.position.x), (int)Mathf.Round(transform.position.y), 0);
-            if (_tileManager.IsPlowable(position))
+            if (cropManager.IsPlowable(position))
             {
                 //Debug.Log(Mathf.Round(transform.position.x) + ", "+ Mathf.Round(transform.position.y));
                 //Debug.Log(position);
-                _tileManager.Plow(position);
+                cropManager.Plow(position);
             }
-            else if (_tileManager.CheckIfPlowed(position))
+            else if (cropManager.CheckIfPlowed(position))
             {
-                _tileManager.Seed(position);
+                cropManager.Seed(position);
             }
         }
     }

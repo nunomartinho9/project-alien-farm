@@ -40,7 +40,7 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot thisSlot = inventorySlots[i];
-            DraggableItem itemInSlot = thisSlot.GetComponentInChildren<DraggableItem>();
+            InventoryItem itemInSlot = thisSlot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.Item == item && itemInSlot.Count < maxStackable && itemInSlot.Item.stackable)
             {
                 itemInSlot.Count++;
@@ -54,7 +54,7 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot thisSlot = inventorySlots[i];
-            DraggableItem itemInSlot = thisSlot.GetComponentInChildren<DraggableItem>();
+            InventoryItem itemInSlot = thisSlot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot == null)
             {
                 SpawnNewItem(item, thisSlot);
@@ -68,14 +68,14 @@ public class InventoryManager : MonoBehaviour
     void SpawnNewItem(Item item, InventorySlot slot)
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
-        DraggableItem inventoryItem = newItemGo.GetComponent<DraggableItem>();
+        InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.IntializeItem(item);
     }
 
     public Item GetSelectedItem(bool use)
     {
         InventorySlot slot = inventorySlots[selectedSlot];
-        DraggableItem itemInSlot = slot.GetComponentInChildren<DraggableItem>();
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
         if (itemInSlot != null)
         {
             Item item = itemInSlot.Item;

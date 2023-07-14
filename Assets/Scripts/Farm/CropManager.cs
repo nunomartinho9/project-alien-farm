@@ -13,13 +13,10 @@ public class CropTile
     public CropData crop;
     public SpriteRenderer renderer;
 }
-public class TileManager : TimeAgent
+public class CropManager : TimeAgent
 {
     [SerializeField] private Item itemToUse;
-    [SerializeField] private Item cropExample;
     [SerializeField] private Tilemap interactableMap;
-    [SerializeField] private Tilemap mapToPlant;
-    
     [SerializeField] private Tile hiddenInteractableTile;
     [SerializeField] private Tile plowedTile;
     [SerializeField] private Tile seededTile;
@@ -38,7 +35,7 @@ public class TileManager : TimeAgent
         onTimeTick += Tick;
     }
 
-    public void Tick()
+    private void Tick()
     {
         foreach (CropTile cropTile in crops.Values)
         {
@@ -68,39 +65,36 @@ public class TileManager : TimeAgent
 
     public void Seed(Vector3Int position)
     {
-        //todo: falta verificar se ja esta seeded para n plantar nesse spot.
-        
         Item selectedItem = inventoryManager.GetSelectedItem(false);
-        //if (selectedItem == null && selectedItem.type != ItemType.Seed && selectedItem.crop == null) return;
-        if (selectedItem == null)
-        {
-         return;   
-        }
-        if (selectedItem.type == ItemType.Seed)
-        {
-            Debug.Log("seed");
-            selectedItem = inventoryManager.GetSelectedItem(true);
-            CropData cropToSeed = selectedItem.crop;
-            
-            interactableMap.SetTile(position, seededTile);
 
-            crops[(Vector2Int)position].crop = cropToSeed;
+        if (selectedItem == null) return;
+
+        if (selectedItem.type != ItemType.Seed || !CanSeed(position, seededTile)) return;
+        Debug.Log(CanSeed(position, seededTile));
+        selectedItem = inventoryManager.GetSelectedItem(true);
+        CropData cropToSeed = selectedItem.crop;
             
+        interactableMap.SetTile(position, seededTile);
+
+        crops[(Vector2Int)position].crop = cropToSeed;
+    }
+
+    private bool CanSeed(Vector3Int position, Tile seedTile)
+    {
+        TileBase tile = interactableMap.GetTile(position);
+        if (tile != null)
+        {
+            return tile.name != seedTile.name;
         }
+
+        return false;
     }
     
     public bool IsPlowable(Vector3Int position)
     {
         TileBase tile = interactableMap.GetTile(position);
-        if (tile != null)
-        {
-            if (tile.name == "interact_hidden")
-            {
-                return true;
-            }
-        }
-
-        return false;
+        if (tile == null) return false;
+        return tile.name == "interact_hidden";
     }
 
     public void Plow(Vector3Int position)
