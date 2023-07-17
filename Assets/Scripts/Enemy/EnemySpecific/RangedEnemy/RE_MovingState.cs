@@ -16,6 +16,7 @@ public class RE_MovingState : MovingState
     public override void Enter()
     {
         base.Enter();
+        if(!enemy.IsAlive()) stateMachine.ChangeState(enemy.dyingState);
     }
 
     public override void Exit()
@@ -26,10 +27,9 @@ public class RE_MovingState : MovingState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        entity.transform.LookAt(entity.TargetPosition());
-        Debug.Log("not inRange");
+        enemy.transform.LookAt(entity.TargetPosition());
 
-        if (entity.TargetInAttackRange())
+        if (enemy.TargetInAttackRange())
         {
             stateMachine.ChangeState(enemy.attackingState);
         }

@@ -13,7 +13,6 @@ public class Entity : MonoBehaviour
 
     private float health;
     
-    public bool isAlive { get; private set; }
     public Rigidbody rb { get; private set; }
     public Animator anim { get; private set; }
     public GameObject alive { get; private set; }
@@ -35,7 +34,7 @@ public class Entity : MonoBehaviour
     public virtual void Update()
     {
         stateMachine.currentState.LogicUpdate();
-        if (!isAlive)
+        if (!IsAlive())
         {
             Die();
         }
@@ -64,7 +63,6 @@ public class Entity : MonoBehaviour
     {
         if (Vector3.Distance( alive.transform.position, TargetPosition()) < entityData.attackRange)
         {
-            Debug.Log("inRange");
             return true;
         }
         return false;
@@ -89,13 +87,9 @@ public class Entity : MonoBehaviour
         health -= damage;
     }
 
-    public void IsAlive()
+    public bool IsAlive()
     {
-        if (health <= 0)
-        {
-            isAlive = false;
-        }
-        isAlive = true;
+        return !(health <= 0);
     }
     
     public void Die()

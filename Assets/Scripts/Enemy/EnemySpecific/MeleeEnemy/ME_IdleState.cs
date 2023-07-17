@@ -14,22 +14,21 @@ public class ME_IdleState : IdleState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered IdleState");
     }
 
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Left IdleState");
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(entity.TargetInAttackRange() && Time.time >= startTime + stateData.idleTime)
+        if(!enemy.IsAlive()) stateMachine.ChangeState(enemy.dyingState);
+        if(enemy.TargetInAttackRange() && Time.time >= startTime + stateData.idleTime)
         {
             stateMachine.ChangeState(enemy.attackingState);
-        }else if (!entity.TargetInAttackRange() && Time.time >= startTime + stateData.idleTime)
+        }else if (!enemy.TargetInAttackRange() && Time.time >= startTime + stateData.idleTime)
         {
             stateMachine.ChangeState(enemy.movingState);
         }

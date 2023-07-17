@@ -27,6 +27,7 @@ public class RE_AttackingState : AttackingState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(!enemy.IsAlive()) stateMachine.ChangeState(enemy.dyingState);
         if (isAttackingTimeOver)
         {
             stateMachine.ChangeState(enemy.idleState);
