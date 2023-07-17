@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,19 +10,20 @@ public class Entity : MonoBehaviour
 
     public D_Entity entityData;
     
-    //public int facingDirection { get; private set; }
+
+    private float health;
+    
+    public bool isAlive { get; private set; }
     public Rigidbody rb { get; private set; }
     public Animator anim { get; private set; }
     public GameObject alive { get; private set; }
     public NavMeshAgent agent { get; private set; }
 
     [SerializeField] private Transform target;
-    
-
-    private Vector2 velocityWorkspace;
 
     public virtual void Start()
     {
+        health = entityData.startingHp;
         alive = transform.Find("Alive").gameObject;
         rb = alive.GetComponent<Rigidbody>();
         anim = alive.GetComponent<Animator>();
@@ -33,12 +35,25 @@ public class Entity : MonoBehaviour
     public virtual void Update()
     {
         stateMachine.currentState.LogicUpdate();
+        if (!isAlive)
+        {
+            Die();
+        }
     }
 
     public virtual void FixedUpdate()
     {
         stateMachine.currentState.PhysicsUpdate();
     }
+
+    //ToDo colisao com uma bala
+    /*public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("bullet"))
+        {
+            TakeDamage(damage);
+        }
+    }*/
 
     public virtual Vector3 TargetPosition()
     {
@@ -67,5 +82,24 @@ public class Entity : MonoBehaviour
     public virtual void StopMoving()
     {
         agent.enabled = false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+    }
+
+    public void IsAlive()
+    {
+        if (health <= 0)
+        {
+            isAlive = false;
+        }
+        isAlive = true;
+    }
+    
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }
