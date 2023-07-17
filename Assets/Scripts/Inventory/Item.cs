@@ -12,12 +12,15 @@ public class Item : ScriptableObject
    public ActionType actionType;
    public Vector2Int range = new Vector2Int(5, 4);
    public bool stackable = true;
+   public CropData crop;
+
 }
 
 public enum ItemType
 {
-   BuildingBlock,
-   Tool
+   Seed,
+   Tool,
+   Building
 }
 
 public enum ActionType
@@ -25,5 +28,6 @@ public enum ActionType
    Plow,
    Dig,
    Chop,
+   Plant,
    None
 }

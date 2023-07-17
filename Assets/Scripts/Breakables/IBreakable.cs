@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IBreakable
 {
     BreakableData Data { get;  }
-    void Damage();
+    public void Damage();
 
     void Drop();
 

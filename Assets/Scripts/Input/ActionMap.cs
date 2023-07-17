@@ -44,6 +44,15 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""cb86ac7f-9341-49d4-b26d-cdfb1686e18e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -126,23 +135,12 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8e1f4573-0271-4fe7-9f88-716d9d49a342"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""a700e367-c0fb-4d26-9cf8-02bcf89f5f0d"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""UseTool"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d397970c-f751-4daa-8386-338e2644a5ed"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""UseTool"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -306,6 +304,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Player2D = asset.FindActionMap("Player2D", throwIfNotFound: true);
         m_Player2D_Movement = m_Player2D.FindAction("Movement", throwIfNotFound: true);
         m_Player2D_UseTool = m_Player2D.FindAction("UseTool", throwIfNotFound: true);
+        m_Player2D_Interact = m_Player2D.FindAction("Interact", throwIfNotFound: true);
         // UI2D
         m_UI2D = asset.FindActionMap("UI2D", throwIfNotFound: true);
         m_UI2D_Slot1 = m_UI2D.FindAction("Slot1", throwIfNotFound: true);
@@ -377,12 +376,14 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private List<IPlayer2DActions> m_Player2DActionsCallbackInterfaces = new List<IPlayer2DActions>();
     private readonly InputAction m_Player2D_Movement;
     private readonly InputAction m_Player2D_UseTool;
+    private readonly InputAction m_Player2D_Interact;
     public struct Player2DActions
     {
         private @ActionMap m_Wrapper;
         public Player2DActions(@ActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player2D_Movement;
         public InputAction @UseTool => m_Wrapper.m_Player2D_UseTool;
+        public InputAction @Interact => m_Wrapper.m_Player2D_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player2D; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -398,6 +399,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @UseTool.started += instance.OnUseTool;
             @UseTool.performed += instance.OnUseTool;
             @UseTool.canceled += instance.OnUseTool;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IPlayer2DActions instance)
@@ -408,6 +412,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @UseTool.started -= instance.OnUseTool;
             @UseTool.performed -= instance.OnUseTool;
             @UseTool.canceled -= instance.OnUseTool;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IPlayer2DActions instance)
@@ -533,6 +540,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnUseTool(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IUI2DActions
     {
