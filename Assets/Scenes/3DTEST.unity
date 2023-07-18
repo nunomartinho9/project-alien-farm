@@ -826,7 +826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293215111460887614, guid: cf60d95a3a2d47946a8bea9d4a775240, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.71
+      value: 6.38
       objectReference: {fileID: 0}
     - target: {fileID: 1293215111460887614, guid: cf60d95a3a2d47946a8bea9d4a775240, type: 3}
       propertyPath: m_LocalPosition.y
@@ -834,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293215111460887614, guid: cf60d95a3a2d47946a8bea9d4a775240, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.18
+      value: -13.66
       objectReference: {fileID: 0}
     - target: {fileID: 1293215111460887614, guid: cf60d95a3a2d47946a8bea9d4a775240, type: 3}
       propertyPath: m_LocalRotation.w
@@ -868,31 +868,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1971936263374597541, guid: cf60d95a3a2d47946a8bea9d4a775240, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 707909712}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf60d95a3a2d47946a8bea9d4a775240, type: 3}
---- !u!1 &1969204284121110562 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1295859129954019768, guid: cf60d95a3a2d47946a8bea9d4a775240, type: 3}
-  m_PrefabInstance: {fileID: 770069218194125210}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1971936263374597541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969204284121110562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fafc16fe1039504448a3b5be1c1f756c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityData: {fileID: 11400000, guid: 89b4d1eefbfaf534bbc7fcb0b91aeaa5, type: 2}
-  target: {fileID: 707909712}
-  idleStateData: {fileID: 11400000, guid: f91cd90eb962a4047b3b7d1dbdacebeb, type: 2}
-  movingStateData: {fileID: 11400000, guid: fc439d91b895da04fbc821f67141b377, type: 2}
-  attackingStateData: {fileID: 11400000, guid: e5048c9d858ec84499563135c9f4962a, type: 2}
-  dyingStateData: {fileID: 11400000, guid: 25a66748159c54b47a9b143a75d18719, type: 2}
 --- !u!1001 &6153976225613606224
 PrefabInstance:
   m_ObjectHideFlags: 0
