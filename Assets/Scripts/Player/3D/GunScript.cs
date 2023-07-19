@@ -29,7 +29,7 @@ public class GunScript : MonoBehaviour
     void Shoot()
     {
         muzzleFlash.Play();
-        GameObject bullet = Instantiate(bulletPrefab, exitPoint.position, Quaternion.identity, new RectTransform());
+        GameObject bullet = Instantiate(bulletPrefab, exitPoint.position, exitPoint.rotation.normalized, new RectTransform());
         BulletScript bulletController = bullet.GetComponent<BulletScript>();
         
         RaycastHit hit;
