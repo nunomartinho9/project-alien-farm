@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerProjectile : MonoBehaviour
+public class BulletScript : MonoBehaviour
 {
 
     [SerializeField] private GameObject projectileDecal;
