@@ -586,7 +586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6340290876152207553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.48, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -824,59 +824,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
-    - target: {fileID: 5743230703581894017, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743230703581894017, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0003
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743230703581894017, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0874
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743230703581894018, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: ShapeModule.arc.spread
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743230703581894019, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743230703581894019, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743230703581894019, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 568063d6684eab241b186be6812c346b, type: 2}
     - target: {fileID: 6722493892893221866, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 6340290876187470247}
-    - target: {fileID: 6722493892893221866, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: exitPoint
-      value: 
-      objectReference: {fileID: 4972582588275555732}
-    - target: {fileID: 6722493892893221866, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: muzzleFlash
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6722493892893221866, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
 --- !u!4 &3782281579180314125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524843770283468312, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
-  m_PrefabInstance: {fileID: 771844389338703893}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4972582588275555732 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5743230703581894017, guid: 6ece1f7f61de1be47a478456383743f3, type: 3}
   m_PrefabInstance: {fileID: 771844389338703893}
   m_PrefabAsset: {fileID: 0}

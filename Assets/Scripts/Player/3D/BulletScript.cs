@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-
-    [SerializeField] private GameObject projectileDecal;
     [SerializeField] private float projectileSpeed = 55f;
     [SerializeField] private int projectileDamage = 10;
     private float timeToDestroy = 3f;
@@ -34,10 +32,8 @@ public class BulletScript : MonoBehaviour
         {
            //other.gameObject.GetComponentInParent<EnemyStats>().EnemyTakeDamage(projectileDamage);
         }
-        else
-        {
-            Instantiate(projectileDecal, contactPoint.point + contactPoint.normal*.0001f, Quaternion.LookRotation(contactPoint.normal));
-        }
+
         Destroy(gameObject);
+        
     }
 }
