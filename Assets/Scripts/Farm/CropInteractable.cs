@@ -19,9 +19,10 @@ public class CropInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        Debug.Log(cropManager);
         Debug.Log("crop interact");
         cropManager.GetGrownCrop(playerInfo.Position);
-       
-       
+
+
     }
 }

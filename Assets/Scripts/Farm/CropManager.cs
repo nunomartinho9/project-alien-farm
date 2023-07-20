@@ -58,7 +58,7 @@ public class CropManager : TimeAgent
 
         if (!crops.ContainsKey(position)) return;
         CropTile cropTile = crops[position];
-
+        Debug.Log("entrei");
         if (cropTile.Complete)
         {
             Debug.Log("crop not null");
@@ -121,6 +121,7 @@ public class CropManager : TimeAgent
         interactableMap.SetTile(position, seededTile);
 
         crops[(Vector2Int)position].crop = cropToSeed;
+        Debug.Log(position);
     }
 
     private bool CanSeed(Vector3Int position, Tile seedTile)
