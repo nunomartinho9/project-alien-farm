@@ -18,16 +18,15 @@ public class Player2DController : MonoBehaviour
     [SerializeField] private LayerMask whatIsInteractable;
 
     [SerializeField] private float interactRadius = 5f;
-
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private Player2DInfo playerInfo;
-    private CropManager cropManager; 
+    private CropManager cropManager;
+    
     // Start is called before the first frame update
     void Start()    
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        cropManager = gameManager.CropManager;
+        cropManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<CropManager>();
     }
 
     private void Update()
@@ -67,15 +66,15 @@ public class Player2DController : MonoBehaviour
             }
 
             UpdatePlayerPosition();
-            if (cropManager.IsPlowable(playerInfo.position))
+            if (cropManager.IsPlowable(playerInfo.Position))
             {
                 //Debug.Log(Mathf.Round(transform.position.x) + ", "+ Mathf.Round(transform.position.y));
                 //Debug.Log(position);
-                cropManager.Plow(playerInfo.position);
+                cropManager.Plow(playerInfo.Position);
             }
-            else if (cropManager.CheckIfPlowed(playerInfo.position))
+            else if (cropManager.CheckIfPlowed(playerInfo.Position))
             {
-                cropManager.Seed(playerInfo.position);
+                cropManager.Seed(playerInfo.Position);
             }
         }
     }
@@ -124,7 +123,7 @@ public class Player2DController : MonoBehaviour
     private void UpdatePlayerPosition()
     {
         Vector3Int position = new Vector3Int((int)Mathf.Round(transform.position.x), (int)Mathf.Round(transform.position.y), 0);
-        playerInfo.position = position;
+        playerInfo.UpdatePlayerPosition(position);
     }
 
     private void OnDrawGizmos()

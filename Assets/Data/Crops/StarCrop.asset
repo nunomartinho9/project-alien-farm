@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: StarCrop
   m_EditorClassIdentifier: 
   timeToGrow: 4
-  count: 1
   sprites:
   - {fileID: -246109637, guid: 1196f643c21023149a7f87021b1e0dce, type: 3}
   - {fileID: 477633365, guid: 1196f643c21023149a7f87021b1e0dce, type: 3}
@@ -23,5 +22,3 @@ MonoBehaviour:
   cropDrops:
   - item: {fileID: 11400000, guid: 209f35bbd91c7fc4983260f7f85ccd41, type: 2}
     quantity: 4
-  - item: {fileID: 11400000, guid: a071e208a1a0f604cb44b80ab8375e51, type: 2}
-    quantity: 2

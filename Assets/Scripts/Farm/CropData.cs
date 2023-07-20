@@ -7,8 +7,6 @@ public class CropData : ScriptableObject
 {
 
     public int timeToGrow = 10;
-    public int count = 1;
-
     public List<Sprite> sprites;
     public List<int> growthStageTime;
     

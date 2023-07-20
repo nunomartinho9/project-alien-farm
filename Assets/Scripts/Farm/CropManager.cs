@@ -38,10 +38,9 @@ public class CropManager : TimeAgent
     [SerializeField] private Tile plowedTile;
     [SerializeField] private Tile seededTile;
     [SerializeField] private GameObject cropSpritePrefab;
-    private InventoryManager inventoryManager;
+    private InventoryManager inventoryManager; //dependency
 
     private Dictionary<Vector2Int, CropTile> crops;
-
     // Start is called before the first frame update
     void Start()
     {

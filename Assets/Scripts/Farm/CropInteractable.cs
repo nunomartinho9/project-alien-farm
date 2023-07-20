@@ -9,18 +9,18 @@ public class CropInteractable : MonoBehaviour, IInteractable
 
     public InteractableData Data { get; }
 
-    private GameManager gameManager;
+    private CropManager cropManager;
     [SerializeField] private Player2DInfo playerInfo;
 
     private void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        cropManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<CropManager>();
     }
 
     public void Interact()
     {
         Debug.Log("crop interact");
-       gameManager.CropManager.GetGrownCrop(playerInfo.position);
+        cropManager.GetGrownCrop(playerInfo.Position);
        
        
     }
