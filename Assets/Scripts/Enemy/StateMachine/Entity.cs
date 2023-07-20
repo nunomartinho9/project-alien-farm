@@ -45,15 +45,6 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.PhysicsUpdate();
     }
 
-    //ToDo colisao com uma bala
-    /*public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("bullet"))
-        {
-            TakeDamage(damage);
-        }
-    }*/
-
     public virtual Vector3 TargetPosition()
     {
         return target.position;

@@ -3,7 +3,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed = 55f;
-    [SerializeField] private int projectileDamage = 10;
+    [SerializeField] private float projectileDamage = 10f;
     private float timeToDestroy = 3f;
 
     public Vector3 target { get; set; }
@@ -26,14 +26,13 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        ContactPoint contactPoint = other.GetContact(0); ;
-
-        //if (other.gameObject.CompareTag("Enemy").Equals(true))
-        //{
-           //other.gameObject.GetComponentInParent<EnemyStats>().EnemyTakeDamage(projectileDamage);
-        //}
-
+        Debug.Log("hit");
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy hit");
+            Entity enemy = other.gameObject.GetComponentInParent<Entity>();
+            enemy.TakeDamage(projectileDamage);
+        }
         Destroy(gameObject);
-        
     }
 }

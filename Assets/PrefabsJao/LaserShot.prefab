@@ -181,9 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bbc0d892e7f70746b9cf1a249d3f72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDecal: {fileID: 6455852890083898882, guid: f7f20d52afb5c564a89f9721a3c5b3d2, type: 3}
   projectileSpeed: 100
-  projectileDamage: 15
+  projectileDamage: 20
 --- !u!136 &340678070051209047
 CapsuleCollider:
   m_ObjectHideFlags: 0
