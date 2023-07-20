@@ -1,3 +1,4 @@
+using CartoonFX;
 using UnityEngine;
 
 public class GunScript : MonoBehaviour
@@ -5,7 +6,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] private Camera fpsCam;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform exitPoint;
-    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private GameObject muzzleFlash;
     
     [SerializeField] private float range = 100f;
 
@@ -28,7 +29,7 @@ public class GunScript : MonoBehaviour
 
     void Shoot()
     {
-        muzzleFlash.Play();
+        muzzleFlash.GetComponent<ParticleSystem>().Play();
         GameObject bullet = Instantiate(bulletPrefab, exitPoint.position, exitPoint.rotation.normalized, new RectTransform());
         BulletScript bulletController = bullet.GetComponent<BulletScript>();
         
