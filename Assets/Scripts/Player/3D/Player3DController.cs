@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,20 +6,21 @@ public class Player3DController : MonoBehaviour
 {
     private CharacterController controller;
     private InputManager inputManager;
-    private Transform cameraTransform;
-
-    [SerializeField] private CinemachineVirtualCamera vcam;
+    private Camera camera;
+    
     private Vector3 moveDirection;
     private Vector3 playerVelocity;
 
-    [FormerlySerializedAs("horizontalRotationSpeed")]
     [Header("Movement")]
-    [SerializeField] private float horizontalAimSpeed = 250.0f;
-    [SerializeField] private float verticalAimSpeed = 100.0f;
     [SerializeField] private float walkSpeed = 15.0f;
     [SerializeField] private float sprintSpeed = 22.0f; 
     [SerializeField] private float gravityValue = -9.81f;
     private float playerSpeed;
+
+    [Header("Look")]
+    [SerializeField] private float xSensivity = 30f;
+    [SerializeField] private float ySensivity = 30f;
+    private float xRotation = 0f;
     
     [Header("Jump")]
     [SerializeField] private float jumpCooldown = 5.0f;
@@ -43,12 +41,7 @@ public class Player3DController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
-
-        vcam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = horizontalAimSpeed;
-        vcam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = verticalAimSpeed;
-
-        cameraTransform = Camera.main.transform;
-        
+        camera = Camera.main;
         playerSpeed = walkSpeed;
         readyJump = true;
     }
@@ -63,6 +56,7 @@ public class Player3DController : MonoBehaviour
         
         StateHandler();
         PlayerMovement();
+        PlayerLook();
         PlayerJump();
     }
 
@@ -82,12 +76,25 @@ public class Player3DController : MonoBehaviour
             playerSpeed = walkSpeed;
         }
     }
+
+    private void PlayerLook()
+    {
+        float mouseX = inputManager.GetMouseDelta().x;
+        float mouseY = inputManager.GetMouseDelta().y;
+        // calculate camera rotation
+        xRotation -= (mouseY * Time.deltaTime) * ySensivity;
+        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+        // apply to camera transform
+        camera.transform.localRotation = Quaternion.Euler(xRotation,0,0);
+        // rotate player to look left and right
+        transform.Rotate(Vector3.up * (mouseX * Time.deltaTime * xSensivity));
+    }
     
     private void PlayerMovement()
     {
         Vector2 input = inputManager.GetPlayerMovement();
         moveDirection = new Vector3(input.x, 0, input.y);
-        moveDirection = cameraTransform.forward * moveDirection.z + cameraTransform.right * moveDirection.x;
+        moveDirection = camera.transform.forward * moveDirection.z + camera.transform.right * moveDirection.x;
         moveDirection.y = 0f;
         controller.Move(moveDirection * (Time.deltaTime * playerSpeed));
 
