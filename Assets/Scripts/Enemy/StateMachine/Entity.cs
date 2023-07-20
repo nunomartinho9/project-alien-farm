@@ -77,6 +77,11 @@ public class Entity : MonoBehaviour
         
     }
     
+    public virtual void KeepMoving()
+    {
+        agent.SetDestination(TargetPosition());
+    }
+    
     public virtual void StopMoving()
     {
         agent.enabled = false;

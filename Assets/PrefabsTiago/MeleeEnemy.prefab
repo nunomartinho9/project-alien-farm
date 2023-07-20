@@ -1214,7 +1214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6152852073129324973}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.91, y: 8.14, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.66412, y: 0.66412, z: 0.66412}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1239,6 +1239,7 @@ MonoBehaviour:
   idleStateData: {fileID: 11400000, guid: 28cb9bc9e88aa464e93a6eb784fd3895, type: 2}
   movingStateData: {fileID: 11400000, guid: 63a69ea5ea444864c800025f7d0271c0, type: 2}
   attackingStateData: {fileID: 11400000, guid: 327b8a99a4665044caca075086c9f144, type: 2}
+  dyingStateData: {fileID: 0}
 --- !u!1 &6152854645804114251
 GameObject:
   m_ObjectHideFlags: 0

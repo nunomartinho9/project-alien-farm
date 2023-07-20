@@ -28,10 +28,10 @@ public class BulletScript : MonoBehaviour
     {
         ContactPoint contactPoint = other.GetContact(0); ;
 
-        if (other.gameObject.CompareTag("Enemy").Equals(true))
-        {
+        //if (other.gameObject.CompareTag("Enemy").Equals(true))
+        //{
            //other.gameObject.GetComponentInParent<EnemyStats>().EnemyTakeDamage(projectileDamage);
-        }
+        //}
 
         Destroy(gameObject);
         

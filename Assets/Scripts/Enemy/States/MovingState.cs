@@ -27,6 +27,7 @@ public class MovingState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        entity.KeepMoving();
     }
 
     public override void PhysicsUpdate()
