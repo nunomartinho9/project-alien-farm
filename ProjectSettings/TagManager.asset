@@ -37,7 +37,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - playerTest
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -65,4 +65,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2599387825
+    locked: 0
+  - name: UI
+    uniqueID: 1136580231
     locked: 0
