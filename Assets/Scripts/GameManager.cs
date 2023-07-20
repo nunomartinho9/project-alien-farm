@@ -5,13 +5,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     public TimeController TimeController { get; private set; }
     public InventoryManager InventoryManager { get; private set; }
+
+
+    
     // Start is called before the first frame update
     private void Awake()
     {
         TimeController = GetComponent<TimeController>();
         InventoryManager = GetComponent<InventoryManager>();
     }
-    
+
+    private void Update()
+    {
+
+        
+    }
 }
