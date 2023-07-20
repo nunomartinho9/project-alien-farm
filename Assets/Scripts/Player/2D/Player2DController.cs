@@ -18,20 +18,22 @@ public class Player2DController : MonoBehaviour
     [SerializeField] private LayerMask whatIsInteractable;
 
     [SerializeField] private float interactRadius = 5f;
+    [SerializeField] private Player2DInfo playerInfo;
+    private CropManager cropManager;
     
-    //para teste
-    [FormerlySerializedAs("_tileManager")] public CropManager cropManager;
     // Start is called before the first frame update
     void Start()    
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        cropManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<CropManager>();
     }
 
     private void Update()
     {
         UpdateAnimations();
         DetectBreakable();
+        CheckInteractable();
     }
 
     private void FixedUpdate()
@@ -43,26 +45,36 @@ public class Player2DController : MonoBehaviour
     {
         if (context.started)
         {
-            Collider2D breakable = GetBreakable();
             Collider2D interactable = GetInteractable();
+            if (interactable != null) // colliding intractable
+            {
+                Debug.Log("int no null");
+                UpdatePlayerPosition();
+                interactable.gameObject.GetComponent<IInteractable>().Interact();
+            }
+        }
+    }
+    
+    public void OnUseInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Collider2D breakable = GetBreakable();
             if (breakable != null)
             {
                 breakable.gameObject.GetComponent<IBreakable>().Damage();
             }
-            if (interactable != null) // colliding intractable
-            {
-                interactable.gameObject.GetComponent<IInteractable>().Interact();
-            }
-            Vector3Int position = new Vector3Int((int)Mathf.Round(transform.position.x), (int)Mathf.Round(transform.position.y), 0);
-            if (cropManager.IsPlowable(position))
+
+            UpdatePlayerPosition();
+            if (cropManager.IsPlowable(playerInfo.Position))
             {
                 //Debug.Log(Mathf.Round(transform.position.x) + ", "+ Mathf.Round(transform.position.y));
                 //Debug.Log(position);
-                cropManager.Plow(position);
+                cropManager.Plow(playerInfo.Position);
             }
-            else if (cropManager.CheckIfPlowed(position))
+            else if (cropManager.CheckIfPlowed(playerInfo.Position))
             {
-                cropManager.Seed(position);
+                cropManager.Seed(playerInfo.Position);
             }
         }
     }
@@ -106,6 +118,12 @@ public class Player2DController : MonoBehaviour
     {
         if (isCollidingWithInteractable) return Physics2D.OverlapCircle(transform.position, interactRadius, whatIsInteractable);
         return null;
+    }
+
+    private void UpdatePlayerPosition()
+    {
+        Vector3Int position = new Vector3Int((int)Mathf.Round(transform.position.x), (int)Mathf.Round(transform.position.y), 0);
+        playerInfo.UpdatePlayerPosition(position);
     }
 
     private void OnDrawGizmos()
