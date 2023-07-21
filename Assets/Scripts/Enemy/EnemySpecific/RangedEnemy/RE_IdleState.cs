@@ -24,6 +24,7 @@ public class RE_IdleState : IdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(!enemy.IsAlive()) stateMachine.ChangeState(enemy.dyingState);
         if(enemy.TargetInAttackRange() && Time.time >= startTime + stateData.idleTime)
         {
             stateMachine.ChangeState(enemy.attackingState);

@@ -18,6 +18,7 @@ public class AttackingState : State
         base.Enter();
         isAttackingTimeOver = false;
         entity.StopMoving();
+        //entity.transform.LookAt(entity.TargetPosition()); Teleport
     }
 
     public override void Exit()

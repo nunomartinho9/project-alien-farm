@@ -12,8 +12,6 @@ public class ME_DyingState : DyingState
     public override void Enter()
     {
         base.Enter();
-        enemy.StopMoving();
-        Debug.Log("Entered DyingState");
     }
 
     public override void Exit()
@@ -27,6 +25,7 @@ public class ME_DyingState : DyingState
         base.LogicUpdate();
         if (isDyingTimeOver)
         {
+            stateMachine.currentState.Exit();
             enemy.Die();
         }
     }

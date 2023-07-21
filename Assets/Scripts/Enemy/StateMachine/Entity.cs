@@ -34,10 +34,6 @@ public class Entity : MonoBehaviour
     public virtual void Update()
     {
         stateMachine.currentState.LogicUpdate();
-        if (!IsAlive())
-        {
-            Die();
-        }
     }
 
     public virtual void FixedUpdate()
@@ -90,6 +86,6 @@ public class Entity : MonoBehaviour
     
     public void Die()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject);
     }
 }

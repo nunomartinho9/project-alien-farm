@@ -24,6 +24,7 @@
             base.LogicUpdate();
             if (isDyingTimeOver)
             {
+                stateMachine.currentState.Exit();
                 enemy.Die();
             }
         }

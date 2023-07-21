@@ -1201,7 +1201,7 @@ GameObject:
   - component: {fileID: 6153976226356435652}
   m_Layer: 0
   m_Name: MeleeEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1215,7 +1215,7 @@ Transform:
   m_GameObject: {fileID: 6152852073129324973}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.66412, y: 0.66412, z: 0.66412}
+  m_LocalScale: {x: 2.2783966, y: 2.2783966, z: 2.2783966}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4179016886930184177}
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   idleStateData: {fileID: 11400000, guid: 28cb9bc9e88aa464e93a6eb784fd3895, type: 2}
   movingStateData: {fileID: 11400000, guid: 63a69ea5ea444864c800025f7d0271c0, type: 2}
   attackingStateData: {fileID: 11400000, guid: 327b8a99a4665044caca075086c9f144, type: 2}
-  dyingStateData: {fileID: 0}
+  dyingStateData: {fileID: 11400000, guid: efdcb50192815734dba43291911df187, type: 2}
 --- !u!1 &6152854645804114251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 6153976226387728849}
   m_Layer: 0
   m_Name: Alive
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1614,8 +1614,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9048436447102720731}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9.39, y: -0.22, z: 8.33}
+  m_LocalScale: {x: 1.153478, y: 1.153478, z: 1.153478}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6154510923716142369}
@@ -1672,7 +1672,7 @@ Rigidbody:
   m_Drag: 2
   m_AngularDrag: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
@@ -1687,8 +1687,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.786148, y: 2.0707672, z: 4.42737}
-  m_Center: {x: -0.01330918, y: 0.9336799, z: 0.33941638}
+  m_Size: {x: 3.2664325, y: 2.0707672, z: 3.861944}
+  m_Center: {x: -0.10112041, y: 0.9336799, z: 0.32236108}
 --- !u!195 &6153976226387728849
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1702,7 +1702,7 @@ NavMeshAgent:
   m_Speed: 0
   m_Acceleration: 0
   avoidancePriority: 50
-  m_AngularSpeed: 500
+  m_AngularSpeed: 360
   m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
