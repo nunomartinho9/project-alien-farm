@@ -209,6 +209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRock_02 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1111393872374448, guid: b8afcb16b9632e344899c70492bcf933, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4202843788597818, guid: b8afcb16b9632e344899c70492bcf933, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -1239,6 +1243,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRock_01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4545666435611158, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1592,6 +1604,14 @@ PrefabInstance:
     - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_Name
       value: BigRock_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4545666435611158, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_RootOrder
@@ -2686,6 +2706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFormation_07
       objectReference: {fileID: 0}
+    - target: {fileID: 1209769021331456, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4712044200598898, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -2991,6 +3015,10 @@ PrefabInstance:
     - target: {fileID: 1209769021331456, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
       propertyPath: m_Name
       value: RockFormation_07 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209769021331456, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4712044200598898, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
       propertyPath: m_RootOrder
@@ -3512,6 +3540,14 @@ PrefabInstance:
     - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_Name
       value: BigRock_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4545666435611158, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_RootOrder
@@ -4294,7 +4330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6340290876152207552, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.02521719
+      value: -0.99896663
       objectReference: {fileID: 0}
     - target: {fileID: 6340290876152207552, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4302,7 +4338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6340290876152207552, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.99968207
+      value: -0.04545024
       objectReference: {fileID: 0}
     - target: {fileID: 6340290876152207552, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -4314,7 +4350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6340290876152207552, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -182.89
+      value: -354.79
       objectReference: {fileID: 0}
     - target: {fileID: 6340290876152207552, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4556,6 +4592,10 @@ PrefabInstance:
     - target: {fileID: 1209769021331456, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
       propertyPath: m_Name
       value: RockFormation_07 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209769021331456, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4712044200598898, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
       propertyPath: m_RootOrder
@@ -4962,6 +5002,14 @@ PrefabInstance:
     - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_Name
       value: BigRock_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4545666435611158, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_RootOrder
@@ -5574,6 +5622,14 @@ PrefabInstance:
     - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_Name
       value: BigRock_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203660441109236, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4545666435611158, guid: 07aab42f1eca6ef4887a7fa93ad8282b, type: 3}
       propertyPath: m_RootOrder
@@ -6911,6 +6967,10 @@ PrefabInstance:
     - target: {fileID: 1209769021331456, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
       propertyPath: m_Name
       value: RockFormation_07 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209769021331456, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4712044200598898, guid: 715b325acd44dfd42a1b236411075c6f, type: 3}
       propertyPath: m_RootOrder
@@ -8314,6 +8374,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507287853642482736, guid: d866960cae1a05b4086fcd58c84508cd, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4179016886930184177, guid: d866960cae1a05b4086fcd58c84508cd, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.153478
@@ -8354,6 +8418,18 @@ PrefabInstance:
       propertyPath: dyingStateData
       value: 
       objectReference: {fileID: 11400000, guid: efdcb50192815734dba43291911df187, type: 2}
+    - target: {fileID: 6153976226387728849, guid: d866960cae1a05b4086fcd58c84508cd, type: 3}
+      propertyPath: m_AutoRepath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153976226387728849, guid: d866960cae1a05b4086fcd58c84508cd, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153976226387728849, guid: d866960cae1a05b4086fcd58c84508cd, type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6154338940379475583, guid: d866960cae1a05b4086fcd58c84508cd, type: 3}
       propertyPath: m_RootOrder
       value: 3
