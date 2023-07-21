@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryItem : MonoBehaviour//, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private Image image;
     public Transform ParentAfterDrag { get; set; }
@@ -38,6 +38,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         countText.gameObject.SetActive(textActive);
     }
     
+    /*
     public void OnBeginDrag(PointerEventData eventData)
     {
         ParentAfterDrag = transform.parent;
@@ -55,5 +56,5 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(ParentAfterDrag);
         image.raycastTarget = true;
-    }
+    }*/
 }
