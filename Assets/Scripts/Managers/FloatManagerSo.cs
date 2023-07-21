@@ -22,7 +22,7 @@ public class FloatManagerSo : ScriptableObject
 
     private void OnEnable()
     {
-        Value = maxValue;
+        //Value = maxValue;
         if (floatChangeEvent == null)
             floatChangeEvent = new UnityEvent<float>();
     }
@@ -43,6 +43,10 @@ public class FloatManagerSo : ScriptableObject
     {
         floatChangeEvent?.Invoke(Value);
     }
-    
+
+    public void Reset()
+    {
+        Value = maxValue;
+    }
     
 }

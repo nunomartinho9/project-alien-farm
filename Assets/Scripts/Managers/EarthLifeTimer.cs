@@ -10,9 +10,15 @@ public class EarthLifeTimer : MonoBehaviour
     [SerializeField] private FloatManagerSo lifeManager;
     [SerializeField] private float decreaseCooldown = 0f;
     private float timestamp;
-    private void Start()
+
+    private void Awake()
     {
         Time.timeScale = 1f;
+    }
+
+    private void Start()
+    {
+        lifeManager.Reset();
         timestamp = Time.time + decreaseCooldown;
     }
 
@@ -34,6 +40,7 @@ public class EarthLifeTimer : MonoBehaviour
         {
             Debug.Log("GAME OVER");
             Time.timeScale = 0f;
+            
         }
     }
 }
