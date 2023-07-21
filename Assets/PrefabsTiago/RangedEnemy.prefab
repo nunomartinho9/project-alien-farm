@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 6696547731818763195}
   m_Layer: 0
   m_Name: RangedEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -820,7 +820,7 @@ Transform:
   m_GameObject: {fileID: 688409671138738794}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -23.2, y: 8.2, z: 18.5}
-  m_LocalScale: {x: 0.66412, y: 0.66412, z: 0.66412}
+  m_LocalScale: {x: 2.963055, y: 2.963055, z: 2.963055}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7282376780824454198}
@@ -845,7 +845,8 @@ MonoBehaviour:
   idleStateData: {fileID: 11400000, guid: e94835dacc1223c45b1f3af799cad302, type: 2}
   movingStateData: {fileID: 11400000, guid: 116ee1db86970da4aa9baed3f88a6b55, type: 2}
   attackingStateData: {fileID: 11400000, guid: 218e370604bb64541b9ef7471ced4947, type: 2}
-  projectile: {fileID: 8862976733100613159, guid: b2fe301c24b11ff4695d525f607675ee, type: 3}
+  dyingStateData: {fileID: 11400000, guid: 665216aac00fb834088ebb639806a900, type: 2}
+  projectile: {fileID: 3740592846810362349, guid: 927c5b859f8d62a44bf8196fc96e563d, type: 3}
 --- !u!1 &688415353436967564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1603,7 @@ GameObject:
   - component: {fileID: 687285388892908054}
   m_Layer: 0
   m_Name: Alive
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1674,7 +1675,7 @@ Rigidbody:
   m_Drag: 2
   m_AngularDrag: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
@@ -1704,7 +1705,7 @@ NavMeshAgent:
   m_Speed: 0
   m_Acceleration: 0
   avoidancePriority: 50
-  m_AngularSpeed: 500
+  m_AngularSpeed: 360
   m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1737,7 +1738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6696547732762619605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 1.36, z: 2.73}
+  m_LocalPosition: {x: 0.02, y: 1.8, z: 2.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

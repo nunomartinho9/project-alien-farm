@@ -29,7 +29,7 @@ public class RangedEnemy : Entity
 
     public void Shoot()
     {
+        shootingPoint.LookAt(TargetPosition());
         Instantiate(projectile, shootingPoint.position, shootingPoint.rotation);
-        
     }
 }
