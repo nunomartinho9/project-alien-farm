@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -7,10 +8,12 @@ using Cursor = UnityEngine.Cursor;
 
 public class MenuManager : MonoBehaviour
 {
-
-    [SerializeField] private GameObject creditsMenuGO, tutorialMenuGO, settingsMenuGO;
-    [SerializeField] private GameObject playBtn, volumeSaveBtn;
+    [Header("Menus")]
+    [SerializeField] private GameObject mainMenuGO, creditsMenuGO, tutorialMenuGO, settingsMenuGO;
+    
+    [Header("Buttons")]
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private GameObject playBtn, volumeSaveBtn;
 
     private void Start()
     {
@@ -22,7 +25,12 @@ public class MenuManager : MonoBehaviour
             settingsMenuGO.SetActive(false);
         }
 
-        LoadVolume();
+        // if player has altered volume settings before
+        if (PlayerPrefs.HasKey("volume"))
+        {
+            AudioListener.volume = PlayerPrefs.GetFloat("volume");
+            volumeSlider.value = AudioListener.volume;
+        }
     }
 
     private void Update()
@@ -55,6 +63,22 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    // SETTINGS
+    
+    public void OpenSettings()
+    {
+        mainMenuGO.SetActive(false);
+        settingsMenuGO.SetActive(true);
+        settingsMenuGO.GetComponentInChildren<Slider>().Select();
+    }
+
+    public void CloseSettings()
+    {
+        mainMenuGO.SetActive(true);
+        settingsMenuGO.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
+    }
+    
     public void VolumeAdjust()
     {
         AudioListener.volume = volumeSlider.value;
@@ -62,46 +86,38 @@ public class MenuManager : MonoBehaviour
 
     public void SaveVolume()
     {
-        PlayerPrefs.SetFloat("volume", volumeSlider.value);
+        PlayerPrefs.SetFloat("volume", AudioListener.volume);
+        CloseSettings();
     }
 
-    public void LoadVolume()
-    {
-        PlayerPrefs.GetFloat("volume", volumeSlider.value);
-    }
-
-    public void OpenSettings()
-    {
-        settingsMenuGO.SetActive(true);
-        settingsMenuGO.GetComponentInChildren<Slider>().Select();
-    }
-
-    public void CloseSettings()
-    {
-        settingsMenuGO.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
-    }
-
+    // CREDITS
+    
     public void OpenCredits()
     {
+        mainMenuGO.SetActive(false);
         creditsMenuGO.SetActive(true);
         creditsMenuGO.GetComponentInChildren<Button>().Select();
     }
     
     public void CloseCredits()
     {
+        mainMenuGO.SetActive(true);
         creditsMenuGO.SetActive(false);
         EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
     }
+    
+    // TUTORIAL
 
     public void OpenTutorial()
     {
+        mainMenuGO.SetActive(false);
         tutorialMenuGO.SetActive(true);
         tutorialMenuGO.GetComponentInChildren<Button>().Select();
     }
 
     public void CloseTutorial()
     {
+        mainMenuGO.SetActive(true);
         tutorialMenuGO.SetActive(false);
         EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
     }
