@@ -1,4 +1,6 @@
-﻿public class ME_DyingState : DyingState
+﻿using UnityEngine;
+
+public class ME_DyingState : DyingState
 {
     private MeleeEnemy enemy;
 
@@ -10,7 +12,8 @@
     public override void Enter()
     {
         base.Enter();
-            
+        enemy.StopMoving();
+        Debug.Log("Entered DyingState");
     }
 
     public override void Exit()

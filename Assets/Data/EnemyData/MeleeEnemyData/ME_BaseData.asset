@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b6879341c29c2408f2234ffc667c55, type: 3}
   m_Name: ME_BaseData
   m_EditorClassIdentifier: 
-  attackRange: 3
+  startingHp: 100
+  attackRange: 15
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 2147483648
+    m_Bits: 256
