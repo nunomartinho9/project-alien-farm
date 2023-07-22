@@ -18,7 +18,8 @@ public class EarthLifeTimer : MonoBehaviour
 
     private void Start()
     {
-        lifeManager.Reset();
+        lifeManager.CallEvent();
+        lifeManager.Reset(); //todo: REMOVE BEFORE BUILD
         timestamp = Time.time + decreaseCooldown;
     }
 

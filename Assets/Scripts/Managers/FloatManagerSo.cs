@@ -48,5 +48,5 @@ public class FloatManagerSo : ScriptableObject
     {
         Value = maxValue;
     }
-    
+
 }

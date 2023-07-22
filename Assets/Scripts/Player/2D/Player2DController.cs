@@ -68,8 +68,6 @@ public class Player2DController : MonoBehaviour
             UpdatePlayerPosition();
             if (cropManager.IsPlowable(playerInfo.Position))
             {
-                //Debug.Log(Mathf.Round(transform.position.x) + ", "+ Mathf.Round(transform.position.y));
-                //Debug.Log(position);
                 cropManager.Plow(playerInfo.Position);
             }
             else if (cropManager.CheckIfPlowed(playerInfo.Position))
