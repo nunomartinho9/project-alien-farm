@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    [SerializeField] private float speed = 60f;
+    [SerializeField] private float speed = 150f;
     [SerializeField] private float timeToDestroy = 3f;
     
     private GameObject projBody;
@@ -18,9 +18,6 @@ public class ProjectileController : MonoBehaviour
 
     private void OnEnable()
     {
-        //gameObject.GetComponent<Rigidbody>().transform.eulerAngles = new Vector3(90, gameObject.GetComponent<Rigidbody>().transform.eulerAngles.y, gameObject.GetComponent<Rigidbody>().transform.eulerAngles.z);
-        //gameObject.GetComponent<Rigidbody>().AddForce(transform.up * speed, ForceMode.Impulse);
-        //gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * -10f, ForceMode.Impulse);
         Destroy(gameObject, timeToDestroy);
     }
     
@@ -35,7 +32,16 @@ public class ProjectileController : MonoBehaviour
         //{
           //  Damage();
         //}
-        Destroy(gameObject);
+        //Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("triggered");
+            Destroy(gameObject);
+        }
     }
 
     public void Damage()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Entity : MonoBehaviour
 {
@@ -10,15 +11,15 @@ public class Entity : MonoBehaviour
 
     public D_Entity entityData;
     
-
     private float health;
+    private Transform target;
     
     public Rigidbody rb { get; private set; }
     public Animator anim { get; private set; }
     public GameObject alive { get; private set; }
     public NavMeshAgent agent { get; private set; }
 
-    [SerializeField] private Transform target;
+    
 
     public virtual void Start()
     {
@@ -27,6 +28,8 @@ public class Entity : MonoBehaviour
         rb = alive.GetComponent<Rigidbody>();
         anim = alive.GetComponent<Animator>();
         agent = alive.GetComponent<NavMeshAgent>();
+        
+        target = GameObject.Find("Player").transform;
         
         stateMachine = new FiniteStateMachine();
     }

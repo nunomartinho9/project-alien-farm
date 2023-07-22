@@ -25,6 +25,7 @@ public class RangedEnemy : Entity
         attackingState = new RE_AttackingState(this, stateMachine, "attacking", attackingStateData, this);
         dyingState = new RE_DyingState(this, stateMachine, "dying", dyingStateData, this);
         stateMachine.Initialize(movingState);
+        
     }
 
     public void Shoot()

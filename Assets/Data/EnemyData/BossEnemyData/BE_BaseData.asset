@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BE_BaseData
   m_EditorClassIdentifier: 
   startingHp: 200
-  attackRange: 5
+  attackRange: 20
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 2147483648
+    m_Bits: 256

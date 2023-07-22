@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63385dad17054778a74df04cedf1c7c6, type: 3}
   m_Name: ME_DyingStateData
   m_EditorClassIdentifier: 
-  isDyingTimeOver: 5
+  isDyingTimeOver: 2
