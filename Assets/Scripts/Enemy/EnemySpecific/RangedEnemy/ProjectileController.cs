@@ -7,9 +7,10 @@ public class ProjectileController : MonoBehaviour
 {
     [SerializeField] private float speed = 150f;
     [SerializeField] private float timeToDestroy = 3f;
+    [SerializeField] private FloatManagerSo floatManager;
     
     private GameObject projBody;
-    //private float damage = 10f;
+    private float damage = 10f;
 
     private void Start()
     {
@@ -26,25 +27,13 @@ public class ProjectileController : MonoBehaviour
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        //if (other.gameObject.CompareTag("Player") )
-        //{
-          //  Damage();
-        //}
-        //Destroy(gameObject);
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            floatManager.DecreaseValue(damage);
             Destroy(gameObject);
         }
-    }
-
-    public void Damage()
-    {
-        //ToDo
     }
 }

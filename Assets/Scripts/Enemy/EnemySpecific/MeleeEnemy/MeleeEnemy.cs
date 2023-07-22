@@ -13,6 +13,8 @@ public class MeleeEnemy : Entity
     [SerializeField] private D_MovingState movingStateData;
     [SerializeField] private D_AttackingState attackingStateData;
     [SerializeField] private D_DyingState dyingStateData;
+    
+    [SerializeField] public FloatManagerSo floatManager;
 
     public override void Start()
     {

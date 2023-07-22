@@ -623,3 +623,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 150
   timeToDestroy: 3
+  floatManager: {fileID: 11400000, guid: 5e6324e65aa21604badd848559c737ff, type: 2}

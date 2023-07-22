@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -105,7 +106,7 @@ public class Player3DController : MonoBehaviour
     private void PlayerJump()
     {
         // Changes the height position of the player
-        if (inputManager.PlayerJumped() && readyJump && groundedPlayer)
+        if (inputManager.PlayerJumped() && readyJump)
         {
             readyJump = false;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
@@ -116,5 +117,10 @@ public class Player3DController : MonoBehaviour
     private void ResetJump()
     {
         readyJump = true;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        return;
     }
 }

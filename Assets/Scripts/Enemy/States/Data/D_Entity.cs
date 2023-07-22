@@ -7,5 +7,6 @@ public class D_Entity : ScriptableObject
 {
     public float startingHp = 100f;
     public float attackRange = 2f;
+    public float attackDamage = 10f;
     public LayerMask whatIsGround, whatIsPlayer;
 }
