@@ -14,7 +14,6 @@ public class DyingState : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered DyingState");
         entity.StopMoving();
         isDyingTimeOver = false;
     }
@@ -22,7 +21,6 @@ public class DyingState : State
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Left DyingState");
     }
 
     public override void LogicUpdate()

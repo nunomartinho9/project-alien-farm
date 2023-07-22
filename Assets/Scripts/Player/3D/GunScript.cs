@@ -12,13 +12,11 @@ public class GunScript : MonoBehaviour
 
     private InputManager _inputManager;
     
-    // Start is called before the first frame update
     void Start()
     {
         _inputManager = InputManager.Instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_inputManager.PlayerShoot())
@@ -32,13 +30,11 @@ public class GunScript : MonoBehaviour
         muzzleFlash.GetComponent<ParticleSystem>().Play();
         GameObject bullet = Instantiate(bulletPrefab, exitPoint.position, exitPoint.rotation.normalized, new RectTransform());
         BulletScript bulletController = bullet.GetComponent<BulletScript>();
-        
-        RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out var hit, range))
         {
             bulletController.target = hit.point;
             bulletController.hit = true;
-            Debug.Log(hit.transform.name);
         }else
         {
             bulletController.target = fpsCam.transform.position + fpsCam.transform.forward * range;

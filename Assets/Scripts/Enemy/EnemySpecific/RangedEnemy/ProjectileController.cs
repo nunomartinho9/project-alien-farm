@@ -39,7 +39,6 @@ public class ProjectileController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("triggered");
             Destroy(gameObject);
         }
     }

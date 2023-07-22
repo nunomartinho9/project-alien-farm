@@ -6,14 +6,14 @@ public class Player3DController : MonoBehaviour
 {
     private CharacterController controller;
     private InputManager inputManager;
-    private Camera camera;
+    private Camera newCamera;
     
     private Vector3 moveDirection;
     private Vector3 playerVelocity;
 
     [Header("Movement")]
-    [SerializeField] private float walkSpeed = 15.0f;
-    [SerializeField] private float sprintSpeed = 22.0f; 
+    [SerializeField] private float walkSpeed = 15f;
+    [SerializeField] private float sprintSpeed = 22f; 
     [SerializeField] private float gravityValue = -9.81f;
     private float playerSpeed;
 
@@ -41,7 +41,7 @@ public class Player3DController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
-        camera = Camera.main;
+        newCamera = Camera.main;
         playerSpeed = walkSpeed;
         readyJump = true;
     }
@@ -85,7 +85,7 @@ public class Player3DController : MonoBehaviour
         xRotation -= (mouseY * Time.deltaTime) * ySensivity;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
         // apply to camera transform
-        camera.transform.localRotation = Quaternion.Euler(xRotation,0,0);
+        newCamera.transform.localRotation = Quaternion.Euler(xRotation,0,0);
         // rotate player to look left and right
         transform.Rotate(Vector3.up * (mouseX * Time.deltaTime * xSensivity));
     }
@@ -94,7 +94,7 @@ public class Player3DController : MonoBehaviour
     {
         Vector2 input = inputManager.GetPlayerMovement();
         moveDirection = new Vector3(input.x, 0, input.y);
-        moveDirection = camera.transform.forward * moveDirection.z + camera.transform.right * moveDirection.x;
+        moveDirection = newCamera.transform.forward * moveDirection.z + newCamera.transform.right * moveDirection.x;
         moveDirection.y = 0f;
         controller.Move(moveDirection * (Time.deltaTime * playerSpeed));
 
