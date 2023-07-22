@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
-  sprite: {fileID: 0}
-  type: 0
-  actionType: 0
+  sprite: {fileID: 1620332885, guid: a397dc4df33292c4190102b0abdd89fb, type: 3}
+  type: 1
+  actionType: 1
   range: {x: 5, y: 4}
-  stackable: 1
+  stackable: 0
   crop: {fileID: 0}
