@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8fa08f093dae0146bbb8b7c88e5b5db, type: 3}
-  m_Name: Watering
+  m_Script: {fileID: 11500000, guid: 1b7e017f3853bb94987b4f2e4936a81f, type: 3}
+  m_Name: SmallStone
   m_EditorClassIdentifier: 
-  tile: {fileID: 0}
-  sprite: {fileID: 2077257666, guid: 11dbabc7cadfa994686dd416954a8e1f, type: 3}
-  type: 1
-  actionType: 0
-  range: {x: 5, y: 4}
-  stackable: 0
+  sprite: {fileID: 0}
+  startingLife: 1
+  requiredItem: {fileID: 0}
+  quantityToDrop: 2

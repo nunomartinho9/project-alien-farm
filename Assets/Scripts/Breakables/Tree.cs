@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class RegularBreakable : MonoBehaviour, IBreakable
+public class Tree : MonoBehaviour, IBreakable
 {
     [SerializeField] private BreakableData data;
-    [SerializeField] private InventoryManager inventoryManager;
+    private InventoryManager inventoryManager;
+    [SerializeField] private ResourcesContainer resourcesContainer;
     private int life;
     private SpriteRenderer spriteRenderer;
     public BreakableData Data => data;
@@ -17,6 +16,8 @@ public class RegularBreakable : MonoBehaviour, IBreakable
         life = Data.StartingLife;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = Data.Sprite;
+
+        inventoryManager = GameObject.FindWithTag("GameController").GetComponent<InventoryManager>();
     }
 
     public void Damage()
@@ -33,19 +34,6 @@ public class RegularBreakable : MonoBehaviour, IBreakable
 
     public void Drop()
     {
-        
-        if (Data.DropLists.Length == 0) return;
-        foreach (var drops in Data.DropLists)
-        {
-            for (int i = 1; i <= drops.Quantity; i++)
-            {
-                bool result = inventoryManager.AddItem(drops.Item);  
-                if (result) Debug.Log("Item Added" + drops.Item);
-                else Debug.Log("Item not added");
-            }
-        }
-
+        resourcesContainer.AddWood(data.QuantityToDrop);
     }
-
-
 }

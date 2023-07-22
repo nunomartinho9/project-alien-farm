@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Stone1
   m_EditorClassIdentifier: 
   sprite: {fileID: 1958921265, guid: e4b0c90281608c540986cb8deb4bcbb1, type: 3}
-  requiredItem: {fileID: 11400000, guid: fbd414fec46211649b8d39c59f7fb5e5, type: 2}
-  startingLife: 5
-  dropLists:
-  - item: {fileID: 11400000, guid: f2309d3cb434eed42b76b6f499463cf0, type: 2}
-    quantity: 32
+  startingLife: 4
+  requiredItem: {fileID: 11400000, guid: e003c853928c9fc4ca520394a420dc3b, type: 2}
+  quantityToDrop: 6

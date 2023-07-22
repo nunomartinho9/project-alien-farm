@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
-  sprite: {fileID: 1190075413, guid: 11dbabc7cadfa994686dd416954a8e1f, type: 3}
+  sprite: {fileID: 1470381134, guid: a397dc4df33292c4190102b0abdd89fb, type: 3}
   type: 1
-  actionType: 1
+  actionType: 2
   range: {x: 5, y: 4}
   stackable: 0
+  crop: {fileID: 0}
