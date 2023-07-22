@@ -3,27 +3,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Button = UnityEngine.UI.Button;
 using Cursor = UnityEngine.Cursor;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Menus")]
-    [SerializeField] private GameObject mainMenuGO, creditsMenuGO, tutorialMenuGO, settingsMenuGO;
-    
-    [Header("Buttons")]
+    [Header("Menus")] 
+    [SerializeField] private GameObject mainMenuGO;
+    [SerializeField] private GameObject creditsMenuGO;
+    [SerializeField] private GameObject tutorialMenuGO;
+    [SerializeField] private GameObject settingsMenuGO; 
+    [SerializeField] private GameObject pauseMenuGO;
+
+    [Header("Interactables")] 
+    [SerializeField] private GameObject contBtn, playBtn;
     [SerializeField] private Slider volumeSlider;
-    [SerializeField] private GameObject playBtn, volumeSaveBtn;
 
     private void Start()
     {
         Cursor.visible = false;
-        if (creditsMenuGO && tutorialMenuGO && settingsMenuGO)
+        if (creditsMenuGO && tutorialMenuGO && settingsMenuGO && pauseMenuGO)
         {
             creditsMenuGO.SetActive(false);
             tutorialMenuGO.SetActive(false);
             settingsMenuGO.SetActive(false);
+            pauseMenuGO.SetActive(false);
         }
+        
+        mainMenuGO.SetActive(true);
 
         // if player has altered volume settings before
         if (PlayerPrefs.HasKey("volume"))
@@ -51,10 +57,36 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        pauseMenuGO.SetActive(false);
+        mainMenuGO.SetActive(true);
     }
-    public void PlayLevelOne()
+    
+    public void Play()
     {
+        mainMenuGO.SetActive(false);
+        SceneManager.LoadScene("level1");
+    }
+
+    public void Pause()
+    {
+        if (Input.GetKeyDown("Escape"))
+        {
+            pauseMenuGO.SetActive(true);
+            if (Input.GetKeyDown("Escape"))
+            {
+                pauseMenuGO.SetActive(false);
+            }
+        }
+    }
+
+    public void Resume()
+    {
+        pauseMenuGO.SetActive(false);
+    }
+
+    public void Continue()
+    {
+        mainMenuGO.SetActive(false);
         SceneManager.LoadScene("level1");
     }
 
@@ -67,16 +99,24 @@ public class MenuManager : MonoBehaviour
     
     public void OpenSettings()
     {
-        mainMenuGO.SetActive(false);
         settingsMenuGO.SetActive(true);
         settingsMenuGO.GetComponentInChildren<Slider>().Select();
     }
 
     public void CloseSettings()
     {
-        mainMenuGO.SetActive(true);
         settingsMenuGO.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
+        if (mainMenuGO)
+        {
+            if (contBtn.GetComponent<Button>().isActiveAndEnabled)
+            {
+                EventSystem.current.SetSelectedGameObject(contBtn, new BaseEventData(EventSystem.current));
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
+            }
+        }
     }
     
     public void VolumeAdjust()
@@ -110,15 +150,23 @@ public class MenuManager : MonoBehaviour
 
     public void OpenTutorial()
     {
-        mainMenuGO.SetActive(false);
         tutorialMenuGO.SetActive(true);
         tutorialMenuGO.GetComponentInChildren<Button>().Select();
     }
 
     public void CloseTutorial()
     {
-        mainMenuGO.SetActive(true);
         tutorialMenuGO.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
+        if (mainMenuGO)
+        {
+            if (contBtn.GetComponent<Button>().isActiveAndEnabled)
+            {
+                EventSystem.current.SetSelectedGameObject(contBtn, new BaseEventData(EventSystem.current));
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
+            }        
+        }
     }
 }
