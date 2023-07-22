@@ -24,6 +24,7 @@ public class UpdateStatusUi : MonoBehaviour
     private void OnDisable()
     {
         earthLifeManager.floatChangeEvent.RemoveListener(UpdateEarthUI);
+        staminaManager.floatChangeEvent.RemoveListener(UpdateStaminaUI);
     }
 
     private void Start()

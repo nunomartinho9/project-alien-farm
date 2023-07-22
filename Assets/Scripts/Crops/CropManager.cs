@@ -104,16 +104,6 @@ public class CropManager : TimeAgent
         if (tile.Complete)
         {
             if (tile.crop.CropDrops.Length == 0) return;
-            // foreach (var drop in tile.crop.CropDrops)
-            // {
-            //     for (int i = 1; i <= drop.Quantity; i++)
-            //     {
-            //         ;
-            //         // bool result = inventoryManager.AddItem(drop.Item);
-            //         // if (result) Debug.Log("Item Added" + drop.Item);
-            //     }
-            //     
-            // }
 
             resources.AddStarCrops(tile.crop.CropDrops[0].Quantity);
             tile.Harvested();

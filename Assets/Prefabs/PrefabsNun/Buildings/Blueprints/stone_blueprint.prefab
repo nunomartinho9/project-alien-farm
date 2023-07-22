@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3578994036713143644}
   - component: {fileID: 3578994036713143647}
-  - component: {fileID: 3578994036713143646}
   - component: {fileID: 3578994036713143633}
-  - component: {fileID: 6559163945478541625}
-  m_Layer: 6
-  m_Name: Stone1
+  - component: {fileID: 717855834816648313}
+  m_Layer: 0
+  m_Name: stone_blueprint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 1958921265, guid: e4b0c90281608c540986cb8deb4bcbb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9047618, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3578994036713143646
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3578994036713143632}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.045552313, y: -0.14739335}
-  serializedVersion: 2
-  m_Radius: 0.6985665
 --- !u!114 &3578994036713143633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,24 +100,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: ba6c304594b460640b3aca17911323db, type: 2}
   resourcesContainer: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
---- !u!50 &6559163945478541625
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &717855834816648313
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3578994036713143632}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29aaf98369225d44a4f493533d099c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 3578994036713143632, guid: 7aaaab331ef045c4481d79a8f1914de8, type: 3}
+  targetTilemap: {fileID: 0}
+  container: {fileID: 11400000, guid: 553b7cc8ba93ca04aa6eabaf74aa932e, type: 2}
+  whatIsBreakable:
+    serializedVersion: 2
+    m_Bits: 64
+  interactRadius: 1.1
