@@ -60,6 +60,12 @@ TagManager:
   - name: Buildings
     uniqueID: 517420791
     locked: 0
+  - name: Buildings2
+    uniqueID: 3343214533
+    locked: 0
+  - name: Buildings3
+    uniqueID: 480047665
+    locked: 0
   - name: Trees
     uniqueID: 3333719863
     locked: 0

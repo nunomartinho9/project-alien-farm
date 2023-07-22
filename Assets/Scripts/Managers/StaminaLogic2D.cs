@@ -9,15 +9,11 @@ public class StaminaLogic2D : MonoBehaviour
     [SerializeField] private FloatManagerSo stamina;
     private float time;
     [SerializeField] private float rechargeTime = 30f;
-
-
-    private void Start()
-    {
-        stamina.CallEvent();
-    }
+    
 
     private void Update()
     {
+        
         DoCoolDown();
     }
     

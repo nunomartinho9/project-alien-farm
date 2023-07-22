@@ -9,13 +9,22 @@ public class GameManager : MonoBehaviour
     public TimeController TimeController { get; private set; }
     private InventoryManager InventoryManager { get; set; }
     [SerializeField] private List<Item> startingItems;
+
+    #region Persistent Data
+
     [SerializeField] private ResourcesContainer resourcesContainer;
+    [SerializeField] private CropsContainer cropsContainer;
+    [SerializeField] private FloatManagerSo earthLife;
+    [SerializeField] private FloatManagerSo stamina;
+    #endregion
 
     // Start is called before the first frame update
     private void Awake()
     {
         TimeController = GetComponent<TimeController>();
         InventoryManager = GetComponent<InventoryManager>();
+        
+        ResetGame(); //todo: remove from final version
     }
 
     private void Start()
@@ -25,7 +34,6 @@ public class GameManager : MonoBehaviour
         {
             InventoryManager.AddItem(i);
         }
-
         ResetGame(); //todo: remove from final version
     }
 
@@ -38,6 +46,9 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         resourcesContainer.Reset();
+        cropsContainer.Clear();
+        earthLife.Reset();
+        stamina.Reset();
     }
 
 }
