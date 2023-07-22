@@ -102,10 +102,10 @@ public class Blueprint : MonoBehaviour
     private void CreateBuildingTile(Vector3Int position, Quaternion rotation)
     {
         PlaceableObject po = new PlaceableObject();
-        container.Add(po);
 
         po.position = position;
         po.rotation = rotation;
+        container.Add(po);
 
         VisualizeTile(po);
         // interactableMap.SetTile(position, plowedTile);
