@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
-
+[Serializable]
 public class CropTile
 {
     public int growTimer;
     public int growStage = 0;
     public CropData crop;
     public SpriteRenderer renderer;
+    public Vector3Int position;
 
     public bool Complete
     {
@@ -39,56 +42,95 @@ public class CropManager : TimeAgent
     [SerializeField] private Tile seededTile;
     [SerializeField] private GameObject cropSpritePrefab;
     private InventoryManager inventoryManager; //dependency
-
-    private Dictionary<Vector2Int, CropTile> crops;
+    [SerializeField] private CropsContainer container;
+    [SerializeField] private CropData cropData;
+    [SerializeField] private ResourcesContainer resources;
     // Start is called before the first frame update
     void Start()
     {
         inventoryManager = gameObject.GetComponent<InventoryManager>();
-        crops = new Dictionary<Vector2Int, CropTile>();
         ChangeInteractableTilesHidden();
         
         Init();
         onTimeTick += Tick;
+        VisualizeMap();
+    }
+
+    private void OnDestroy()
+    {
+        for (int i = 0; i < container.crops.Count; i++)
+        {
+            container.crops[i].renderer = null;
+        }
+    }
+
+    private void VisualizeMap()
+    {
+        for (int i = 0; i < container.crops.Count; i++)
+        {
+            VisualizeTile(container.crops[i]);
+        }
+    }
+
+    void VisualizeTile(CropTile cropTile)
+    {
+        interactableMap.SetTile(cropTile.position, cropTile.crop != null ? seededTile : plowedTile);
+
+        if (cropTile.renderer == null)
+        {
+            
+            GameObject go = Instantiate(cropSpritePrefab);
+            go.transform.position = interactableMap.CellToWorld(cropTile.position);
+            cropTile.renderer = go.GetComponent<SpriteRenderer>();
+        }
+
+        bool growing = cropTile.crop != null && 
+                       cropTile.growTimer >= cropTile.crop.growthStageTime[0];
+        
+        cropTile.renderer.gameObject.SetActive(growing);
+        if (growing) 
+            cropTile.renderer.sprite = cropTile.crop.sprites[cropTile.growStage-1];
+        
     }
 
     public void GetGrownCrop(Vector3Int gridPosition)
     {
-        Vector2Int position = (Vector2Int)gridPosition;
+       // Vector2Int position = (Vector2Int)gridPosition;
 
-        if (!crops.ContainsKey(position)) return;
-        CropTile cropTile = crops[position];
-        Debug.Log("entrei");
-        if (cropTile.Complete)
+        CropTile tile = container.Get(gridPosition);
+
+        if (tile == null) return;
+        
+        if (tile.Complete)
         {
-            Debug.Log("crop not null");
-            if (cropTile.crop.CropDrops.Length == 0) return;
-            foreach (var drop in cropTile.crop.CropDrops)
-            { 
-                for (int i = 1; i <= drop.Quantity; i++)
-                { 
-                    Debug.Log("drop: " + drop);
-                    bool result = inventoryManager.AddItem(drop.Item);  
-                    if (result) Debug.Log("Item Added" + drop.Item); 
-                }
-            }
+            if (tile.crop.CropDrops.Length == 0) return;
+            // foreach (var drop in tile.crop.CropDrops)
+            // {
+            //     for (int i = 1; i <= drop.Quantity; i++)
+            //     {
+            //         ;
+            //         // bool result = inventoryManager.AddItem(drop.Item);
+            //         // if (result) Debug.Log("Item Added" + drop.Item);
+            //     }
+            //     
+            // }
 
-            interactableMap.SetTile(gridPosition, plowedTile);
-            cropTile.Harvested();
-            
+            resources.AddStarCrops(tile.crop.CropDrops[0].Quantity);
+            tile.Harvested();
+            VisualizeTile(tile);
+            interactableMap.SetTile(tile.position, hiddenInteractableTile);
+            container.crops.Remove(tile);
         }
     }
 
     private void Tick()
     {
-        foreach (CropTile cropTile in crops.Values)
+        foreach (CropTile cropTile in container.crops)
         {
-            if (cropTile.crop == null) { continue; }
+            if (cropTile.crop == null) continue;
             
-            if (cropTile.Complete)
-            {
-                continue;
-            }
+            if (cropTile.Complete) continue;
+            
             cropTile.growTimer++;
 
             if (cropTile.growTimer >= cropTile.crop.growthStageTime[cropTile.growStage])
@@ -98,30 +140,26 @@ public class CropManager : TimeAgent
                 
                 cropTile.growStage++;
             }
-
+            
         }
     }
 
     public bool CheckIfPlowed(Vector3Int position)
     {
-        return crops.ContainsKey((Vector2Int)position);
+        return container.Get(position) != null;
     }
 
     public void Seed(Vector3Int position)
     {
-        Item selectedItem = inventoryManager.GetSelectedItem(false);
-
-        if (selectedItem == null) return;
-
-        if (selectedItem.type != ItemType.Seed || !CanSeed(position, seededTile)) return;
-        Debug.Log(CanSeed(position, seededTile));
-        selectedItem = inventoryManager.GetSelectedItem(true);
-        CropData cropToSeed = selectedItem.crop;
-            
+        if (!CanSeed(position, seededTile)) return;
+        
+        CropTile tile = container.Get(position);
+        if (tile == null) return;
+        
+        
+        resources.UseSeed();
         interactableMap.SetTile(position, seededTile);
-
-        crops[(Vector2Int)position].crop = cropToSeed;
-        Debug.Log(position);
+        tile.crop = cropData;
     }
 
     private bool CanSeed(Vector3Int position, Tile seedTile)
@@ -129,7 +167,7 @@ public class CropManager : TimeAgent
         TileBase tile = interactableMap.GetTile(position);
         if (tile != null)
         {
-            return tile.name != seedTile.name;
+            return tile.name != seedTile.name && resources.Seeds > 0;
         }
 
         return false;
@@ -139,7 +177,7 @@ public class CropManager : TimeAgent
     {
         TileBase tile = interactableMap.GetTile(position);
         if (tile == null) return false;
-        return tile.name == "interact_hidden";
+        return tile.name == hiddenInteractableTile.name;
     }
 
     public void Plow(Vector3Int position)
@@ -147,14 +185,18 @@ public class CropManager : TimeAgent
         Item selectedItem = inventoryManager.GetSelectedItem(false);
         if (selectedItem != itemToUse || selectedItem == null) return;
 
-        CropTile cropTile = new CropTile();
-        crops.Add((Vector2Int)position, cropTile);
+        if (CheckIfPlowed(position)) return;
+        CreatePlowedTile(position);
+    }
 
-        GameObject go = Instantiate(cropSpritePrefab);
-        go.transform.position = interactableMap.CellToWorld(position);
-        go.SetActive(false);
-        cropTile.renderer = go.GetComponent<SpriteRenderer>();
+    private void CreatePlowedTile(Vector3Int position)
+    {
+        CropTile cropTile = new CropTile();
+        container.Add(cropTile);
+
+        cropTile.position = position;
         
+        VisualizeTile(cropTile);
         interactableMap.SetTile(position, plowedTile);
     }
 

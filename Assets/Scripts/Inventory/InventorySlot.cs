@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDropHandler
+public class InventorySlot : MonoBehaviour//,  IDropHandler
 {
     private Image image;
     [SerializeField] private Color selectedColor, notSelectedColor;
@@ -25,10 +25,11 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         image.color = notSelectedColor;
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        GameObject dropped = eventData.pointerDrag;
-        InventoryItem inventoryItem = dropped.GetComponent<InventoryItem>();
-        inventoryItem.ParentAfterDrag = transform;
-    }
+    
+    // public void OnDrop(PointerEventData eventData)
+    // {
+    //     GameObject dropped = eventData.pointerDrag;
+    //     InventoryItem inventoryItem = dropped.GetComponent<InventoryItem>();
+    //     inventoryItem.ParentAfterDrag = transform;
+    // }
 }
