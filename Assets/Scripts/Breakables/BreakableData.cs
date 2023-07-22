@@ -17,21 +17,7 @@ public class BreakableData : ScriptableObject
     [SerializeField] private Item requiredItem;
     public Item RequiredItem => requiredItem;
 
-    
-    [SerializeField] private DropList[] dropLists;
-    public DropList[] DropLists => dropLists;
-    
-    [SerializeField] private bool needsTool;
-    public bool NeedsTool => needsTool;
+    [SerializeField] private int quantityToDrop;
+    public int QuantityToDrop => quantityToDrop;
 }
 
-[System.Serializable]
-public class DropList
-{
-    [SerializeField] private Item item;
-    [SerializeField] private int quantity;
-
-    public Item Item => item;
-    public int Quantity => quantity;
-
-}
