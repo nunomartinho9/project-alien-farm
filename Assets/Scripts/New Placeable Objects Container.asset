@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0dc2d7d3309d04c993ce6860c4fa51, type: 3}
   m_Name: New Placeable Objects Container
   m_EditorClassIdentifier: 
-  placeableObjects: []
+  placeableObjects:
+  - renderer: {fileID: 0}
+    position: {x: 7, y: -3, z: 0}
+    rotation: {x: -0, y: -0, z: -0, w: 1}

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CropsContainer cropsContainer;
     [SerializeField] private FloatManagerSo earthLife;
     [SerializeField] private FloatManagerSo stamina;
+    [SerializeField] private PlaceableObjectsContainer buildings;
+    [SerializeField] private PlaceableObjectsContainer breakables;
     #endregion
 
     // Start is called before the first frame update
@@ -49,6 +51,8 @@ public class GameManager : MonoBehaviour
         cropsContainer.Clear();
         earthLife.Reset();
         stamina.Reset();
+        buildings.Clear();
+        breakables.Clear();
     }
 
 }

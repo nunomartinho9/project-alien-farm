@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PersistentBreakables : MonoBehaviour
@@ -10,15 +11,16 @@ public class PersistentBreakables : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetBreakables();
+        if (container.placeableObjects.Count <= 0)
+        {
+            GetAllBreakables();
+        }
+        else
+        {
+            DestroyInactiveBreakables();
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
        
     private void OnDestroy()
     {
@@ -27,23 +29,38 @@ public class PersistentBreakables : MonoBehaviour
             container.placeableObjects[i].renderer = null;
         }
     }
-    
+
+    private void DestroyInactiveBreakables()
+    {
+        foreach (Transform child in transform)
+        {
+            PlaceableObject po = container.Get(Vector3Int.FloorToInt(child.position));
+            if (po == null)
+            {
+                Destroy(child.gameObject);
+            }
+
+        }
+    }
     public void RemoveBreakable(Vector3Int position)
     {
         PlaceableObject po = container.Get(position);
-        po.Collected();
         container.placeableObjects.Remove(po);
     }
     
-    void GetBreakables()
+    void GetAllBreakables()
     {
+
         foreach (Transform child in transform)
         {
             PlaceableObject po = new PlaceableObject();
 
             po.position = Vector3Int.FloorToInt(child.position);
             po.rotation = child.rotation;
+            po.renderer = child.gameObject.GetComponent<SpriteRenderer>();
             container.Add(po);
+
+            
         }
             
     }

@@ -10,6 +10,7 @@ public class PlaceableObject
     public SpriteRenderer renderer;
     public Vector3Int position;
     public Quaternion rotation;
+    public GameObject prefab;
 
     internal void Collected()
     {

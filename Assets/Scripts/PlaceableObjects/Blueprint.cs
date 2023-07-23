@@ -21,8 +21,6 @@ public class Blueprint : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         targetTilemap = GameObject.Find("Grid").transform.GetChild(4).GetComponent<Tilemap>();
-        
-        VisualizeMap();
     }
 
     void Update()
@@ -62,13 +60,6 @@ public class Blueprint : MonoBehaviour
         }
     }
 
-    private void VisualizeMap()
-    {
-        for (int i = 0; i < container.placeableObjects.Count; i++)
-        {
-            VisualizeTile(container.placeableObjects[i]);
-        }
-    }
     
     private bool CanBuild(Vector3 pos)
     {
@@ -105,6 +96,7 @@ public class Blueprint : MonoBehaviour
 
         po.position = position;
         po.rotation = rotation;
+        po.prefab = building;
         container.Add(po);
 
         VisualizeTile(po);
