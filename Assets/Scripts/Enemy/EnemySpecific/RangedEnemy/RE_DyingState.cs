@@ -1,4 +1,6 @@
-﻿    public class RE_DyingState : DyingState
+﻿    using UnityEngine;
+
+    public class RE_DyingState : DyingState
     {
         private RangedEnemy enemy;
 
@@ -11,6 +13,7 @@
         {
             base.Enter();
             enemy.seedManager.IncreaseSeedCount(enemy.seedDrop);
+            enemy.enemyManager.IncreaseValue(1);
         }
 
         public override void Exit()

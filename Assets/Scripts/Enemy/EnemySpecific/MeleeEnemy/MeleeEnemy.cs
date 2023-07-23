@@ -16,7 +16,8 @@ public class MeleeEnemy : Entity
     
     [SerializeField] public float seedDrop;
     [SerializeField] public RewardsManagerSo seedManager;
-    [SerializeField] public FloatManagerSo floatManager;
+    [SerializeField] public FloatManagerSo hpManager;
+    [SerializeField] public FloatManagerSo enemyManager;
 
     public override void Start()
     {

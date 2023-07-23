@@ -14,6 +14,7 @@ public class DyingState : State
     public override void Enter()
     {
         base.Enter();
+        entity.alive.GetComponent<Collider>().enabled = false;
         entity.StopMoving();
         isDyingTimeOver = false;
     }

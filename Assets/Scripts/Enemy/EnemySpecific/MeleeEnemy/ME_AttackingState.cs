@@ -14,7 +14,7 @@ public class ME_AttackingState : AttackingState
     public override void Enter()
     {
         base.Enter();
-        enemy.floatManager.DecreaseValue(enemy.entityData.attackDamage);
+        enemy.hpManager.DecreaseValue(enemy.entityData.attackDamage);
     }
 
     public override void Exit()

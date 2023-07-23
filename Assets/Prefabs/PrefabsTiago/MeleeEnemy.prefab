@@ -1241,7 +1241,8 @@ MonoBehaviour:
   dyingStateData: {fileID: 11400000, guid: efdcb50192815734dba43291911df187, type: 2}
   seedDrop: 1
   seedManager: {fileID: 11400000, guid: 4fcc1dec52da45f4cb4f38d135de15e9, type: 2}
-  floatManager: {fileID: 11400000, guid: 5e6324e65aa21604badd848559c737ff, type: 2}
+  hpManager: {fileID: 11400000, guid: 5e6324e65aa21604badd848559c737ff, type: 2}
+  enemyManager: {fileID: 11400000, guid: e7592668deedc8f49904662f7c1ace06, type: 2}
 --- !u!1 &6152854645804114251
 GameObject:
   m_ObjectHideFlags: 0

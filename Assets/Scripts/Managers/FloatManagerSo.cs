@@ -48,5 +48,10 @@ public class FloatManagerSo : ScriptableObject
     {
         Value = maxValue;
     }
+    
+    public void Set(float v)
+    {
+        Value = v;
+    }
 
 }

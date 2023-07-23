@@ -13,6 +13,7 @@ public class ME_DyingState : DyingState
     {
         base.Enter();
         enemy.seedManager.IncreaseSeedCount(enemy.seedDrop);
+        enemy.enemyManager.IncreaseValue(1);
     }
 
     public override void Exit()
