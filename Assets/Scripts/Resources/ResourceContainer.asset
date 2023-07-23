@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a53ad039bdeb92429f85f284d731956, type: 3}
   m_Name: ResourceContainer
   m_EditorClassIdentifier: 
-  seeds: 0
+  seeds: 4
   startingMaxStacks: 100
   upgradeAmount: 100

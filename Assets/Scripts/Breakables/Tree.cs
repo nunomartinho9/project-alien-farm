@@ -8,7 +8,8 @@ public class Tree : MonoBehaviour, IBreakable
     private InventoryManager inventoryManager;
     [SerializeField] private ResourcesContainer resourcesContainer;
     private int life;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer; 
+    private PersistentBreakables breakablesContainer;
     public BreakableData Data => data;
 
     private void Start()
@@ -18,6 +19,7 @@ public class Tree : MonoBehaviour, IBreakable
         spriteRenderer.sprite = Data.Sprite;
 
         inventoryManager = GameObject.FindWithTag("GameController").GetComponent<InventoryManager>();
+        breakablesContainer = GameObject.Find("Breakables").GetComponent<PersistentBreakables>();
     }
 
     public void Damage()
@@ -28,6 +30,7 @@ public class Tree : MonoBehaviour, IBreakable
         if (life <= 0)
         {
             Drop();
+            breakablesContainer.RemoveBreakable(Vector3Int.FloorToInt(transform.position));
             Destroy(gameObject);
         }
     }

@@ -14,9 +14,15 @@ public class FloatManagerSo : ScriptableObject
         get;
         private set;
     }
-    [SerializeField] private float maxValue;
 
-    public float MaxValue => maxValue;
+    [SerializeField] private float startingMaxValue = 420f;
+    private float maxValue;
+
+    public float MaxValue
+    {
+        get => maxValue;
+        set => maxValue = value;
+    }
 
     [NonSerialized] public UnityEvent<float> floatChangeEvent;
 
@@ -47,6 +53,7 @@ public class FloatManagerSo : ScriptableObject
     public void Reset()
     {
         Value = maxValue;
+        maxValue = startingMaxValue;
     }
 
 }
