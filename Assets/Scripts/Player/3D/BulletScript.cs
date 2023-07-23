@@ -28,7 +28,6 @@ public class BulletScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy hit");
             Entity enemy = other.gameObject.GetComponentInParent<Entity>();
             enemy.TakeDamage(projectileDamage);
         }

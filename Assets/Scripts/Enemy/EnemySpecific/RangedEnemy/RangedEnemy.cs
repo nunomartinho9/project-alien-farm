@@ -16,6 +16,8 @@ public class RangedEnemy : Entity
     [SerializeField] private D_DyingState dyingStateData;
     [SerializeField] private GameObject projectile;
     
+    [SerializeField] public float seedDrop;
+    [SerializeField] public RewardsManagerSo seedManager;
 
     public override void Start()
     {

@@ -840,13 +840,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityData: {fileID: 11400000, guid: a56d18fc3339e2843afe3464ed5dceb2, type: 2}
-  target: {fileID: 0}
   shootingPoint: {fileID: 6696547732762619606}
   idleStateData: {fileID: 11400000, guid: e94835dacc1223c45b1f3af799cad302, type: 2}
   movingStateData: {fileID: 11400000, guid: 116ee1db86970da4aa9baed3f88a6b55, type: 2}
   attackingStateData: {fileID: 11400000, guid: 218e370604bb64541b9ef7471ced4947, type: 2}
   dyingStateData: {fileID: 11400000, guid: 665216aac00fb834088ebb639806a900, type: 2}
   projectile: {fileID: 3740592846810362349, guid: 927c5b859f8d62a44bf8196fc96e563d, type: 3}
+  seedDrop: 1
+  seedManager: {fileID: 11400000, guid: 4fcc1dec52da45f4cb4f38d135de15e9, type: 2}
 --- !u!1 &688415353436967564
 GameObject:
   m_ObjectHideFlags: 0

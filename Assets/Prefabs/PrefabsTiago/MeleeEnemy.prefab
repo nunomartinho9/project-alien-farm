@@ -1239,6 +1239,8 @@ MonoBehaviour:
   movingStateData: {fileID: 11400000, guid: 63a69ea5ea444864c800025f7d0271c0, type: 2}
   attackingStateData: {fileID: 11400000, guid: 327b8a99a4665044caca075086c9f144, type: 2}
   dyingStateData: {fileID: 11400000, guid: efdcb50192815734dba43291911df187, type: 2}
+  seedDrop: 1
+  seedManager: {fileID: 11400000, guid: 4fcc1dec52da45f4cb4f38d135de15e9, type: 2}
   floatManager: {fileID: 11400000, guid: 5e6324e65aa21604badd848559c737ff, type: 2}
 --- !u!1 &6152854645804114251
 GameObject:

@@ -5,6 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newAttackingStateData", menuName = "Data/State Data/Attacking State")]
 public class D_AttackingState : ScriptableObject
 {
-    //public float damage = 1f;
     public float isAttackingTimeOver = 1f;
 }

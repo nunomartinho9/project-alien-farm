@@ -6,7 +6,7 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] private Slider hpSlider;
     [SerializeField] private FloatManagerSo floatManager;
-    void Start()
+    private void Start()
     {
         floatManager.Reset();
         ChangeSliderValue(floatManager.Value);
@@ -20,11 +20,6 @@ public class HealthManager : MonoBehaviour
     private void OnDisable()
     {
         floatManager.floatChangeEvent.RemoveListener(ChangeSliderValue);
-    }
-
-    void Update()
-    {
-        
     }
 
     public void ChangeSliderValue(float amount)

@@ -13,14 +13,18 @@ public class SpawnerController : MonoBehaviour
     private Transform spawnPoint;
     private int spawnedCounter;
     private float spawnCountdown;
+    private Vector3 position;
+    private Quaternion rotation;
     private float timeBetweenSpawns = 5f;
     
     void Start()
     {
         spawnPoint = gameObject.transform.Find("SpawnPoint");
+        position = spawnPoint.position;
+        rotation = spawnPoint.rotation;
         spawnedCounter = 0;
         spawnCountdown = timeBetweenSpawns;
-        Instantiate(meleeEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        SpawnMelee(position, rotation);
     }
 
     void Update()
@@ -45,8 +49,6 @@ public class SpawnerController : MonoBehaviour
 
     private void SpawnCooser()
     {
-        var position = spawnPoint.position;
-        var rotation = spawnPoint.rotation;
         if (spawnedCounter % 2 == 0)
         {
             SpawnMelee(position, rotation);
@@ -55,18 +57,18 @@ public class SpawnerController : MonoBehaviour
         {
             SpawnRanged(position, rotation);
         }
-        spawnedCounter++;
         spawnCountdown = timeBetweenSpawns;
     }
 
     private void SpawnMelee(Vector3 position, Quaternion rotation)
     {
         Instantiate(meleeEnemyPrefab, position, rotation);
-        Instantiate(meleeEnemyPrefab, position, rotation);
+        spawnedCounter++;
     }
     
     private void SpawnRanged(Vector3 position, Quaternion rotation)
     {
         Instantiate(rangedEnemyPrefab, position, rotation);
+        spawnedCounter++;
     }
 }

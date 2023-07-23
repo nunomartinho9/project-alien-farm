@@ -10,7 +10,7 @@
         public override void Enter()
         {
             base.Enter();
-            
+            enemy.seedManager.IncreaseSeedCount(enemy.seedDrop);
         }
 
         public override void Exit()
