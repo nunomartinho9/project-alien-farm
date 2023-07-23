@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c7a0f58053c684684868fa10b7e685, type: 3}
-  m_Name: EarthLife
+  m_Script: {fileID: 11500000, guid: 8d0dc2d7d3309d04c993ce6860c4fa51, type: 3}
+  m_Name: Persistent Breakables Container
   m_EditorClassIdentifier: 
-  startingMaxValue: 420
+  placeableObjects:
+  - renderer: {fileID: 0}
+    position: {x: 7, y: -3, z: 0}
+    rotation: {x: -0, y: -0, z: -0, w: 1}

@@ -12,10 +12,11 @@ public class ResourcesContainer : ScriptableObject
    private int wood;
    private int rocks;
    private int starCrops;
-  [SerializeField] private int seeds = 5;
-
+   [SerializeField] private int seeds = 5;
+   
    [SerializeField] private int startingMaxStacks = 100;
    [SerializeField] private int upgradeAmount = 100;
+
    private int maxStacks;
 
    [NonSerialized] public UnityEvent updateResourcesEvent;
@@ -28,11 +29,7 @@ public class ResourcesContainer : ScriptableObject
 
    public int Seeds => seeds;
 
-   public int MaxResources
-   {
-      get => maxStacks;
-      set => maxStacks = value;
-   }
+   public int MaxResources => maxStacks;
 
    private void OnEnable()
    {

@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c7a0f58053c684684868fa10b7e685, type: 3}
-  m_Name: EarthLife
+  m_Script: {fileID: 11500000, guid: be0b9fcd40b097848be82189ccaf9b6a, type: 3}
+  m_Name: LabRecipe
   m_EditorClassIdentifier: 
-  startingMaxValue: 420
+  resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
+  amountOfWood: 1
+  amountOfStone: 1
+  amountOfStars: 1

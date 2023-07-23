@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8140292439172643797
+--- !u!1 &4897835868648836037
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8140292439172643794}
-  - component: {fileID: 8140292439172643795}
-  - component: {fileID: 968461027724260902}
-  - component: {fileID: 72673447195687728}
-  m_Layer: 6
-  m_Name: hospital
+  - component: {fileID: 6463873228938042148}
+  - component: {fileID: 7179796442269112384}
+  - component: {fileID: 1048295813381487346}
+  m_Layer: 0
+  m_Name: transport_blueprint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8140292439172643794
+--- !u!4 &6463873228938042148
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8140292439172643797}
+  m_GameObject: {fileID: 4897835868648836037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +33,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8140292439172643795
+--- !u!212 &7179796442269112384
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8140292439172643797}
+  m_GameObject: {fileID: 4897835868648836037}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,58 +74,34 @@ SpriteRenderer:
   m_SortingLayerID: -1695579471
   m_SortingLayer: 10
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 83f8eb133dc67ad4c93503a50a99fd35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5c8d7ce0461cb146808cf6b451f2a90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.93, y: 3.49}
+  m_Size: {x: 3.39, y: 3.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &968461027724260902
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8140292439172643797}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05347252}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.93, y: 3.49}
-    newSize: {x: 3.93, y: 3.49}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.75, y: 3.2630548}
-  m_EdgeRadius: 0
---- !u!114 &72673447195687728
+--- !u!114 &1048295813381487346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8140292439172643797}
+  m_GameObject: {fileID: 4897835868648836037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb13e964a3b98be44b835685c8e8208f, type: 3}
+  m_Script: {fileID: 11500000, guid: f29aaf98369225d44a4f493533d099c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  earthLife: {fileID: 11400000, guid: 4bae0802bd3cfb2459767b15d6222f40, type: 2}
-  valueToHeal: 20
-  coolDownToHeal: 15
-  cooldownGetFuel: 30
-  resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
-  fuelNeeded: 4
+  building: {fileID: 4897835868648836037, guid: c4978f9e08ecc9e4ca0909f5f5cc25c7, type: 3}
+  targetTilemap: {fileID: 0}
+  container: {fileID: 11400000, guid: 553b7cc8ba93ca04aa6eabaf74aa932e, type: 2}
+  whatIsBreakable:
+    serializedVersion: 2
+    m_Bits: 64
+  interactRadius: 2
+  recipe: {fileID: 11400000, guid: 5f1d112ef648c6a41b91ac16188cb964, type: 2}
