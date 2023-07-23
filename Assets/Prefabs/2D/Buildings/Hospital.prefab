@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8140292439172643794}
   - component: {fileID: 8140292439172643795}
   - component: {fileID: 968461027724260902}
+  - component: {fileID: 72673447195687728}
   m_Layer: 6
   m_Name: hospital
   m_TagString: Untagged
@@ -111,3 +112,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.75, y: 3.2630548}
   m_EdgeRadius: 0
+--- !u!114 &72673447195687728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140292439172643797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb13e964a3b98be44b835685c8e8208f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  earthLife: {fileID: 11400000, guid: 4bae0802bd3cfb2459767b15d6222f40, type: 2}
+  valueToHeal: 20
+  coolDownToHeal: 15
+  cooldownGetFuel: 30
+  resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
+  fuelNeeded: 4

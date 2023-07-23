@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8955780704336901870}
   - component: {fileID: 8911259887805792234}
   - component: {fileID: 6941079083820921299}
+  - component: {fileID: 5001830230751359618}
   m_Layer: 6
   m_Name: barn
   m_TagString: Untagged
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.02, y: 3.589005}
   m_EdgeRadius: 0
+--- !u!114 &5001830230751359618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924795465640187799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a6c046fbfdb5a429a2f6e27dcab4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}

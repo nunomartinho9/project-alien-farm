@@ -104,3 +104,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   interactRadius: 2
+  recipe: {fileID: 11400000, guid: 6d4377843dcf1da4a875fdaf1c77a4a8, type: 2}

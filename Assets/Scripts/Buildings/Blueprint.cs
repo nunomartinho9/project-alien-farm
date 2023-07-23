@@ -14,6 +14,8 @@ public class Blueprint : MonoBehaviour
     
     [SerializeField] private LayerMask whatIsBreakable;
     [SerializeField] private float interactRadius = 5f;
+    [SerializeField] private RecipeData recipe;
+    public RecipeData GetRecipe => recipe;
     private bool isColliding;
     private SpriteRenderer spriteRenderer;
     void Start()
@@ -48,6 +50,7 @@ public class Blueprint : MonoBehaviour
         {
             if (!canbuild) return;
             CreateBuildingTile(targetTilemap.WorldToCell(postionOnGrid), transform.rotation);
+            recipe.Craft();
             Destroy(gameObject);
         }
     }

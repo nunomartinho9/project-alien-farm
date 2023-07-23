@@ -9,6 +9,14 @@ public class EarthLifeTimer : MonoBehaviour
 
     [SerializeField] private FloatManagerSo lifeManager;
     [SerializeField] private float decreaseCooldown = 0f;
+    
+    
+    public float DecreaseCooldown
+    {
+        get => decreaseCooldown;
+        set => decreaseCooldown = value;
+    }
+    
     private float timestamp;
 
     private void Awake()
@@ -19,7 +27,6 @@ public class EarthLifeTimer : MonoBehaviour
     private void Start()
     {
         lifeManager.CallEvent();
-        lifeManager.Reset(); //todo: REMOVE BEFORE BUILD
         timestamp = Time.time + decreaseCooldown;
     }
 
@@ -43,5 +50,8 @@ public class EarthLifeTimer : MonoBehaviour
             Time.timeScale = 0f;
             
         }
+
     }
+    
+    
 }

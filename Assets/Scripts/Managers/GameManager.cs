@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         TimeController = GetComponent<TimeController>();
         InventoryManager = GetComponent<InventoryManager>();
         
-        ResetGame(); //todo: remove from final version
+       // ResetGame(); //todo: remove from final version
     }
 
     private void Start()
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         {
             InventoryManager.AddItem(i);
         }
-        ResetGame(); //todo: remove from final version
+        // ResetGame(); //todo: remove from final version
     }
 
     private void Update()
