@@ -804,7 +804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686359166085832120}
   - component: {fileID: 6696547731818763195}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RangedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

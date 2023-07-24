@@ -18,8 +18,8 @@ TagManager:
   - Breakable
   - Interactable
   - Player
-  - 
-  - 
+  - Projectile
+  - Enemy
   - 
   - 
   - 

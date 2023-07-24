@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6c7a0f58053c684684868fa10b7e685, type: 3}
-  m_Name: Player Health
+  m_Name: EnemyCount
   m_EditorClassIdentifier: 
-  maxValue: 100
+  startingMaxValue: 20

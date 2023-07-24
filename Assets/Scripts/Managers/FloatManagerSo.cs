@@ -43,6 +43,7 @@ public class FloatManagerSo : ScriptableObject
     {
         if (Value < maxValue) Value += v;
         floatChangeEvent?.Invoke(Value);
+        Debug.Log("chamei evento1");
     }
 
     public void CallEvent()
@@ -52,8 +53,8 @@ public class FloatManagerSo : ScriptableObject
 
     public void Reset()
     {
-        Value = maxValue;
         maxValue = startingMaxValue;
+        Value = maxValue;
     }
     
     public void Set(float v)

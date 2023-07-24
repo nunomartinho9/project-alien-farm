@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Transport : MonoBehaviour
+public class Transport : MonoBehaviour, IBuildingBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private RewardsManagerSo actionGameInfo;
+
+    private void Start()
     {
-        
+        DoBehaviour();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DoBehaviour()
     {
-        
+        Debug.Log("fui chamado transport");
+        actionGameInfo.UpgradePopulationGain();
     }
 }

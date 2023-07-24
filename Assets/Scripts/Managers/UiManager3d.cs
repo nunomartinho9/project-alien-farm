@@ -12,6 +12,7 @@ public class UiManager3d : MonoBehaviour
     private void Start()
     {
         hpManager.Reset();
+        enemiesManager.Reset();
         enemiesManager.Set(0);
         ChangeSliderValue(hpManager.Value);
         ChangeTextValue(enemiesManager.Value);

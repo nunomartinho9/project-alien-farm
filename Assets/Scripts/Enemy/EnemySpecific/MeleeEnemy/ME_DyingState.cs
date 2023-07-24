@@ -13,6 +13,7 @@ public class ME_DyingState : DyingState
     {
         base.Enter();
         enemy.seedManager.IncreaseSeedCount(enemy.seedDrop);
+        Debug.Log("ALO1");
         enemy.enemyManager.IncreaseValue(1);
     }
 
