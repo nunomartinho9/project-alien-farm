@@ -16,6 +16,9 @@ public class Player3DController : MonoBehaviour
     [SerializeField] private float walkSpeed = 15f;
     [SerializeField] private float sprintSpeed = 22f; 
     [SerializeField] private float gravityValue = -9.81f;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask whatIsGround;
+    
     private float playerSpeed;
 
     [Header("Look")]
@@ -106,12 +109,11 @@ public class Player3DController : MonoBehaviour
     private void PlayerJump()
     {
         // Changes the height position of the player
-        if (inputManager.PlayerJumped() && readyJump && groundedPlayer)
+        if (inputManager.PlayerJumped() && readyJump && IsGrounded())
         {
             readyJump = false;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             ResetJump();
-            //Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
 
@@ -120,8 +122,9 @@ public class Player3DController : MonoBehaviour
         readyJump = true;
     }
 
-    public void TakeDamage(float damage)
+    private bool IsGrounded()
     {
-        return;
+        Debug.Log(Physics.CheckSphere(groundCheck.position, .5f, whatIsGround));
+        return Physics.CheckSphere(groundCheck.position, .1f, whatIsGround);
     }
 }
