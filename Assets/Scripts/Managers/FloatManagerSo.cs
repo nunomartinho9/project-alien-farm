@@ -28,6 +28,7 @@ public class FloatManagerSo : ScriptableObject
 
     private void OnEnable()
     {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
         //Value = maxValue;
         if (floatChangeEvent == null)
             floatChangeEvent = new UnityEvent<float>();
@@ -43,7 +44,6 @@ public class FloatManagerSo : ScriptableObject
     {
         if (Value < maxValue) Value += v;
         floatChangeEvent?.Invoke(Value);
-        Debug.Log("chamei evento1");
     }
 
     public void CallEvent()

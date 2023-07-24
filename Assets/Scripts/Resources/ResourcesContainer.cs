@@ -101,5 +101,10 @@ public class ResourcesContainer : ScriptableObject
       updateResourcesEvent?.Invoke();
 
    }
+
+   public void CallEvent()
+   {
+      updateResourcesEvent?.Invoke();
+   }
    
 }

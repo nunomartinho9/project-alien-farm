@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public TimeController TimeController { get; private set; }
     private InventoryManager InventoryManager { get; set; }
     [SerializeField] private List<Item> startingItems;
-
     #region Persistent Data
 
     [SerializeField] private ResourcesContainer resourcesContainer;
@@ -26,17 +25,18 @@ public class GameManager : MonoBehaviour
         TimeController = GetComponent<TimeController>();
         InventoryManager = GetComponent<InventoryManager>();
         
-       // ResetGame(); //todo: remove from final version
     }
 
     private void Start()
     {
+        //sceneTransition.SetActive(true);
+        
         if (startingItems == null) return;
         foreach (Item i in startingItems)
         {
             InventoryManager.AddItem(i);
         }
-        // ResetGame(); //todo: remove from final version
+        UpdateAllUi();
     }
 
     private void Update()
@@ -55,4 +55,11 @@ public class GameManager : MonoBehaviour
         breakables.Clear();
     }
 
+
+    private void UpdateAllUi()
+    {
+        resourcesContainer.CallEvent();
+        earthLife.CallEvent();
+        stamina.CallEvent();
+    }
 }

@@ -20,5 +20,6 @@ public class Lab : MonoBehaviour, IBuildingBehaviour
         float newMaxValue = oldMaxValue + maxValueUpgrade;
         earthLife.MaxValue = newMaxValue;
         earthLife.IncreaseValue(newMaxValue-oldMaxValue);
+        Debug.Log("Lab chamado");
     }
 }

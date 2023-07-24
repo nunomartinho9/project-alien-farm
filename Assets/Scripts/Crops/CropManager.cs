@@ -58,6 +58,7 @@ public class CropManager : TimeAgent
 
     private void OnDestroy()
     {
+        if (container.crops.Count == 0) return;
         for (int i = 0; i < container.crops.Count; i++)
         {
             container.crops[i].renderer = null;

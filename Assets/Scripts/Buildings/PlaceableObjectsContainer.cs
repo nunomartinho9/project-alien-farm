@@ -23,6 +23,8 @@ public class PlaceableObjectsContainer : ScriptableObject
 {
     public List<PlaceableObject> placeableObjects;
 
+    private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
+    
     public void Add(PlaceableObject placeableObject)
     {
         placeableObjects.Add(placeableObject);
