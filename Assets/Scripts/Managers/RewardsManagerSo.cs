@@ -20,7 +20,7 @@ public class RewardsManagerSo : ScriptableObject
     {
         hideFlags = HideFlags.DontUnloadUnusedAsset;
         Seeds = 0;
-        PopulationGain = startingPopGain;
+        
         if (seedsChangeEvent == null)
             seedsChangeEvent = new UnityEvent<float>();
     }
@@ -40,5 +40,10 @@ public class RewardsManagerSo : ScriptableObject
     {
         PopulationGain += upgradePopGain;
         Debug.Log("fui chamado");
+    }
+
+    public void Reset()
+    {
+        PopulationGain = startingPopGain;
     }
 }

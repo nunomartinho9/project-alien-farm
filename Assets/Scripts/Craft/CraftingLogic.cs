@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,6 +12,8 @@ public class CraftingLogic : MonoBehaviour
     [SerializeField] private List<GameObject> blueprints;
     [SerializeField] private GameObject craftGO;
     private GameObject instatietedBlueprint;
+    [SerializeField] private GameObject collectable;
+    private GameObject collectableInfo;
     private void Update()
     {
         DespawnBlueprint();
@@ -30,6 +33,12 @@ public class CraftingLogic : MonoBehaviour
         else
         {
             Debug.Log("CANT CRAFT, DONT HAVE NECESSARY RESOURCES");
+            GameObject go = Instantiate(collectable);
+        
+            collectableInfo = go.transform.GetChild(0).gameObject;
+            collectableInfo.GetComponent<TMP_Text>().text = "Not Enough Resources";
+            collectableInfo.GetComponent<TMP_Text>().color = Color.red;
+            Destroy(go, 2f);
         }
         
     }

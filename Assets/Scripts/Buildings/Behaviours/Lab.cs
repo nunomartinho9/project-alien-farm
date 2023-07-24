@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Lab : MonoBehaviour, IBuildingBehaviour
@@ -8,6 +9,8 @@ public class Lab : MonoBehaviour, IBuildingBehaviour
     [SerializeField] private FloatManagerSo earthLife;
 
     [SerializeField] private float maxValueUpgrade;
+    [SerializeField] private GameObject collectable;
+    private GameObject collectableInfo;
     // Update is called once per frame
 
     private void Start()
@@ -21,5 +24,11 @@ public class Lab : MonoBehaviour, IBuildingBehaviour
         earthLife.MaxValue = newMaxValue;
         earthLife.IncreaseValue(newMaxValue-oldMaxValue);
         Debug.Log("Lab chamado");
+        GameObject go = Instantiate(collectable);
+        
+        collectableInfo = go.transform.GetChild(0).gameObject;
+        collectableInfo.GetComponent<TMP_Text>().text = "Humans can survive " + (newMaxValue-oldMaxValue) + "s longer!";
+        collectableInfo.GetComponent<TMP_Text>().color = Color.green;
+        Destroy(go, 1.1f);
     }
 }

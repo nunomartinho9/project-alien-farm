@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Tree : MonoBehaviour, IBreakable
@@ -10,6 +11,8 @@ public class Tree : MonoBehaviour, IBreakable
     private int life;
     private SpriteRenderer spriteRenderer; 
     private PersistentBreakables breakablesContainer;
+    [SerializeField] private GameObject collectable;
+    private GameObject collectableInfo;
     public BreakableData Data => data;
 
     private void Start()
@@ -20,6 +23,7 @@ public class Tree : MonoBehaviour, IBreakable
 
         inventoryManager = GameObject.FindWithTag("GameController").GetComponent<InventoryManager>();
         breakablesContainer = GameObject.Find("Breakables").GetComponent<PersistentBreakables>();
+        
     }
 
     public void Damage()
@@ -38,5 +42,11 @@ public class Tree : MonoBehaviour, IBreakable
     public void Drop()
     {
         resourcesContainer.AddWood(data.QuantityToDrop);
+        GameObject go = Instantiate(collectable);
+        
+        collectableInfo = go.transform.GetChild(0).gameObject;
+        collectableInfo.GetComponent<TMP_Text>().text = "+ " + data.QuantityToDrop + " Wood";
+        collectableInfo.GetComponent<TMP_Text>().color = new Color(0, 255, 0, 255);
+        Destroy(go, 2f);
     }
 }

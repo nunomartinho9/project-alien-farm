@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FloatManagerSo stamina;
     [SerializeField] private PlaceableObjectsContainer buildings;
     [SerializeField] private PlaceableObjectsContainer breakables;
+    [SerializeField] private RewardsManagerSo rewards;
     #endregion
 
     // Start is called before the first frame update
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
         stamina.Reset();
         buildings.Clear();
         breakables.Clear();
+        rewards.Reset();
     }
 
 

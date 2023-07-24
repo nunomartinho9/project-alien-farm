@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Hospital : MonoBehaviour, IBuildingBehaviour
@@ -11,6 +12,8 @@ public class Hospital : MonoBehaviour, IBuildingBehaviour
     [SerializeField] private float cooldownGetFuel;
     [SerializeField] private ResourcesContainer resources;
     [SerializeField] private int fuelNeeded;
+    [SerializeField] private GameObject collectable;
+    private GameObject collectableInfo;
     private bool hasFuel;
     private float timestamp, timestamp2;
     
@@ -31,12 +34,24 @@ public class Hospital : MonoBehaviour, IBuildingBehaviour
         {
             if (resources.StarCrops >= fuelNeeded)
             {
-                resources.UseStarCrop(fuelNeeded);
                 hasFuel = true;
+                resources.UseStarCrop(fuelNeeded);
+                GameObject go = Instantiate(collectable);
+        
+                collectableInfo = go.transform.GetChild(0).gameObject;
+                collectableInfo.GetComponent<TMP_Text>().text = "Used " + fuelNeeded + "Stars to fuel the hospital";
+                collectableInfo.GetComponent<TMP_Text>().color = Color.green;
+                Destroy(go, 1.1f);
             }
             else
             {
                 Debug.Log("n tem fuel");
+                GameObject go = Instantiate(collectable);
+        
+                collectableInfo = go.transform.GetChild(0).gameObject;
+                collectableInfo.GetComponent<TMP_Text>().text = "Not enough fuel to help humans";
+                collectableInfo.GetComponent<TMP_Text>().color = Color.red;
+                Destroy(go, 1.1f);
                 hasFuel = false;
             }
             timestamp2 = Time.time + cooldownGetFuel;
@@ -57,6 +72,12 @@ public class Hospital : MonoBehaviour, IBuildingBehaviour
             earthLife.IncreaseValue(valueToHeal);
             timestamp = Time.time + coolDownToHeal;
             Debug.Log("HELEAD");
+            GameObject go = Instantiate(collectable);
+        
+            collectableInfo = go.transform.GetChild(0).gameObject;
+            collectableInfo.GetComponent<TMP_Text>().text = "Healed " + valueToHeal + " humans!";
+            collectableInfo.GetComponent<TMP_Text>().color = Color.green;
+            Destroy(go, 1.1f);
         }
     }
 }

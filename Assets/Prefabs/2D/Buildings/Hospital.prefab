@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 968461027724260902}
   - component: {fileID: 72673447195687728}
   m_Layer: 6
-  m_Name: hospital
+  m_Name: Hospital
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,3 +130,4 @@ MonoBehaviour:
   cooldownGetFuel: 30
   resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
   fuelNeeded: 4
+  collectable: {fileID: 1884171603303280659, guid: 381407d94b2ebfe4da024ece22990bb0, type: 3}

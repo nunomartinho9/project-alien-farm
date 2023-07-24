@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0.064085685, b: 0.38679248, a: 1}
+  m_AmbientEquatorColor: {r: 0.017755438, g: 0.23229478, b: 0.5377358, a: 1}
+  m_AmbientGroundColor: {r: 0.0037379821, g: 0.007493555, b: 0.03773582, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_AmbientMode: 1
+  m_SubtractiveShadowColor: {r: 0.34242615, g: 0.4991619, b: 0.8962264, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f8a60d169ab8a46b09c9b01a3e51601f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.04025992, g: 0.57794255, b: 0.59351003, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3694,7 +3694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5795990721105374037, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5873458727613998145, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: m_Layer
@@ -7225,6 +7225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCount: {fileID: 11400000, guid: e7592668deedc8f49904662f7c1ace06, type: 2}
   playerHealth: {fileID: 11400000, guid: 5e6324e65aa21604badd848559c737ff, type: 2}
+  rewards: {fileID: 11400000, guid: 4fcc1dec52da45f4cb4f38d135de15e9, type: 2}
+  earthLife: {fileID: 11400000, guid: 4bae0802bd3cfb2459767b15d6222f40, type: 2}
+  resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
   winScreen: {fileID: 160263702}
   looseScreen: {fileID: 1288680857}
   animator: {fileID: 480887474}

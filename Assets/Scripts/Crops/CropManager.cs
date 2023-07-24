@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
@@ -45,6 +46,9 @@ public class CropManager : TimeAgent
     [SerializeField] private CropsContainer container;
     [SerializeField] private CropData cropData;
     [SerializeField] private ResourcesContainer resources;
+    [SerializeField] private GameObject collectable;
+    private GameObject collectableInfo;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -107,6 +111,12 @@ public class CropManager : TimeAgent
             if (tile.crop.CropDrops.Length == 0) return;
 
             resources.AddStarCrops(tile.crop.CropDrops[0].Quantity);
+            GameObject go = Instantiate(collectable);
+        
+            collectableInfo = go.transform.GetChild(0).gameObject;
+            collectableInfo.GetComponent<TMP_Text>().text = "+ " + tile.crop.CropDrops[0].Quantity + " Star/s";
+            collectableInfo.GetComponent<TMP_Text>().color = new Color(0, 255, 0, 255);
+            Destroy(go, 2f);
             tile.Harvested();
             VisualizeTile(tile);
             interactableMap.SetTile(tile.position, hiddenInteractableTile);
