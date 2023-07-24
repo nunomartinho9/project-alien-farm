@@ -19,7 +19,7 @@ public class GunScript : MonoBehaviour
 
     void Update()
     {
-        if (_inputManager.PlayerShoot())
+        if (Time.timeScale != 0)
         {
             Shoot();
         }
@@ -27,18 +27,21 @@ public class GunScript : MonoBehaviour
 
     void Shoot()
     {
-        muzzleFlash.GetComponent<ParticleSystem>().Play();
-        GameObject bullet = Instantiate(bulletPrefab, exitPoint.position, exitPoint.rotation.normalized, new RectTransform());
-        BulletScript bulletController = bullet.GetComponent<BulletScript>();
+        if (_inputManager.PlayerShoot())
+        {
+            muzzleFlash.GetComponent<ParticleSystem>().Play();
+            GameObject bullet = Instantiate(bulletPrefab, exitPoint.position, exitPoint.rotation.normalized, new RectTransform());
+            BulletScript bulletController = bullet.GetComponent<BulletScript>();
 
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out var hit, range))
-        {
-            bulletController.target = hit.point;
-            bulletController.hit = true;
-        }else
-        {
-            bulletController.target = fpsCam.transform.position + fpsCam.transform.forward * range;
-            bulletController.hit = false;
+            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out var hit, range))
+            {
+                bulletController.target = hit.point;
+                bulletController.hit = true;
+            }else
+            {
+                bulletController.target = fpsCam.transform.position + fpsCam.transform.forward * range;
+                bulletController.hit = false;
+            }
         }
     }
 }
