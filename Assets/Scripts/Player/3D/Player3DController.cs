@@ -24,14 +24,14 @@ public class Player3DController : MonoBehaviour
     private float xRotation = 0f;
     
     [Header("Jump")]
-    [SerializeField] private float jumpCooldown = 5.0f;
+    //[SerializeField] private float jumpCooldown = 5.0f;
     [SerializeField] private float jumpHeight = 7.0f;
     private bool readyJump;
 
     [Header("Ground Check")]
     private bool groundedPlayer;
 
-    private MovementState state;
+    //private MovementState state;
     private enum MovementState
     {
         walking,
@@ -66,14 +66,14 @@ public class Player3DController : MonoBehaviour
         // Sprinting
         if (groundedPlayer && inputManager.PlayerSprint())
         {
-            state = MovementState.sprinting;
+            //state = MovementState.sprinting;
             playerSpeed = sprintSpeed;
         }
         
         // Walking
         else if (groundedPlayer)
         {
-            state = MovementState.walking;
+            //state = MovementState.walking;
             playerSpeed = walkSpeed;
         }
     }
@@ -106,11 +106,12 @@ public class Player3DController : MonoBehaviour
     private void PlayerJump()
     {
         // Changes the height position of the player
-        if (inputManager.PlayerJumped() && readyJump)
+        if (inputManager.PlayerJumped() && readyJump && groundedPlayer)
         {
             readyJump = false;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            Invoke(nameof(ResetJump), jumpCooldown);
+            ResetJump();
+            //Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
 
