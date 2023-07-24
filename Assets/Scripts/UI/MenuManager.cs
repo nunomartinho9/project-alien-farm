@@ -18,6 +18,15 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject contBtn, playBtn;
     [SerializeField] private Slider volumeSlider;
 
+    private InputManager _inputManager;
+    private bool isPaused;
+
+    private void Awake()
+    {
+        _inputManager = InputManager.Instance;
+        isPaused = false;
+    }
+
     private void Start()
     {
         Cursor.visible = false;
@@ -64,20 +73,33 @@ public class MenuManager : MonoBehaviour
     public void Play()
     {
         mainMenuGO.SetActive(false);
-        SceneManager.LoadScene("level1");
+        
+        // call data clear function
+        
+        SceneManager.LoadScene("2D");
     }
 
+    /*
     public void Pause()
     {
-        if (Input.GetKeyDown("Escape"))
+        if (SceneManager.GetActiveScene().name.Equals("2D"))
         {
-            pauseMenuGO.SetActive(true);
-            if (Input.GetKeyDown("Escape"))
+            if (_inputManager.PlayerPause() && isPaused)
             {
+                isPaused = true;
+                Time.timeScale = 0;
+                pauseMenuGO.SetActive(true);
+            }
+            else if (_inputManager.PlayerPause() && !isPaused)
+            {
+                isPaused = false;
+                Time.timeScale = 1;
                 pauseMenuGO.SetActive(false);
             }
         }
+
     }
+    */
 
     public void Resume()
     {
@@ -87,7 +109,7 @@ public class MenuManager : MonoBehaviour
     public void Continue()
     {
         mainMenuGO.SetActive(false);
-        SceneManager.LoadScene("level1");
+        SceneManager.LoadScene("2D");
     }
 
     public void QuitGame()
