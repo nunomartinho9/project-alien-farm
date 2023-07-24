@@ -8,16 +8,6 @@ public class EarthLifeTimer : MonoBehaviour
 {
 
     [SerializeField] private FloatManagerSo lifeManager;
-    [SerializeField] private float decreaseCooldown = 0f;
-    
-    
-    public float DecreaseCooldown
-    {
-        get => decreaseCooldown;
-        set => decreaseCooldown = value;
-    }
-    
-    private float timestamp;
 
     private void Awake()
     {
@@ -27,7 +17,6 @@ public class EarthLifeTimer : MonoBehaviour
     private void Start()
     {
         lifeManager.CallEvent();
-        timestamp = Time.time + decreaseCooldown;
     }
 
     private void Update()
@@ -35,13 +24,8 @@ public class EarthLifeTimer : MonoBehaviour
         
         if (lifeManager.Value > 0.0f)
         {
-
-            if (timestamp <= Time.time)
-            {
                 lifeManager.DecreaseValue(Time.deltaTime);
-                timestamp = Time.time + decreaseCooldown;
-            }
-            
+
         }
 
         if (lifeManager.Value <= 0)

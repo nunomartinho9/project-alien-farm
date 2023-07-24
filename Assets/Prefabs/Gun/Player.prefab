@@ -1527,7 +1527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &564536247509693808
 Transform:
   m_ObjectHideFlags: 0
@@ -2117,9 +2117,12 @@ MonoBehaviour:
   walkSpeed: 20
   sprintSpeed: 40
   gravityValue: -40
+  groundCheck: {fileID: 0}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
   xSensivity: 30
   ySensivity: 30
-  jumpCooldown: 1
   jumpHeight: 15
 --- !u!136 &6340290876152207557
 CapsuleCollider:
@@ -2148,7 +2151,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 2130059675}
-  floatManager: {fileID: 11400000, guid: 5e6324e65aa21604badd848559c737ff, type: 2}
+  enemiesKilled: {fileID: 0}
+  hpManager: {fileID: 0}
+  enemiesManager: {fileID: 0}
+  pauseScreen: {fileID: 0}
+  winScreen: {fileID: 0}
+  loseScreen: {fileID: 0}
 --- !u!1 &6340290876187470245
 GameObject:
   m_ObjectHideFlags: 0

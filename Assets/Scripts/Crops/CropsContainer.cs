@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,13 @@ using UnityEngine;
 public class CropsContainer : ScriptableObject
 {
     
+    
     public List<CropTile> crops;
+
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 
     public CropTile Get(Vector3Int position)
     {

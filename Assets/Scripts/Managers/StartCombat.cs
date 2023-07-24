@@ -31,7 +31,7 @@ public class StartCombat : MonoBehaviour
 
     IEnumerator LoadLevel()
     {
-        //transitionAnim.Play("LevelE");
+        transitionAnim.Play("LevelE");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Level 1");
         

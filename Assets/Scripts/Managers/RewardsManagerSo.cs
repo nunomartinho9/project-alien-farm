@@ -18,6 +18,7 @@ public class RewardsManagerSo : ScriptableObject
 
     public void OnEnable()
     {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
         Seeds = 0;
         PopulationGain = startingPopGain;
         if (seedsChangeEvent == null)

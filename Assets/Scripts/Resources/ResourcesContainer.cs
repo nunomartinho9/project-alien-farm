@@ -33,6 +33,7 @@ public class ResourcesContainer : ScriptableObject
 
    private void OnEnable()
    {
+      hideFlags = HideFlags.DontUnloadUnusedAsset;
       if (updateResourcesEvent == null) 
          updateResourcesEvent = new UnityEvent();
    }
