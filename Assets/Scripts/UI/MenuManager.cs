@@ -19,10 +19,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
 
     private InputManager _inputManager;
+    private bool isPaused;
 
     private void Awake()
     {
         _inputManager = InputManager.Instance;
+        isPaused = false;
     }
 
     private void Start()
@@ -80,14 +82,22 @@ public class MenuManager : MonoBehaviour
     /*
     public void Pause()
     {
-        if (_inputManager.PlayerPause() && SceneManager.GetActiveScene().name.Equals("2D"))
+        if (SceneManager.GetActiveScene().name.Equals("2D"))
         {
-            pauseMenuGO.SetActive(true);
-            if (Input.GetKeyDown("Escape"))
+            if (_inputManager.PlayerPause() && isPaused)
             {
+                isPaused = true;
+                Time.timeScale = 0;
+                pauseMenuGO.SetActive(true);
+            }
+            else if (_inputManager.PlayerPause() && !isPaused)
+            {
+                isPaused = false;
+                Time.timeScale = 1;
                 pauseMenuGO.SetActive(false);
             }
         }
+
     }
     */
 
