@@ -9,9 +9,17 @@ public class Transport : MonoBehaviour, IBuildingBehaviour
     [SerializeField] private RewardsManagerSo actionGameInfo;
     [SerializeField] private GameObject collectable;
     private GameObject collectableInfo;
+    [SerializeField] private PlaceableObjectsContainer poContainer;
+    private PlaceableObject po;
     private void Start()
     {
-        DoBehaviour();
+        Vector3Int position = Vector3Int.FloorToInt(transform.position);
+        po = poContainer.Get(position);
+        if (po == null) return;
+        if (!po.isBehaviourDone)
+        {
+            DoBehaviour();
+        }
     }
 
     public void DoBehaviour()
@@ -24,5 +32,6 @@ public class Transport : MonoBehaviour, IBuildingBehaviour
         collectableInfo.GetComponent<TMP_Text>().text = "More transports, More resources brought from combat!";
         collectableInfo.GetComponent<TMP_Text>().color = Color.green;
         Destroy(go, 1.1f);
+        po.isBehaviourDone = true;
     }
 }

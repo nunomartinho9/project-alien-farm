@@ -28,14 +28,13 @@ public class WinCondition : MonoBehaviour
     {
         if (enemyCount.Value == 20f)
         {
-            Debug.Log("GANHEI");
-            winScreen.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            earthLife.IncreaseValue(rewards.PopulationGain);
-            resources.AddSeeds((int)rewards.Seeds);
+            
+            
             if (canChangeTime)
             {
+                winScreen.SetActive(true);
+                EnableCursor();
+                GiveRewards();
                 Time.timeScale = 0f;
                 canChangeTime = false;
             }
@@ -43,15 +42,26 @@ public class WinCondition : MonoBehaviour
 
         if (playerHealth.Value <= 0)
         {
-            looseScreen.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
             if (canChangeTime)
             {
+                looseScreen.SetActive(true);
+                EnableCursor();
                 Time.timeScale = 0f;
                 canChangeTime = false;
             }
         }
+    }
+
+    private static void EnableCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void GiveRewards()
+    {
+        earthLife.IncreaseValue(rewards.PopulationGain);
+        resources.AddSeeds((int)rewards.Seeds);
     }
 
     public void ReturnToBase()

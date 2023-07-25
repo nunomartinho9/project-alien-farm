@@ -40,9 +40,9 @@ public class FloatManagerSo : ScriptableObject
         floatChangeEvent?.Invoke(Value);
     }
     
-    public void IncreaseValue(float v)
+    public void IncreaseValue(float amount)
     {
-        if (Value < maxValue) Value += v;
+        Value = Mathf.Clamp(Value+amount, 0, MaxValue);
         floatChangeEvent?.Invoke(Value);
     }
 

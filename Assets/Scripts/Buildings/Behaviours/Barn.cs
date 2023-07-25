@@ -7,11 +7,20 @@ using UnityEngine;
 public class Barn : MonoBehaviour, IBuildingBehaviour
 {
     [SerializeField] private ResourcesContainer container;
+    [SerializeField] private PlaceableObjectsContainer poContainer;
     [SerializeField] private GameObject collectable;
     private GameObject collectableInfo;
+    private PlaceableObject po;
     private void Start()
     {
-        DoBehaviour();
+        Vector3Int position = Vector3Int.FloorToInt(transform.position);
+        po = poContainer.Get(position);
+        if (po == null) return;
+        if (!po.isBehaviourDone)
+        {
+            DoBehaviour();
+        }
+
     }
 
     public void DoBehaviour()
@@ -23,5 +32,7 @@ public class Barn : MonoBehaviour, IBuildingBehaviour
         collectableInfo.GetComponent<TMP_Text>().text = "Max resources upgraded!";
         collectableInfo.GetComponent<TMP_Text>().color = Color.green;
         Destroy(go, 1.1f);
+
+        po.isBehaviourDone = true;
     }
 }

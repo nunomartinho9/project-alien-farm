@@ -53,6 +53,15 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""d07a3d27-8456-4cfc-8fa3-de0421e9ab20"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -141,6 +150,17 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8207444-6696-4e28-a6d4-a60d9534007b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -305,6 +325,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_Player2D_Movement = m_Player2D.FindAction("Movement", throwIfNotFound: true);
         m_Player2D_UseTool = m_Player2D.FindAction("UseTool", throwIfNotFound: true);
         m_Player2D_Interact = m_Player2D.FindAction("Interact", throwIfNotFound: true);
+        m_Player2D_Pause = m_Player2D.FindAction("Pause", throwIfNotFound: true);
         // UI2D
         m_UI2D = asset.FindActionMap("UI2D", throwIfNotFound: true);
         m_UI2D_Slot1 = m_UI2D.FindAction("Slot1", throwIfNotFound: true);
@@ -377,6 +398,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2D_Movement;
     private readonly InputAction m_Player2D_UseTool;
     private readonly InputAction m_Player2D_Interact;
+    private readonly InputAction m_Player2D_Pause;
     public struct Player2DActions
     {
         private @ActionMap m_Wrapper;
@@ -384,6 +406,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player2D_Movement;
         public InputAction @UseTool => m_Wrapper.m_Player2D_UseTool;
         public InputAction @Interact => m_Wrapper.m_Player2D_Interact;
+        public InputAction @Pause => m_Wrapper.m_Player2D_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player2D; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -402,6 +425,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayer2DActions instance)
@@ -415,6 +441,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayer2DActions instance)
@@ -541,6 +570,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnUseTool(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUI2DActions
     {

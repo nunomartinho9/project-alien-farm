@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7179796442269112384}
   - component: {fileID: 1859248699890218656}
   - component: {fileID: -7668350145734856621}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: transport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1695579471
-  m_SortingLayer: 10
+  m_SortingLayerID: -62901173
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b5c8d7ce0461cb146808cf6b451f2a90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1281594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.24, y: 3.14}
+  m_Size: {x: 3.24, y: 3.3963187}
   m_EdgeRadius: 0
 --- !u!114 &-7668350145734856621
 MonoBehaviour:
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionGameInfo: {fileID: 11400000, guid: 4fcc1dec52da45f4cb4f38d135de15e9, type: 2}
   collectable: {fileID: 1884171603303280659, guid: 381407d94b2ebfe4da024ece22990bb0, type: 3}
+  poContainer: {fileID: 11400000, guid: 553b7cc8ba93ca04aa6eabaf74aa932e, type: 2}

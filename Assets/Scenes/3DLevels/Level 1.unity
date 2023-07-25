@@ -3769,6 +3769,14 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6340290876152207554, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
+      propertyPath: xSensivity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340290876152207554, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
+      propertyPath: ySensivity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340290876152207554, guid: 30fc038b9c272594ebf234cd4fae43d0, type: 3}
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 1167334259}

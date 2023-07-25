@@ -52,6 +52,11 @@ public class Player2DController : MonoBehaviour
                 UpdatePlayerPosition();
                 interactable.gameObject.GetComponent<IInteractable>().Interact();
             }
+            UpdatePlayerPosition();
+            if (cropManager.CheckIfPlowed(playerInfo.Position))
+            {
+                cropManager.Seed(playerInfo.Position);
+            }
         }
     }
     
@@ -69,10 +74,6 @@ public class Player2DController : MonoBehaviour
             if (cropManager.IsPlowable(playerInfo.Position))
             {
                 cropManager.Plow(playerInfo.Position);
-            }
-            else if (cropManager.CheckIfPlowed(playerInfo.Position))
-            {
-                cropManager.Seed(playerInfo.Position);
             }
         }
     }
