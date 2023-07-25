@@ -14,6 +14,7 @@ public class ME_DyingState : DyingState
         base.Enter();
         enemy.seedManager.IncreaseSeedCount(enemy.seedDrop);
         enemy.enemyManager.IncreaseValue(1);
+        
     }
 
     public override void Exit()
@@ -28,6 +29,7 @@ public class ME_DyingState : DyingState
         if (isDyingTimeOver)
         {
             stateMachine.currentState.Exit();
+            enemy.meDeathSound.Play();
             enemy.Die();
         }
     }

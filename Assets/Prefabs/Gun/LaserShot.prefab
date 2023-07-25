@@ -183,6 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 250
   projectileDamage: 20
+  projectileHitParticle: {fileID: 100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+  _soundEffectSo: {fileID: 11400000, guid: e8a5c073ea4d80a44b594b2c09f4168e, type: 2}
 --- !u!136 &340678070051209047
 CapsuleCollider:
   m_ObjectHideFlags: 0

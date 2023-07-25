@@ -20,6 +20,7 @@ public class Blueprint : MonoBehaviour
     private bool isCollidingBreakables;
     private bool isCollidingBuilds;
     private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject spawnBuildingParticle;
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -53,6 +54,7 @@ public class Blueprint : MonoBehaviour
         {
             if (!canbuild) return;
             CreateBuildingTile(targetTilemap.WorldToCell(postionOnGrid), transform.rotation);
+            Instantiate(spawnBuildingParticle, postionOnGrid, transform.rotation);
             recipe.Craft();
             Destroy(gameObject);
         }

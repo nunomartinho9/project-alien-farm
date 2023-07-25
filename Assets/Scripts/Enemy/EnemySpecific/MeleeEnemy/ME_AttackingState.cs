@@ -5,7 +5,7 @@ using UnityEngine;
 public class ME_AttackingState : AttackingState
 {
     private MeleeEnemy enemy;
-
+    
     public ME_AttackingState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_AttackingState stateData, MeleeEnemy enemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         this.enemy = enemy;
@@ -15,6 +15,7 @@ public class ME_AttackingState : AttackingState
     {
         base.Enter();
         enemy.hpManager.DecreaseValue(enemy.entityData.attackDamage);
+        enemy.meAttackSOund.Play();
     }
 
     public override void Exit()

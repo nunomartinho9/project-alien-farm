@@ -15,7 +15,9 @@ public class WinCondition : MonoBehaviour
     [SerializeField] private GameObject looseScreen;
     
     [SerializeField] private Animator animator;
-    
+    [SerializeField] private SoundEffectSo winSound;
+    [SerializeField] private SoundEffectSo gameoverSound;
+    [SerializeField] private AudioSource bgmusic;
     private bool canChangeTime;
     void Start()
     {
@@ -33,6 +35,8 @@ public class WinCondition : MonoBehaviour
             if (canChangeTime)
             {
                 winScreen.SetActive(true);
+                bgmusic.Stop();
+                winSound.Play();
                 EnableCursor();
                 GiveRewards();
                 Time.timeScale = 0f;
@@ -44,6 +48,8 @@ public class WinCondition : MonoBehaviour
         {
             if (canChangeTime)
             {
+                bgmusic.Stop();
+                gameoverSound.Play();
                 looseScreen.SetActive(true);
                 EnableCursor();
                 Time.timeScale = 0f;

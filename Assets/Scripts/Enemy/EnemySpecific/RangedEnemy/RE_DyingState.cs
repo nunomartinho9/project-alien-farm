@@ -28,6 +28,7 @@
             if (isDyingTimeOver)
             {
                 stateMachine.currentState.Exit();
+                enemy.reDeathSound.Play();
                 enemy.Die();
             }
         }

@@ -18,7 +18,7 @@ public class Player3DController : MonoBehaviour
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
-    
+    [SerializeField] private SoundEffectSo jumpSoundEffect;
     private float playerSpeed;
 
     [Header("Look")]
@@ -111,6 +111,7 @@ public class Player3DController : MonoBehaviour
         // Changes the height position of the player
         if (inputManager.PlayerJumped() && readyJump && IsGrounded())
         {
+            jumpSoundEffect.Play();
             readyJump = false;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             ResetJump();
