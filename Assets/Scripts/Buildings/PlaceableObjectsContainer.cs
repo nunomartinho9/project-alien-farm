@@ -11,7 +11,7 @@ public class PlaceableObject
     public Vector3Int position;
     public Quaternion rotation;
     public GameObject prefab;
-
+    public bool isBehaviourDone = false;
     internal void Collected()
     {
         renderer.gameObject.SetActive(false);

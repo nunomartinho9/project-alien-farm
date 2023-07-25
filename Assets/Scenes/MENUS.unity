@@ -598,6 +598,13 @@ MonoBehaviour:
   contBtn: {fileID: 0}
   playBtn: {fileID: 0}
   volumeSlider: {fileID: 1287641420}
+  resourcesContainer: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
+  cropsContainer: {fileID: 11400000, guid: eafa346344b56a84896c1c41b394268e, type: 2}
+  earthLife: {fileID: 11400000, guid: 4bae0802bd3cfb2459767b15d6222f40, type: 2}
+  stamina: {fileID: 11400000, guid: a3720143151945143ad67ff9387442bc, type: 2}
+  buildings: {fileID: 11400000, guid: 553b7cc8ba93ca04aa6eabaf74aa932e, type: 2}
+  breakables: {fileID: 11400000, guid: a9a9a9ce56208a44a82fc9ce1a4ece27, type: 2}
+  rewards: {fileID: 11400000, guid: 4fcc1dec52da45f4cb4f38d135de15e9, type: 2}
 --- !u!1 &245620462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Game
+  m_text: Reset Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a06e473bc9cd174c958835b93af095c, type: 2}
   m_sharedMaterial: {fileID: 4614865102652036093, guid: 9a06e473bc9cd174c958835b93af095c, type: 2}
@@ -1103,7 +1110,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.2
+  m_fontSize: 38.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1387,7 +1394,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 553401347}
   m_OnClick:
     m_PersistentCalls:
@@ -3327,7 +3334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: Play Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a06e473bc9cd174c958835b93af095c, type: 2}
   m_sharedMaterial: {fileID: 4614865102652036093, guid: 9a06e473bc9cd174c958835b93af095c, type: 2}
@@ -3354,7 +3361,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.4
+  m_fontSize: 42.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4072,7 +4079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1719372551
 RectTransform:
   m_ObjectHideFlags: 0

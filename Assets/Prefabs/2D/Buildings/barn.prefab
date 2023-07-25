@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8911259887805792234}
   - component: {fileID: 6941079083820921299}
   - component: {fileID: 5001830230751359618}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: barn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1695579471
-  m_SortingLayer: 10
+  m_SortingLayerID: -62901173
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 873902ed8cc0ed841831bca12a75a765, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.08549768}
+  m_Offset: {x: -0.00662446, y: -0.14464283}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.02, y: 3.589005}
+  m_Size: {x: 4.144811, y: 3.7072954}
   m_EdgeRadius: 0
 --- !u!114 &5001830230751359618
 MonoBehaviour:
@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
+  poContainer: {fileID: 11400000, guid: 553b7cc8ba93ca04aa6eabaf74aa932e, type: 2}
   collectable: {fileID: 1884171603303280659, guid: 381407d94b2ebfe4da024ece22990bb0, type: 3}

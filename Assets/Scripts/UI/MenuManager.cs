@@ -20,6 +20,18 @@ public class MenuManager : MonoBehaviour
 
     private InputManager _inputManager;
 
+    [Header("Persistent Game Data")] 
+    #region Persistent Data
+
+    [SerializeField] private ResourcesContainer resourcesContainer;
+    [SerializeField] private CropsContainer cropsContainer;
+    [SerializeField] private FloatManagerSo earthLife;
+    [SerializeField] private FloatManagerSo stamina;
+    [SerializeField] private PlaceableObjectsContainer buildings;
+    [SerializeField] private PlaceableObjectsContainer breakables;
+    [SerializeField] private RewardsManagerSo rewards;
+    #endregion
+    
     private void Awake()
     {
         _inputManager = InputManager.Instance;
@@ -70,13 +82,23 @@ public class MenuManager : MonoBehaviour
     
     public void Play()
     {
-        mainMenuGO.SetActive(false);
+        //mainMenuGO.SetActive(false);
         
         // call data clear function
-        
-        SceneManager.LoadScene("2D");
+        ResetGame();
+        //SceneManager.LoadScene("2D");
     }
 
+    private void ResetGame()
+    {
+        resourcesContainer.Reset();
+        cropsContainer.Clear();
+        earthLife.Reset();
+        stamina.Reset();
+        buildings.Clear();
+        breakables.Clear();
+        rewards.Reset();
+    }
     public void Resume()
     {
         pauseMenuGO.SetActive(false);
@@ -84,8 +106,8 @@ public class MenuManager : MonoBehaviour
 
     public void Continue()
     {
-        mainMenuGO.SetActive(false);
-        SceneManager.LoadScene("2D");
+        //mainMenuGO.SetActive(false);
+        SceneManager.LoadScene("2DGAME");
     }
 
     public void QuitGame()

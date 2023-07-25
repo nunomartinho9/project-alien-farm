@@ -11,11 +11,19 @@ public class Lab : MonoBehaviour, IBuildingBehaviour
     [SerializeField] private float maxValueUpgrade;
     [SerializeField] private GameObject collectable;
     private GameObject collectableInfo;
+    [SerializeField] private PlaceableObjectsContainer poContainer;
+    private PlaceableObject po;
     // Update is called once per frame
 
     private void Start()
     {
-        DoBehaviour();
+        Vector3Int position = Vector3Int.FloorToInt(transform.position);
+        po = poContainer.Get(position);
+        if (po == null) return;
+        if (!po.isBehaviourDone)
+        {
+            DoBehaviour();
+        }
     }
     public void DoBehaviour()
     {
@@ -30,5 +38,6 @@ public class Lab : MonoBehaviour, IBuildingBehaviour
         collectableInfo.GetComponent<TMP_Text>().text = "Humans can survive " + (newMaxValue-oldMaxValue) + "s longer!";
         collectableInfo.GetComponent<TMP_Text>().color = Color.green;
         Destroy(go, 1.1f);
+        po.isBehaviourDone = true;
     }
 }

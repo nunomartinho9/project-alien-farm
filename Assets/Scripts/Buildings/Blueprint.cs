@@ -13,10 +13,12 @@ public class Blueprint : MonoBehaviour
     [SerializeField] private PlaceableObjectsContainer container;
     
     [SerializeField] private LayerMask whatIsBreakable;
+    [SerializeField] private LayerMask whatIsBuild;
     [SerializeField] private float interactRadius = 5f;
     [SerializeField] private RecipeData recipe;
     public RecipeData GetRecipe => recipe;
-    private bool isColliding;
+    private bool isCollidingBreakables;
+    private bool isCollidingBuilds;
     private SpriteRenderer spriteRenderer;
     void Start()
     {
@@ -27,7 +29,8 @@ public class Blueprint : MonoBehaviour
 
     void Update()
     {
-        CheckColliding();
+        CheckCollidingBreakables();
+        CheckCollidingBuilds();
         if (!targetTilemap)
         {
             Debug.LogWarning("Target tilemap null....");
@@ -71,7 +74,7 @@ public class Blueprint : MonoBehaviour
 
         // Try to get a tile from cell position
         var tile = targetTilemap.GetTile(tpos);
-        if (tile && !isColliding)
+        if (tile && !isCollidingBreakables && !isCollidingBuilds)
         {
             spriteRenderer.color = new Color(0, 231, 255, 50);
             return true;
@@ -106,9 +109,13 @@ public class Blueprint : MonoBehaviour
         // interactableMap.SetTile(position, plowedTile);
     }
     
-    private void CheckColliding()
+    private void CheckCollidingBreakables()
     {
-        isColliding = Physics2D.OverlapCircle(transform.position, interactRadius, whatIsBreakable);
+        isCollidingBreakables = Physics2D.OverlapCircle(transform.position, interactRadius, whatIsBreakable);
+    }
+    private void CheckCollidingBuilds()
+    {
+        isCollidingBuilds = Physics2D.OverlapCircle(transform.position, interactRadius, whatIsBuild);
     }
     
     private void OnDrawGizmos()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8262444223379654008}
   - component: {fileID: 3399687981233792843}
   - component: {fileID: 4769528285715935242}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1695579471
-  m_SortingLayer: 10
+  m_SortingLayerID: -62901173
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a2ef74457df65d64bb74ea4879da19d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.09906536}
+  m_Offset: {x: -0.0013203621, y: -0.14225793}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.03, y: 3.3718696}
+  m_Size: {x: 4.19182, y: 3.4582548}
   m_EdgeRadius: 0
 --- !u!114 &4769528285715935242
 MonoBehaviour:
@@ -127,3 +127,4 @@ MonoBehaviour:
   earthLife: {fileID: 11400000, guid: 4bae0802bd3cfb2459767b15d6222f40, type: 2}
   maxValueUpgrade: 15
   collectable: {fileID: 1884171603303280659, guid: 381407d94b2ebfe4da024ece22990bb0, type: 3}
+  poContainer: {fileID: 11400000, guid: 553b7cc8ba93ca04aa6eabaf74aa932e, type: 2}

@@ -39,7 +39,8 @@ public class Hospital : MonoBehaviour, IBuildingBehaviour
                 GameObject go = Instantiate(collectable);
         
                 collectableInfo = go.transform.GetChild(0).gameObject;
-                collectableInfo.GetComponent<TMP_Text>().text = "Used " + fuelNeeded + "Stars to fuel the hospital";
+                collectableInfo.GetComponent<TMP_Text>().text = "Used " + fuelNeeded + "  stars to fuel the hospital";
+                Debug.Log(fuelNeeded);
                 collectableInfo.GetComponent<TMP_Text>().color = Color.green;
                 Destroy(go, 1.1f);
             }
