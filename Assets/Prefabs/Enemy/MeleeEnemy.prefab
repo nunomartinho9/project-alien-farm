@@ -1235,6 +1235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityData: {fileID: 11400000, guid: 0b845f54d4d79254299a4dc9387dd802, type: 2}
+  deathParticle: {fileID: 2757437967364744295, guid: f028b108c5e5eba4ab8dbe46fc260914, type: 3}
   idleStateData: {fileID: 11400000, guid: 28cb9bc9e88aa464e93a6eb784fd3895, type: 2}
   movingStateData: {fileID: 11400000, guid: 63a69ea5ea444864c800025f7d0271c0, type: 2}
   attackingStateData: {fileID: 11400000, guid: 327b8a99a4665044caca075086c9f144, type: 2}
@@ -1243,6 +1244,8 @@ MonoBehaviour:
   seedManager: {fileID: 11400000, guid: 4fcc1dec52da45f4cb4f38d135de15e9, type: 2}
   hpManager: {fileID: 11400000, guid: 5e6324e65aa21604badd848559c737ff, type: 2}
   enemyManager: {fileID: 11400000, guid: e7592668deedc8f49904662f7c1ace06, type: 2}
+  meAttackSOund: {fileID: 11400000, guid: 21e9298035e571348825a3e3dcaa198e, type: 2}
+  meDeathSound: {fileID: 11400000, guid: b83cf7e978a25444a90833d43ef6c456, type: 2}
 --- !u!1 &6152854645804114251
 GameObject:
   m_ObjectHideFlags: 0

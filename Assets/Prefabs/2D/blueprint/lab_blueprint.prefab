@@ -108,3 +108,4 @@ MonoBehaviour:
     m_Bits: 2048
   interactRadius: 2
   recipe: {fileID: 11400000, guid: 6d4377843dcf1da4a875fdaf1c77a4a8, type: 2}
+  spawnBuildingParticle: {fileID: 9157105887711914197, guid: c4f829cb7dd4b864caf8832ec5b1ee55, type: 3}

@@ -10,6 +10,7 @@ public class UiManager3d : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemiesKilled;
     [SerializeField] private FloatManagerSo hpManager;
     [SerializeField] private FloatManagerSo enemiesManager;
+    public SoundEffectSo hitSound;
     
     [Header("Pause")] 
     [SerializeField] private GameObject pauseScreen;
@@ -57,6 +58,8 @@ public class UiManager3d : MonoBehaviour
     public void ChangeSliderValue(float amount)
     {
         hpSlider.value = amount;
+        hitSound.Play();
+
     }
     
     public void ChangeTextValue(float amount)

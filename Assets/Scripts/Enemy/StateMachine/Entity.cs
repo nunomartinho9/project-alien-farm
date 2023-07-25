@@ -13,7 +13,7 @@ public class Entity : MonoBehaviour
     
     private float health;
     private Transform target;
-    
+    [SerializeField] private GameObject deathParticle;
     public Rigidbody rb { get; private set; }
     public Animator anim { get; private set; }
     public GameObject alive { get; private set; }
@@ -89,6 +89,7 @@ public class Entity : MonoBehaviour
     
     public void Die()
     {
+        Instantiate(deathParticle, alive.transform.position, alive.transform.rotation);
         Destroy(gameObject);
     }
 }

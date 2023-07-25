@@ -9,7 +9,8 @@ public class SpawnerController : MonoBehaviour
     
     [SerializeField] private int rangedCount;
     [SerializeField] private GameObject rangedEnemyPrefab;
-
+    [SerializeField] private GameObject spawnRangedParticle;
+    [SerializeField] private GameObject spawnMeleeParticle;
     private Transform spawnPoint;
     private int spawnedCounter;
     private float spawnCountdown;
@@ -63,12 +64,14 @@ public class SpawnerController : MonoBehaviour
     private void SpawnMelee(Vector3 position, Quaternion rotation)
     {
         Instantiate(meleeEnemyPrefab, position, rotation);
+        Instantiate(spawnMeleeParticle, position, rotation);
         spawnedCounter++;
     }
     
     private void SpawnRanged(Vector3 position, Quaternion rotation)
     {
         Instantiate(rangedEnemyPrefab, position, rotation);
+        Instantiate(spawnRangedParticle, position, rotation);
         spawnedCounter++;
     }
 }

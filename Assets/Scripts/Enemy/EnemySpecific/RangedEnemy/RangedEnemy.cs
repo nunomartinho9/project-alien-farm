@@ -20,7 +20,8 @@ public class RangedEnemy : Entity
     [SerializeField] public RewardsManagerSo seedManager;
     [SerializeField] public FloatManagerSo hpManager;
     [SerializeField] public FloatManagerSo enemyManager;
-
+    public SoundEffectSo meAttackSOund;
+    public SoundEffectSo reDeathSound;
     public override void Start()
     {
         base.Start();

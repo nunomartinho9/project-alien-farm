@@ -7,7 +7,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform exitPoint;
     [SerializeField] private GameObject muzzleFlash;
-    
+    [SerializeField] private SoundEffectSo _soundEffectSo;
     [SerializeField] private float range = 100f;
 
     private InputManager _inputManager;
@@ -42,6 +42,8 @@ public class GunScript : MonoBehaviour
                 bulletController.target = fpsCam.transform.position + fpsCam.transform.forward * range;
                 bulletController.hit = false;
             }
+
+           // _soundEffectSo.Play(0);
         }
     }
 }

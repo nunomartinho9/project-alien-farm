@@ -16,6 +16,7 @@ public class RE_AttackingState : AttackingState
     {
         base.Enter();
         enemy.Shoot();
+        enemy.meAttackSOund.Play();
     }
 
     public override void Exit()

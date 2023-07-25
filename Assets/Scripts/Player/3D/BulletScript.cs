@@ -1,17 +1,26 @@
+using System;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed = 200f;
     [SerializeField] private float projectileDamage = 20f;
+    [SerializeField] private GameObject projectileHitParticle;
+    [SerializeField] private SoundEffectSo _soundEffectSo;
     private float timeToDestroy = 3f;
-
+    private AudioSource source;
     public Vector3 target { get; set; }
     public bool hit { get; set; }
 
     private void OnEnable()
     {
         Destroy(gameObject, timeToDestroy);
+    }
+
+    private void Start()
+    {
+        source = _soundEffectSo.Play();
+        
     }
 
     // Update is called once per frame
@@ -29,8 +38,11 @@ public class BulletScript : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Entity enemy = other.gameObject.GetComponentInParent<Entity>();
+            Instantiate(projectileHitParticle, transform.position, other.transform.rotation);
             enemy.TakeDamage(projectileDamage);
         }
+
+        
         Destroy(gameObject);
     }
 }

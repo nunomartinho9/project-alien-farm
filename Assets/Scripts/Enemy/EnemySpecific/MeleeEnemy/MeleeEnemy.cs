@@ -18,7 +18,8 @@ public class MeleeEnemy : Entity
     [SerializeField] public RewardsManagerSo seedManager;
     [SerializeField] public FloatManagerSo hpManager;
     [SerializeField] public FloatManagerSo enemyManager;
-
+    public SoundEffectSo meAttackSOund;
+    public SoundEffectSo meDeathSound;
     public override void Start()
     {
         base.Start();

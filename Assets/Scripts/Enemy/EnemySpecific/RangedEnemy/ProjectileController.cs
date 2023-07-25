@@ -8,7 +8,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] private float speed = 150f;
     [SerializeField] private float timeToDestroy = 3f;
     [SerializeField] private FloatManagerSo floatManager;
-    
+    [SerializeField] private SoundEffectSo _soundEffectSo;
     private GameObject projBody;
     private float damage = 10f;
 

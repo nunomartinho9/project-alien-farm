@@ -14,6 +14,14 @@ public class CraftingLogic : MonoBehaviour
     private GameObject instatietedBlueprint;
     [SerializeField] private GameObject collectable;
     private GameObject collectableInfo;
+    private Camera mainCamera;
+    [SerializeField] private GameObject blueprintSpawnParticle;
+    [SerializeField] private GameObject blueprintDespawnParticle;
+    private void Start()
+    {
+        mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+    }
+
     private void Update()
     {
         DespawnBlueprint();
@@ -21,14 +29,17 @@ public class CraftingLogic : MonoBehaviour
 
     public void SpawnBlueprint(int index)
     {
+        
         Blueprint b = blueprints[index].gameObject.GetComponent<Blueprint>();
         Debug.Log(index);
-
+        
         if (b.GetRecipe.CanCraft())
         {
+            var worldPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            worldPoint.z = 0;
             craftGO.SetActive(false);
             instatietedBlueprint = Instantiate(blueprints[index], transform.position, transform.rotation);
-            
+            Instantiate(blueprintSpawnParticle, worldPoint, transform.rotation);
         }
         else
         {
@@ -50,6 +61,9 @@ public class CraftingLogic : MonoBehaviour
             if (instatietedBlueprint == null) return;
             Debug.Log("cancel build");
             Destroy(instatietedBlueprint.gameObject);
+            var worldPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            worldPoint.z = 0;
+            Instantiate(blueprintDespawnParticle, worldPoint, transform.rotation);
             instatietedBlueprint = null;
         }
     }
