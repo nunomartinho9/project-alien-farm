@@ -22,8 +22,8 @@ public class Player3DController : MonoBehaviour
     private float playerSpeed;
 
     [Header("Look")]
-    [SerializeField] private float xSensivity = 30f;
-    [SerializeField] private float ySensivity = 30f;
+    [SerializeField] private float xSensivity = 20f;
+    [SerializeField] private float ySensivity = 20f;
     private float xRotation = 0f;
     
     [Header("Jump")]

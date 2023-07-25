@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TESTES/2DTEST.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/MENUS.unity
+    guid: 020fd3920adc714488c6ad2d1bffc183
+  - enabled: 1
     path: Assets/Scenes/2DGAME.unity
     guid: 9c1218ea6c5f35e46aac0d0c4e1af0b8
   - enabled: 1

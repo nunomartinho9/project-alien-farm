@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -11,12 +12,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuGO;
     [SerializeField] private GameObject creditsMenuGO;
     [SerializeField] private GameObject tutorialMenuGO;
-    [SerializeField] private GameObject settingsMenuGO; 
-    [SerializeField] private GameObject pauseMenuGO;
+    [SerializeField] private GameObject settingsMenuGO;
 
     [Header("Interactables")] 
-    [SerializeField] private GameObject contBtn, playBtn;
+    [SerializeField] private Button playBtn, resetBtn;
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Slider sensSlider;
 
     private InputManager _inputManager;
 
@@ -31,21 +32,15 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private PlaceableObjectsContainer breakables;
     [SerializeField] private RewardsManagerSo rewards;
     #endregion
-    
-    private void Awake()
-    {
-        _inputManager = InputManager.Instance;
-    }
 
     private void Start()
     {
         Cursor.visible = false;
-        if (creditsMenuGO && tutorialMenuGO && settingsMenuGO && pauseMenuGO)
+        if (creditsMenuGO && tutorialMenuGO && settingsMenuGO)
         {
             creditsMenuGO.SetActive(false);
             tutorialMenuGO.SetActive(false);
             settingsMenuGO.SetActive(false);
-            pauseMenuGO.SetActive(false);
         }
         
         mainMenuGO.SetActive(true);
@@ -74,19 +69,18 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void MainMenu()
+    public void NewGame()
     {
-        pauseMenuGO.SetActive(false);
-        mainMenuGO.SetActive(true);
+        //mainMenuGO.SetActive(false);
+        // call data clear function
+        ResetGame();
+        resetBtn.interactable = false;
     }
     
     public void Play()
     {
         //mainMenuGO.SetActive(false);
-        
-        // call data clear function
-        ResetGame();
-        //SceneManager.LoadScene("2D");
+        SceneManager.LoadScene("2DGAME");
     }
 
     private void ResetGame()
@@ -99,19 +93,10 @@ public class MenuManager : MonoBehaviour
         breakables.Clear();
         rewards.Reset();
     }
-    public void Resume()
-    {
-        pauseMenuGO.SetActive(false);
-    }
-
-    public void Continue()
-    {
-        //mainMenuGO.SetActive(false);
-        SceneManager.LoadScene("2DGAME");
-    }
 
     public void QuitGame()
     {
+        PlayerPrefs.Save();
         Application.Quit();
     }
 
@@ -120,12 +105,13 @@ public class MenuManager : MonoBehaviour
     public void OpenSettings()
     {
         settingsMenuGO.SetActive(true);
-        settingsMenuGO.GetComponentInChildren<Slider>().Select();
+        //settingsMenuGO.GetComponentInChildren<Slider>().Select();
     }
 
     public void CloseSettings()
     {
         settingsMenuGO.SetActive(false);
+        /*
         if (mainMenuGO)
         {
             if (contBtn.GetComponent<Button>().isActiveAndEnabled)
@@ -137,6 +123,7 @@ public class MenuManager : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
             }
         }
+        */
     }
     
     public void VolumeAdjust()
@@ -144,9 +131,10 @@ public class MenuManager : MonoBehaviour
         AudioListener.volume = volumeSlider.value;
     }
 
-    public void SaveVolume()
+    public void SavePrefs()
     {
         PlayerPrefs.SetFloat("volume", AudioListener.volume);
+        PlayerPrefs.SetFloat("sensitivity", sensSlider.value);
         CloseSettings();
     }
 
@@ -156,14 +144,14 @@ public class MenuManager : MonoBehaviour
     {
         mainMenuGO.SetActive(false);
         creditsMenuGO.SetActive(true);
-        creditsMenuGO.GetComponentInChildren<Button>().Select();
+        //creditsMenuGO.GetComponentInChildren<Button>().Select();
     }
     
     public void CloseCredits()
     {
         mainMenuGO.SetActive(true);
         creditsMenuGO.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
+        //EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
     }
     
     // TUTORIAL
@@ -171,22 +159,11 @@ public class MenuManager : MonoBehaviour
     public void OpenTutorial()
     {
         tutorialMenuGO.SetActive(true);
-        tutorialMenuGO.GetComponentInChildren<Button>().Select();
+        //tutorialMenuGO.GetComponentInChildren<Button>().Select();
     }
 
     public void CloseTutorial()
     {
         tutorialMenuGO.SetActive(false);
-        if (mainMenuGO)
-        {
-            if (contBtn.GetComponent<Button>().isActiveAndEnabled)
-            {
-                EventSystem.current.SetSelectedGameObject(contBtn, new BaseEventData(EventSystem.current));
-            }
-            else
-            {
-                EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
-            }        
-        }
     }
 }
