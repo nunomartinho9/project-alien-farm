@@ -32,17 +32,16 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnCollisionEnter(Collision other)
+    
+    private void OnTriggerEnter(Collider other)
     {
+        Destroy(gameObject);
         if (other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Enemy hit");
             Entity enemy = other.gameObject.GetComponentInParent<Entity>();
             Instantiate(projectileHitParticle, transform.position, other.transform.rotation);
             enemy.TakeDamage(projectileDamage);
         }
-
-        
-        Destroy(gameObject);
     }
 }
