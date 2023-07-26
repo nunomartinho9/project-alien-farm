@@ -21,11 +21,12 @@ public class Blueprint : MonoBehaviour
     private bool isCollidingBuilds;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject spawnBuildingParticle;
+    [SerializeField] private SoundEffectSo placeBuildSound;
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
-        targetTilemap = GameObject.Find("Grid").transform.GetChild(4).GetComponent<Tilemap>();
+        targetTilemap = GameObject.Find("Grid").transform.GetChild(5).GetComponent<Tilemap>();
     }
 
     void Update()
@@ -56,6 +57,7 @@ public class Blueprint : MonoBehaviour
             CreateBuildingTile(targetTilemap.WorldToCell(postionOnGrid), transform.rotation);
             Instantiate(spawnBuildingParticle, postionOnGrid, transform.rotation);
             recipe.Craft();
+            placeBuildSound.Play();
             Destroy(gameObject);
         }
     }

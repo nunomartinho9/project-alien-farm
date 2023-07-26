@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -961247433
-  m_SortingLayer: 8
+  m_SortingLayerID: -62901173
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 1904973022, guid: 62002d096af252a4aa1f7653e09a390b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -127,3 +127,5 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 69e692fb8234e5e49ae7c99b07e71597, type: 2}
   resourcesContainer: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
   collectable: {fileID: 1884171603303280659, guid: 381407d94b2ebfe4da024ece22990bb0, type: 3}
+  treeBreakSound: {fileID: 11400000, guid: 4a3e22f53d61ffe45bc55c7de4024ec7, type: 2}
+  treeChopSound: {fileID: 11400000, guid: ebd96024c2e910843b78d10d7cb554e0, type: 2}

@@ -47,6 +47,7 @@ public class CropManager : TimeAgent
     [SerializeField] private CropData cropData;
     [SerializeField] private ResourcesContainer resources;
     [SerializeField] private GameObject collectable;
+    [SerializeField] private SoundEffectSo seedSound, collectStarSound, digSound;
     private GameObject collectableInfo;
     
     // Start is called before the first frame update
@@ -121,6 +122,7 @@ public class CropManager : TimeAgent
             VisualizeTile(tile);
             interactableMap.SetTile(tile.position, hiddenInteractableTile);
             container.crops.Remove(tile);
+            collectStarSound.Play();
         }
     }
 
@@ -161,6 +163,7 @@ public class CropManager : TimeAgent
         resources.UseSeed();
         interactableMap.SetTile(position, seededTile);
         tile.crop = cropData;
+        seedSound.Play();
     }
 
     private bool CanSeed(Vector3Int position, Tile seedTile)
@@ -188,6 +191,7 @@ public class CropManager : TimeAgent
 
         if (CheckIfPlowed(position)) return;
         CreatePlowedTile(position);
+        digSound.Play();
     }
 
     private void CreatePlowedTile(Vector3Int position)

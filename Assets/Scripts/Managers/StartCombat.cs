@@ -43,7 +43,7 @@ public class StartCombat : MonoBehaviour
     {
         transitionAnim.Play("LevelE");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Level 1");
         
     }
     

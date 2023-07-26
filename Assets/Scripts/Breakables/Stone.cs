@@ -18,6 +18,14 @@ public class Stone : MonoBehaviour, IBreakable
     private GameObject collectableInfo;
     public BreakableData Data => data;
 
+    #region sounds
+    
+    [SerializeField] private SoundEffectSo rockMineSound;
+    [SerializeField] private SoundEffectSo rockBreakSound;
+    
+    
+    #endregion
+    
     private void Start()
     {
         life = Data.StartingLife;
@@ -33,10 +41,12 @@ public class Stone : MonoBehaviour, IBreakable
         Item selectedItem = inventoryManager.GetSelectedItem(false);
         if (selectedItem != Data.RequiredItem) return;
         life--;
+        rockMineSound.Play();
         if (life <= 0)
         {
             Drop();
             breakablesContainer.RemoveBreakable(Vector3Int.FloorToInt(transform.position));
+            rockBreakSound.Play();
             Destroy(gameObject);
         }
     }

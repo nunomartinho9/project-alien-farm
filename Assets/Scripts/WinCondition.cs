@@ -80,6 +80,6 @@ public class WinCondition : MonoBehaviour
     {
         animator.Play("LevelE");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("2DGAME");
     }
 }
