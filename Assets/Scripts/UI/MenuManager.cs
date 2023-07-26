@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,9 +19,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button playBtn, resetBtn;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private Slider sensSlider;
-
+    [SerializeField] private GameObject loadScreen;
     private InputManager _inputManager;
-
+    private Animator _animator;
     [Header("Persistent Game Data")] 
     #region Persistent Data
 
@@ -35,6 +36,8 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        loadScreen.SetActive(false);
+        _animator = loadScreen.gameObject.GetComponent<Animator>();
         Cursor.visible = false;
         if (creditsMenuGO && tutorialMenuGO && settingsMenuGO)
         {
@@ -79,8 +82,9 @@ public class MenuManager : MonoBehaviour
     
     public void Play()
     {
-        //mainMenuGO.SetActive(false);
-        SceneManager.LoadScene("2DGAME");
+        loadScreen.SetActive(true);
+        Debug.Log("Play");
+        StartCoroutine(LoadGame());
     }
 
     private void ResetGame()
@@ -163,5 +167,15 @@ public class MenuManager : MonoBehaviour
     public void CloseTutorial()
     {
         tutorialMenuGO.SetActive(false);
+    }
+
+    IEnumerator LoadGame()
+    {
+        Debug.Log("enumerator");
+        
+        _animator.Play("LevelE");
+        yield return new WaitForSeconds(1);
+        Debug.Log("acabei");
+        SceneManager.LoadScene("2DGAME");
     }
 }
