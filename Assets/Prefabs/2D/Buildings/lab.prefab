@@ -125,6 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earthLife: {fileID: 11400000, guid: 4bae0802bd3cfb2459767b15d6222f40, type: 2}
-  maxValueUpgrade: 15
+  maxValueUpgrade: 10
   collectable: {fileID: 1884171603303280659, guid: 381407d94b2ebfe4da024ece22990bb0, type: 3}
   poContainer: {fileID: 11400000, guid: 553b7cc8ba93ca04aa6eabaf74aa932e, type: 2}
