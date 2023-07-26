@@ -142,14 +142,12 @@ public class MenuManager : MonoBehaviour
     
     public void OpenCredits()
     {
-        mainMenuGO.SetActive(false);
         creditsMenuGO.SetActive(true);
         //creditsMenuGO.GetComponentInChildren<Button>().Select();
     }
     
     public void CloseCredits()
     {
-        mainMenuGO.SetActive(true);
         creditsMenuGO.SetActive(false);
         //EventSystem.current.SetSelectedGameObject(playBtn, new BaseEventData(EventSystem.current));
     }
