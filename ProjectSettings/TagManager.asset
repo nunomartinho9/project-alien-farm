@@ -20,7 +20,7 @@ TagManager:
   - Player
   - Projectile
   - Enemy
-  - 
+  - Build
   - 
   - 
   - 
@@ -74,6 +74,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2599387825
+    locked: 0
+  - name: Placeables
+    uniqueID: 293382837
     locked: 0
   - name: UI
     uniqueID: 1136580231
