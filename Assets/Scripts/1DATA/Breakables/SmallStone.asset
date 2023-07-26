@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7e017f3853bb94987b4f2e4936a81f, type: 3}
   m_Name: SmallStone
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -1201479151, guid: e4b0c90281608c540986cb8deb4bcbb1, type: 3}
   startingLife: 1
-  requiredItem: {fileID: 0}
-  quantityToDrop: 2
+  requiredItem: {fileID: 11400000, guid: e003c853928c9fc4ca520394a420dc3b, type: 2}
+  quantityToDrop: 5

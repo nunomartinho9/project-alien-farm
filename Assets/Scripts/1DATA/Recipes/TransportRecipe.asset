@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TransportRecipe
   m_EditorClassIdentifier: 
   resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
-  amountOfWood: 1
-  amountOfStone: 1
+  amountOfWood: 15
+  amountOfStone: 30
   amountOfStars: 0

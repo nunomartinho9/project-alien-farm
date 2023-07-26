@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: HospitalRecipe
   m_EditorClassIdentifier: 
   resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
-  amountOfWood: 1
-  amountOfStone: 1
-  amountOfStars: 1
+  amountOfWood: 25
+  amountOfStone: 14
+  amountOfStars: 4

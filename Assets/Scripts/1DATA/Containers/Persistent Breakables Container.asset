@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0dc2d7d3309d04c993ce6860c4fa51, type: 3}
   m_Name: Persistent Breakables Container
   m_EditorClassIdentifier: 
-  placeableObjects:
-  - renderer: {fileID: 0}
-    position: {x: 7, y: -3, z: 0}
-    rotation: {x: -0, y: -0, z: -0, w: 1}
+  placeableObjects: []

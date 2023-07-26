@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earthLife: {fileID: 11400000, guid: 4bae0802bd3cfb2459767b15d6222f40, type: 2}
-  valueToHeal: 10
+  valueToHeal: 15
   coolDownToHeal: 20
   cooldownGetFuel: 45
   resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}

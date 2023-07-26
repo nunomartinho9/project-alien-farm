@@ -64,14 +64,14 @@ public class SpawnerController : MonoBehaviour
     private void SpawnMelee(Vector3 position, Quaternion rotation)
     {
         Instantiate(meleeEnemyPrefab, position, rotation);
-        Instantiate(spawnMeleeParticle, position, rotation);
+        Instantiate(spawnMeleeParticle, position, Quaternion.Euler(90, 0, 0));
         spawnedCounter++;
     }
     
     private void SpawnRanged(Vector3 position, Quaternion rotation)
     {
         Instantiate(rangedEnemyPrefab, position, rotation);
-        Instantiate(spawnRangedParticle, position, rotation);
+        Instantiate(spawnRangedParticle, position, Quaternion.Euler(90, 0, 0));
         spawnedCounter++;
     }
 }
