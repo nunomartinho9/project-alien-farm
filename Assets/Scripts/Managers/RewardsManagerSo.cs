@@ -8,10 +8,17 @@ using UnityEngine;
 
 public class RewardsManagerSo : ScriptableObject
 {
-    public float Seeds { get; private set; }
+    public float Seeds { get; set; }
 
     [SerializeField] private float startingPopGain = 50f;
     [SerializeField] private float upgradePopGain = 15f;
+    [SerializeField] private float startingSeedGain = 0f;
+
+    public float StartingSeedGain
+    {
+        get => startingSeedGain;
+    }
+    [SerializeField] private float upgradeSeedGain = 2f;
     public float PopulationGain { get; private set; }
     
     [NonSerialized] public UnityEvent<float> seedsChangeEvent;
@@ -42,8 +49,13 @@ public class RewardsManagerSo : ScriptableObject
         Debug.Log("fui chamado");
     }
 
+    public void UpgradeSeedGain()
+    {
+        startingSeedGain += upgradeSeedGain;
+    }
     public void Reset()
     {
         PopulationGain = startingPopGain;
+        startingSeedGain = 0;
     }
 }

@@ -24,8 +24,9 @@ public class Transport : MonoBehaviour, IBuildingBehaviour
 
     public void DoBehaviour()
     {
-        Debug.Log("fui chamado transport");
+
         actionGameInfo.UpgradePopulationGain();
+        actionGameInfo.UpgradeSeedGain();
         GameObject go = Instantiate(collectable);
         
         collectableInfo = go.transform.GetChild(0).gameObject;

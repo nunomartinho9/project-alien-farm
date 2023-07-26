@@ -53,9 +53,21 @@ public class Tree : MonoBehaviour, IBreakable
         resourcesContainer.AddWood(data.QuantityToDrop);
         GameObject go = Instantiate(collectable);
         
-        collectableInfo = go.transform.GetChild(0).gameObject;
-        collectableInfo.GetComponent<TMP_Text>().text = "+ " + data.QuantityToDrop + " Wood";
-        collectableInfo.GetComponent<TMP_Text>().color = new Color(0, 255, 0, 255);
+        if (resourcesContainer.Wood == resourcesContainer.MaxResources)
+        {
+            collectableInfo = go.transform.GetChild(0).gameObject;
+            collectableInfo.GetComponent<TMP_Text>().text = "Resources Full.";
+            collectableInfo.GetComponent<TMP_Text>().color = Color.red;
+        }
+        else
+        {
+            collectableInfo = go.transform.GetChild(0).gameObject;
+            collectableInfo.GetComponent<TMP_Text>().text = "+ " + data.QuantityToDrop + " Wood";
+            collectableInfo.GetComponent<TMP_Text>().color = new Color(0, 255, 0, 255);
+        }
+
+
+        
         Destroy(go, 2f);
     }
 }

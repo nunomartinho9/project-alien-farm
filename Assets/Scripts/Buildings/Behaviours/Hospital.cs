@@ -21,14 +21,17 @@ public class Hospital : MonoBehaviour, IBuildingBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timestamp = Time.time + coolDownToHeal;
-        timestamp2 = Time.time + cooldownGetFuel;
-        hasFuel = true;
+        hasFuel = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        if (hasFuel)
+        {
+            DoBehaviour();
+        }
         
         if (timestamp2 <= Time.time)
         {
@@ -58,12 +61,6 @@ public class Hospital : MonoBehaviour, IBuildingBehaviour
             timestamp2 = Time.time + cooldownGetFuel;
         }
 
-
-        if (hasFuel)
-        {
-            DoBehaviour();
-        }
-        
     }
 
     public void DoBehaviour()

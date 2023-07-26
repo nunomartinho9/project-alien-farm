@@ -10,6 +10,7 @@ public class RewardsManager : MonoBehaviour
     
     void Start()
     {
+        rewardsManager.Seeds = rewardsManager.StartingSeedGain;
         ChangeRewardsRecieved(rewardsManager.Seeds);
     }
 
@@ -25,6 +26,6 @@ public class RewardsManager : MonoBehaviour
 
     public void ChangeRewardsRecieved(float amount)
     {
-        rewardsRecieved.text = "You gained " + amount + " seeds and saved " + 20f + "people";
+        rewardsRecieved.text = "You gained " + amount + " seeds and saved " + rewardsManager.PopulationGain + "people";
     }
 }
