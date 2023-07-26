@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ResourceContainer
   m_EditorClassIdentifier: 
   seeds: 10
-  startingMaxStacks: 150
+  startingMaxStacks: 50
   upgradeAmount: 100

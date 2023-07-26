@@ -26,6 +26,6 @@ public class RewardsManager : MonoBehaviour
 
     public void ChangeRewardsRecieved(float amount)
     {
-        rewardsRecieved.text = "You gained " + amount + " seeds and saved " + rewardsManager.PopulationGain + "people";
+        rewardsRecieved.text = "You gained " + amount + " seeds and saved " + rewardsManager.PopulationGain + " people";
     }
 }

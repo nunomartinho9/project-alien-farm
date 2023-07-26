@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,7 @@ public class EarthLifeTimer : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private SoundEffectSo gameoverSound;
     [SerializeField] private AudioSource bgmusic;
+
     private bool canChangeTime;
     private void Awake()
     {
@@ -26,7 +28,6 @@ public class EarthLifeTimer : MonoBehaviour
 
     private void Update()
     {
-        
         if (lifeManager.Value > 0.0f)
         {
                 lifeManager.DecreaseValue(Time.deltaTime);
@@ -47,6 +48,5 @@ public class EarthLifeTimer : MonoBehaviour
         }
 
     }
-    
-    
+
 }

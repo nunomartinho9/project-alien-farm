@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9084dda335c35648b3cb4def0e85a99, type: 3}
   m_Name: RewardsManager
   m_EditorClassIdentifier: 
-  startingPopGain: 70
-  upgradePopGain: 15
-  startingSeedGain: 0
-  upgradeSeedGain: 4
+  startingPopGain: 60
+  upgradePopGain: 5
+  startingSeedGain: 70
+  upgradeSeedGain: 5

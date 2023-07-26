@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resources: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
   amountOfWood: 15
-  amountOfStone: 5
+  amountOfStone: 15
   amountOfStars: 0
