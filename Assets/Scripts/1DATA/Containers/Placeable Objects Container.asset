@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12,28 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0dc2d7d3309d04c993ce6860c4fa51, type: 3}
   m_Name: Placeable Objects Container
   m_EditorClassIdentifier: 
-  placeableObjects:
-  - renderer: {fileID: 0}
-    position: {x: 24, y: 14, z: 0}
-    rotation: {x: -0, y: -0, z: -0, w: 1}
-    prefab: {fileID: 1248453889946232867, guid: 7ef6b65dce566d54396654a54cbad689, type: 3}
-  - renderer: {fileID: 0}
-    position: {x: 23, y: 10, z: 0}
-    rotation: {x: -0, y: -0, z: -0, w: 1}
-    prefab: {fileID: 4897835868648836037, guid: c4978f9e08ecc9e4ca0909f5f5cc25c7, type: 3}
-  - renderer: {fileID: 0}
-    position: {x: 23, y: 6, z: 0}
-    rotation: {x: -0, y: -0, z: -0, w: 1}
-    prefab: {fileID: 1924795465640187799, guid: d19f6a373bbf02c4b8f1774722c6c602, type: 3}
-  - renderer: {fileID: 0}
-    position: {x: 23, y: 2, z: 0}
-    rotation: {x: -0, y: -0, z: -0, w: 1}
-    prefab: {fileID: 1924795465640187799, guid: d19f6a373bbf02c4b8f1774722c6c602, type: 3}
-  - renderer: {fileID: 0}
-    position: {x: 23, y: -2, z: 0}
-    rotation: {x: -0, y: -0, z: -0, w: 1}
-    prefab: {fileID: 1924795465640187799, guid: d19f6a373bbf02c4b8f1774722c6c602, type: 3}
-  - renderer: {fileID: 0}
-    position: {x: 23, y: -6, z: 0}
-    rotation: {x: -0, y: -0, z: -0, w: 1}
-    prefab: {fileID: 1924795465640187799, guid: d19f6a373bbf02c4b8f1774722c6c602, type: 3}
+  placeableObjects: []
