@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TESTES/2DTEST.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/zeroscene.unity
+    guid: 028378eaa619bf649967c553be72786d
+  - enabled: 1
     path: Assets/Scenes/MENUS.unity
     guid: 020fd3920adc714488c6ad2d1bffc183
   - enabled: 1
