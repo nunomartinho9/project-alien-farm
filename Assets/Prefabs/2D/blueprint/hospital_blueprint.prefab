@@ -109,3 +109,4 @@ MonoBehaviour:
   interactRadius: 2
   recipe: {fileID: 11400000, guid: c52527dfbf98f4247a9091bab68fd5b2, type: 2}
   spawnBuildingParticle: {fileID: 9157105887711914197, guid: c4f829cb7dd4b864caf8832ec5b1ee55, type: 3}
+  placeBuildSound: {fileID: 11400000, guid: 9e0bd42517be1f243981c402703af549, type: 2}

@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -961247433
-  m_SortingLayer: 8
+  m_SortingLayerID: -62901173
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 1958921265, guid: e4b0c90281608c540986cb8deb4bcbb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -118,6 +118,8 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: ba6c304594b460640b3aca17911323db, type: 2}
   resourcesContainer: {fileID: 11400000, guid: a91cd510b7278ef40b39a87a893d125e, type: 2}
   collectable: {fileID: 1884171603303280659, guid: 381407d94b2ebfe4da024ece22990bb0, type: 3}
+  rockMineSound: {fileID: 11400000, guid: 4a953a3f311894a4aa51a033887cbae8, type: 2}
+  rockBreakSound: {fileID: 11400000, guid: edf8fefd6491ff1458662132de9bee7d, type: 2}
 --- !u!50 &6559163945478541625
 Rigidbody2D:
   serializedVersion: 4

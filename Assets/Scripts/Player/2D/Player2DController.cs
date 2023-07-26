@@ -19,6 +19,7 @@ public class Player2DController : MonoBehaviour
 
     [SerializeField] private float interactRadius = 5f;
     [SerializeField] private Player2DInfo playerInfo;
+    
     private CropManager cropManager;
     
     // Start is called before the first frame update

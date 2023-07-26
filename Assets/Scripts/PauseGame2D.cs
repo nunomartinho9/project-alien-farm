@@ -30,4 +30,10 @@ public class PauseGame2D : MonoBehaviour
     {
         SceneManager.LoadScene("MENUS");
     }
+    
+    public void MainMenuGameOver()
+    {
+        SceneManager.LoadScene("MENUS");
+        
+    }
 }

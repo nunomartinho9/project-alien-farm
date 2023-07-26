@@ -17,6 +17,7 @@ public class CraftingLogic : MonoBehaviour
     private Camera mainCamera;
     [SerializeField] private GameObject blueprintSpawnParticle;
     [SerializeField] private GameObject blueprintDespawnParticle;
+    [SerializeField] private SoundEffectSo blueprintSound, despawnBlueprintSound;
     private void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
@@ -40,6 +41,7 @@ public class CraftingLogic : MonoBehaviour
             craftGO.SetActive(false);
             instatietedBlueprint = Instantiate(blueprints[index], transform.position, transform.rotation);
             Instantiate(blueprintSpawnParticle, worldPoint, transform.rotation);
+            blueprintSound.Play();
         }
         else
         {
@@ -65,6 +67,7 @@ public class CraftingLogic : MonoBehaviour
             worldPoint.z = 0;
             Instantiate(blueprintDespawnParticle, worldPoint, transform.rotation);
             instatietedBlueprint = null;
+            despawnBlueprintSound.Play();
         }
     }
 

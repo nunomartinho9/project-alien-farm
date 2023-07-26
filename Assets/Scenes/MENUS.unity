@@ -1712,7 +1712,9 @@ MonoBehaviour:
     alien world* by purple sky
 
     *Meshtint Free Polygonal Metalon* by meshtint
-    studio'
+    studio
+
+    Sounds: Zapsplat.com'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a06e473bc9cd174c958835b93af095c, type: 2}
   m_sharedMaterial: {fileID: 4614865102652036093, guid: 9a06e473bc9cd174c958835b93af095c, type: 2}

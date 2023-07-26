@@ -14,7 +14,14 @@ public class Tree : MonoBehaviour, IBreakable
     [SerializeField] private GameObject collectable;
     private GameObject collectableInfo;
     public BreakableData Data => data;
+    #region sounds
 
+    [SerializeField] private SoundEffectSo treeBreakSound;
+    [SerializeField] private SoundEffectSo treeChopSound;
+
+    #endregion
+    
+    
     private void Start()
     {
         life = Data.StartingLife;
@@ -31,10 +38,12 @@ public class Tree : MonoBehaviour, IBreakable
         Item selectedItem = inventoryManager.GetSelectedItem(false);
         if (selectedItem != Data.RequiredItem) return;
         life--;
+        treeChopSound.Play();
         if (life <= 0)
         {
             Drop();
             breakablesContainer.RemoveBreakable(Vector3Int.FloorToInt(transform.position));
+            treeBreakSound.Play();
             Destroy(gameObject);
         }
     }
