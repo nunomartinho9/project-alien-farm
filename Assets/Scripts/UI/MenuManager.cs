@@ -36,6 +36,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         loadScreen.SetActive(false);
         _animator = loadScreen.gameObject.GetComponent<Animator>();
         Cursor.visible = false;
@@ -171,11 +172,8 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator LoadGame()
     {
-        Debug.Log("enumerator");
-        
         _animator.Play("LevelE");
         yield return new WaitForSeconds(1);
-        Debug.Log("acabei");
         SceneManager.LoadScene("2DGAME");
     }
 }
