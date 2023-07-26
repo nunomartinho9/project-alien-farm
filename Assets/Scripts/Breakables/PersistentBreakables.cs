@@ -35,6 +35,7 @@ public class PersistentBreakables : MonoBehaviour
         foreach (Transform child in transform)
         {
             PlaceableObject po = container.Get(Vector3Int.FloorToInt(child.position));
+            Debug.LogWarning(po);
             if (po == null)
             {
                 Destroy(child.gameObject);
@@ -60,7 +61,6 @@ public class PersistentBreakables : MonoBehaviour
             po.renderer = child.gameObject.GetComponent<SpriteRenderer>();
             container.Add(po);
 
-            
         }
             
     }
