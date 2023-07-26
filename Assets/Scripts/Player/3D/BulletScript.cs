@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField] private float projectileSpeed = 200f;
+    [SerializeField] private float projectileSpeed = 250f;
     [SerializeField] private float projectileDamage = 20f;
     [SerializeField] private GameObject projectileHitParticle;
     [SerializeField] private SoundEffectSo _soundEffectSo;
-    private float timeToDestroy = 3f;
+    private float timeToDestroy = 2.5f;
     private AudioSource source;
     public Vector3 target { get; set; }
     public bool hit { get; set; }
